@@ -1,0 +1,76 @@
+body {
+background: #18584A;
+}
+
+#login h1 a {
+background-image: url("../img/everyday-logo.svg");
+background-size: contain;
+background-position: left top;
+width: 300px;
+height: 60px;
+margin-top: 20px;
+}
+
+.login form{
+box-shadow:none;
+padding:20px;
+padding-top: 0px;
+padding-bottom: 20px;
+background-color: #22312D;
+border-style: none;
+}
+#login {
+background: #22312D;
+margin: 40px auto;
+padding: 20px 20px;
+width: 350px;
+}
+.login label {
+color: #ffffff;
+font-size: 14px;
+}
+.login form .forgetmenot{
+float:none;
+}
+
+.login #nav a, .login #backtoblog a  {
+color: #fff;
+}
+
+.login #nav a:hover, .login #backtoblog a:hover  {
+ color: #fff;
+}
+
+
+#login form p.submit{
+margin-top:15px;
+}
+.login.wp-core-ui .button-primary {
+background: #F55E22;
+color: #FFF;
+text-shadow: none;
+float: none;
+clear: both;
+display: block;
+width: 100%;
+padding: 7px;
+height: auto;
+font-size: 15px;
+border: none;
+}
+
+.login.wp-core-ui .button-primary:hover {
+    background: #18584A;
+}
+
+a.privacy-policy-link, #language-switcher {
+display: none;
+}
+
+.login .privacy-policy-page-link {
+text-align: center;
+width: 100%;
+margin: 0;
+}
+
+

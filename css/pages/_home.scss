@@ -1,0 +1,119 @@
+// Home
+
+section.home.hero {
+  padding: $padding-half 0;
+  background: $green;
+  background-size: cover;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
+}
+
+section.home {
+  h2 {
+    font: $bold 2.0rem/3.0rem $regular;
+    @media (min-width: $breakpoint-tablet) {
+      font: $xbold 3.2rem/4.2rem $regular;
+    }
+    @media (min-width: $breakpoint-laptop) {
+      font: $xbold 4.0rem/5.6rem $regular;
+    }
+    @media (min-width: $breakpoint-desktop) {
+      font: $normal 5.6rem/6.6rem $regular;
+    }
+  }
+}
+
+section.home.brands {
+  background: $sand;
+  padding: $padding 0;
+}
+
+section.home.services {
+  background: $suntan;
+  padding: $padding 0;
+}
+
+section.home.reputation {
+  background: $green;
+  padding: $padding 0;
+}
+
+section.home.work {
+  background: $sand;
+  padding: $padding 0;
+}
+
+section.home.insights {
+  background: $suntan;
+  padding: $padding 0;
+  article.insight {
+    margin: 20px 0;
+    border: 1px solid #D6D6D6;
+    .content {
+      padding: 4%;
+      @media (min-width: $breakpoint-tablet) {
+        padding: 2% 4% 2% 0;
+      }
+      h3 {
+        color: $green;
+        font: $bold 2.0rem/3.0rem $regular;
+        @media (min-width: $breakpoint-tablet) {
+          font: $xbold 3.2rem/4.2rem $regular;
+        }
+        @media (min-width: $breakpoint-laptop) {
+          font: $xbold 4.0rem/4.8rem $regular;
+        }
+        a {
+          text-decoration: none;
+          color: $green;
+          &:hover {
+            color: $bgreen;
+          }
+        }
+      }
+      span.cat {
+        border: 1px solid #DDDBCA;
+        color: #6C6A59;
+        padding: 8px;
+        @include border-radius(10px);
+        font: $xbold 1.2rem/1.2rem $regular;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+    }
+    
+  }
+}
+
+/* Rising effect for the whole SVG */
+.sunrise {
+  animation: rise 5s ease-in-out infinite alternate;
+}
+
+/* Optional ray animation */
+.sunrise path {
+  transform-origin: center;
+  animation: pulse 3s infinite alternate;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(50px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
