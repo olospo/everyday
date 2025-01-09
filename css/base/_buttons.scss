@@ -9,27 +9,54 @@
   overflow: hidden;
   display: inline-block;
   vertical-align: middle;
-  padding: 10px;
-  font: $normal 1.4rem/1.4rem $regular;
+  padding: 7px 15px;
+  font: $bold 1.6rem/1.6rem $regular;
   margin: 5px 10px 5px 0;
-  text-decoration: none;
   -webkit-transition: all ease .5s;
   -moz-transition: all ease .5s;
   -o-transition: all ease .5s;
   transition: all ease .5s;
   @include border-radius(30px);
+  text-decoration: none;
+  text-align: center;
   @media (min-width: $breakpoint-laptop) {
+    min-width: 220px;
     padding: 15px 20px;
-    font: $normal 1.6rem/1.6rem $regular;
+    font: $bold 2.0rem/2.0rem $regular;
   }
-  &.orange {
-    color: $white;
-    border: 2px solid $orange;
-    background: $orange;
+  &:hover {
     text-decoration: none;
+  }
+  &.primary {
+    color: $white;
+    background: $bgreen;
     &:hover {
-      text-decoration: underline;
+      background: $bgreen90;
     }
   }
-  
+  &.secondary {
+    
+  }
+  &.accent {
+    color: $white;
+    background: $orange;
+    &:hover {
+      background: $orange70;
+    }
+    &:active {
+      background: $orange60;
+      transform: scale(0.95); // Adds a slight pressed effect
+    }
+  }
+}
+span.cat {
+  background: $suntan;
+  border: 1px solid #DDDBCA;
+  color: #6C6A59;
+  padding: 8px;
+  @include border-radius(10px);
+  font: $xbold 1.2rem/1.2rem $regular;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: inline-block;
 }

@@ -4,6 +4,9 @@ add_action('wp_enqueue_scripts', 'theme_enqueue_assets');
 function theme_enqueue_assets() {
   // Enqueue main stylesheet
   wp_enqueue_style('main', get_stylesheet_directory_uri() . '/css/main.css', [], wp_get_theme()->get('Version'));
+  
+  // Enqueue Adobe Typekit
+  wp_enqueue_style('adobe-typekit', 'https://use.typekit.net/rbe6vlk.css', [], null);
 
   // Deregister default jQuery (optional)
   wp_deregister_script('jquery');

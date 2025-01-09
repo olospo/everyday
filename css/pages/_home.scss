@@ -11,15 +11,11 @@ section.home.hero {
 
 section.home {
   h2 {
-    font: $bold 2.0rem/3.0rem $regular;
-    @media (min-width: $breakpoint-tablet) {
-      font: $xbold 3.2rem/4.2rem $regular;
-    }
-    @media (min-width: $breakpoint-laptop) {
-      font: $xbold 4.0rem/5.6rem $regular;
-    }
+    font: $bold 4.0rem/4.8rem $heading;
+    margin-bottom: 20px;
     @media (min-width: $breakpoint-desktop) {
-      font: $normal 5.6rem/6.6rem $regular;
+      font: $bold 5.6rem/6.6rem $heading;
+      margin-bottom: 40px;
     }
   }
 }
@@ -36,13 +32,97 @@ section.home.services {
 
 section.home.reputation {
   background: $green;
-  padding: $padding 0;
+  // background: $green url('../img/reputation-bg.png') center center no-repeat;
+  background-size: cover;
+  padding: 80px 0;
+  h2 {
+    color: $suntan;
+  }
+  .testimonial {
+    min-height: 600px;
+    .image {
+      background: $bgreen;
+      height: 600px;
+    }
+    .quote {
+      background: $suntan;
+      height: 600px;
+      padding: 40px;
+      p {
+        font: $bold 2.0rem/3.0rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 3.2rem/4.2rem $heading;
+        }
+      }
+      
+    }
+  }
 }
 
 section.home.work {
   background: $sand;
   padding: $padding 0;
+  .work-wrapper {
+    @media (min-width: $breakpoint-tablet) {
+      display: flex;
+      align-items: stretch;
+    }
+    .work-list {
+      @media (min-width: $breakpoint-tablet) {
+        flex: 1;
+      }
+    }
+    .work-image {
+      @media (min-width: $breakpoint-tablet) {
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+      }
+    }
+    article {
+      cursor: pointer;
+      padding: 20px 0 20px 0;
+      border-bottom: 1px solid #3F3D31;
+      h3 {
+        transition: all ease-out 0.1s;
+        color: $green;
+        font: $bold 2.0rem/3.0rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 3.8rem/4.6rem $heading;
+        }
+        @media (min-width: $breakpoint-laptop) {
+          font: $bold 4.8rem/5.8rem $heading;
+        }
+        a {
+          text-decoration: none;
+          color: $green;
+          &:hover {
+            color: $bgreen;
+          }
+        }
+      }
+      p {
+        margin-bottom: 5px;
+      }
+      span.cat {
+        margin-bottom: 0;
+        border: none;
+      }
+      &.active {
+        h3 {
+          padding-left: 10px;
+          border-left: 10px solid $bgreen; /* Simulates a left border */
+        }
+        
+        // background: $suntan;
+      }
+    }
+  }
+  .all-wrapper {
+    margin: 40px 0 0 0;
+  }
 }
+
 
 section.home.insights {
   background: $suntan;
@@ -57,12 +137,12 @@ section.home.insights {
       }
       h3 {
         color: $green;
-        font: $bold 2.0rem/3.0rem $regular;
+        font: $bold 2.0rem/3.0rem $heading;
         @media (min-width: $breakpoint-tablet) {
-          font: $xbold 3.2rem/4.2rem $regular;
+          font: $bold 3.2rem/4.2rem $heading;
         }
         @media (min-width: $breakpoint-laptop) {
-          font: $xbold 4.0rem/4.8rem $regular;
+          font: $bold 4.0rem/4.8rem $heading;
         }
         a {
           text-decoration: none;
@@ -72,48 +152,8 @@ section.home.insights {
           }
         }
       }
-      span.cat {
-        border: 1px solid #DDDBCA;
-        color: #6C6A59;
-        padding: 8px;
-        @include border-radius(10px);
-        font: $xbold 1.2rem/1.2rem $regular;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-        display: inline-block;
-      }
+      
     }
     
-  }
-}
-
-/* Rising effect for the whole SVG */
-.sunrise {
-  animation: rise 5s ease-in-out infinite alternate;
-}
-
-/* Optional ray animation */
-.sunrise path {
-  transform-origin: center;
-  animation: pulse 3s infinite alternate;
-}
-
-@keyframes rise {
-  from {
-    transform: translateY(50px);
-    opacity: 0.5;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes pulse {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.05);
   }
 }

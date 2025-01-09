@@ -16,66 +16,6 @@ $( document ).ready(function() {
     $('#menu-main').fadeToggle();
   });
   
-  // Back to Top Scroll 
-  var amountScrolled = 300;
-  
-  $(window).scroll(function() {
-    if ( $(window).scrollTop() > amountScrolled ) {
-      $('a.back_to_top').fadeIn();
-    } else {
-      $('a.back_to_top').fadeOut('fast');
-    }
-  });
-  
-  $('a.back_to_top').click(function() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 300);
-    return false;
-  });
-  
-  
-  // Stats Scrolling
-  function formatNumber(number) {
-    const fixed = number.toFixed(2);
-    return parseFloat(fixed) === parseInt(fixed) ? parseInt(fixed) : fixed;
-  }
-  
-  function checkInView() {
-    if (triggerAtY <= $(window).scrollTop()) {
-      startCounter();
-      $(window).off('scroll', checkInView); // Remove the scroll event handler
-    }
-  }
-  
-  function startCounter() {
-    $('.unit').each(function () {
-      const prefix = $(this).data('prefix') || '';
-      const postfix = $(this).data('postfix') || '';
-      $(this).prop('Counter', 0).delay(0).animate({
-        Counter: $(this).text()
-      }, {
-        duration: 3000,
-        easing: 'swing',
-        step: function() {
-          $(this).text(prefix + Math.round(this.Counter).toLocaleString() + postfix);
-        },
-        complete: function() {
-          $(this).text(prefix + formatNumber(parseFloat(this.Counter)).toLocaleString() + postfix);
-        }
-      });
-      $('.fade_in').fadeIn(500).delay(100);
-    });
-  }
-  
-  var triggerAtY = $('.stat_section').offset().top - $(window).outerHeight();
-  
-  $(window).on('scroll', checkInView); // Add the scroll event handler
-  checkInView(); // Check if the section is in view on page load
-  
-  var counter = 0;
-
-
 });
 
 // SVG as Images
@@ -122,7 +62,7 @@ var componentVisible = (function ($) {
     handler: function() {
       $(this.element).addClass("visible");
     },
-    offset: '90%'
+    offset: '70%'
   });
 
 })(jQuery);
@@ -159,19 +99,26 @@ function accordion_ajax() {
 accordion_ajax();
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Select all FAQ question elements
-    var faqQuestions = document.querySelectorAll('.schema-faq-question');
+    const workItems = document.querySelectorAll('.work-item');
+    const displayedImage = document.getElementById('displayed-image');
 
-    // Loop through each question and add a click event listener
-    faqQuestions.forEach(function (question) {
-        question.addEventListener('click', function () {
-            // Toggle the 'open' class on the corresponding answer
-            var answer = this.nextElementSibling;
-            if (answer && answer.classList.contains('schema-faq-answer')) {
-                answer.classList.toggle('open');
+    workItems.forEach(item => {
+        // Hover functionality to update image and set active class
+        item.addEventListener('mouseenter', function () {
+            const imageUrl = this.getAttribute('data-image');
+            displayedImage.src = imageUrl;
+
+            // Update active class
+            workItems.forEach(el => el.classList.remove('active'));
+            this.classList.add('active');
+        });
+
+        // Click functionality to navigate to the link
+        item.addEventListener('click', function () {
+            const link = this.getAttribute('data-link');
+            if (link) {
+                window.location.href = link;
             }
-            // Toggle the 'open' class on the question itself
-            this.classList.toggle('open');
         });
     });
 });

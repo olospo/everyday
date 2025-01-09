@@ -1,21 +1,29 @@
 // Avenir
-$regular: 'Lato', Helvetica, Arial, sans-serif;
+$regular: 'acumin-pro', Helvetica, Arial, sans-serif;
+$heading: 'Nicholas', sans-serif;
 
 // Weights
 $light: 300;
 $normal: 400;
-$bold: 700;
+$bold: 600;
 $xbold: 900;
 
 // Colours
 $white: #fff;
 $black: #2d2d2d;
 
-// IHC Colours
+// Blue
 $blue: #090575;
+// Green
 $green: #22312D;
 $bgreen: #18584A;
+$bgreen90: #287A68;
+$bgreen80: #3D9C87;
+// Orange
 $orange: #F55E22;
+$orange60: #D34811;
+$orange70: #B13504;
+// White
 $sand: #FDFCEF;
 $suntan: #F4F2E3;
 
@@ -85,7 +93,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: $regular;
+  font-family: $heading;
   font-kerning: normal;
   color: $black;
 }
@@ -187,44 +195,44 @@ section {
     }
   }
   h1, h2, h3 {
-    font-family: $regular;
+    font-family: $heading;
     color: $black;
   }
   h1 {
-    font: $xbold 3.6rem/5rem $regular;
+    font: $bold 3.6rem/5rem $heading;
     margin-bottom: 10px;
     font-size: 3.6rem;
   }
   h2 {
-    font: $bold 2.0rem/3.0rem $regular;
+    font: $bold 2.0rem/3.0rem $heading;
     margin-bottom: 10px;
     font-size: 2.0rem;
     line-height: 3.0rem;
     @media (min-width: $breakpoint-tablet) {
-      font: $xbold 2.4rem/3.4rem $regular;
+      font: $bold 2.4rem/3.4rem $heading;
       margin-bottom: 10px;
       font-size: 2.4rem;
       line-height: 3.4rem;
     }
   }
   h3 {
-    font: $bold 1.8rem/2.8rem $regular;
+    font: $bold 1.8rem/2.8rem $heading;
     margin-bottom: 10px;
     font-size: 1.8rem;
     line-height: 2.8rem;
     @media (min-width: $breakpoint-tablet) {
-      font: $xbold 2.2rem/3.0rem $regular;
+      font: $bold 2.2rem/3.0rem $heading;
       margin-bottom: 10px;
       font-size: 2.2rem;
     }
   }
   h4 {
-    font: $xbold 2rem/2.8rem $regular;
+    font: $bold 2rem/2.8rem $heading;
     margin-bottom: 10px;
     font-size: 2rem;
   }
   h5 {
-    font: $xbold 1.8rem/2.6rem $regular;
+    font: $bold 1.8rem/2.6rem $heading;
     margin-bottom: 10px;
     font-size: 1.8rem;
   }
@@ -334,7 +342,7 @@ section {
   blockquote {
     display: inline-block;
     position: relative; 
-    padding: 20px 40px;
+    padding: 40px 0 0 0;
     color: $black;
     margin: 20px 0;
     font: $light 2.4rem/3.4rem $regular;
@@ -354,11 +362,6 @@ section {
       content: "“";        
       top: 20px;
       left: 0;
-    }
-    &:after{
-      content: "”";
-      right: 0;
-      bottom: -20px;
     }
   }
 }
@@ -398,56 +401,20 @@ section.hero {
   }
   .content {
     h1 {
-      font: $xbold 2.4rem/3.6rem $regular;
-      font-size: 2.4rem;
-      line-height: 3.6rem;
+      font: $bold 2.4rem/3.6rem $heading;
       color: $white;
-      margin-bottom: 0px;
+      margin-bottom: 20px;
       @media (min-width: $breakpoint-tablet) {
-        font: $xbold 3.6rem/4.5rem $regular;
-        font-size: 3.6rem;
-        line-height: 4.5rem;
-        margin-bottom: 10px;
-      }
-      @media (min-width: $breakpoint-desktop) {
-        font: $xbold 5.4rem/6.4rem $regular;
-        font-size: 5.4rem;
-        line-height: 6.4rem;
-      }
-    }
-    h1:last-child {
-      margin-bottom: 0; /* Remove margin if no <p> follows <h1> */
-    }
-    p {
-      font: $normal 1.6rem/2.4rem $regular;
-      font-size: 1.6rem;
-      line-height: 2.4rem;
-      color: #f0f0f1;
-      margin-bottom: 10px;
-      @media (min-width: $breakpoint-tablet) {
-        font: $normal 2.0rem/3.2rem $regular;
+        font: $bold 3.6rem/4.5rem $heading;
         margin-bottom: 20px;
       }
-      &:last-of-type {
-        margin-bottom: 0;
+      @media (min-width: $breakpoint-desktop) {
+        font: $bold 6.4rem/6.4rem $heading;
+        margin-bottom: 40px;
       }
     }
   }
-  &.single {
-    padding: $padding-half 0;
-    background: $blue;
-    @media (min-width: $breakpoint-tablet) {
-      padding: $padding 0;
-    }
-  }
 }
-
-body.page-id-9 {
-  section.hero.single {
-    background: #AE404D;
-  }
-}
-
 
 @keyframes bgZoom {
   0% {

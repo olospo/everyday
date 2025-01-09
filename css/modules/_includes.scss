@@ -321,15 +321,15 @@ section.cta {
     border-bottom: 5px solid $sand;
     h4 {
       color: $white;
-      font: $bold 2.0rem/3.0rem $regular;
+      font: $bold 2.0rem/3.0rem $heading;
       @media (min-width: $breakpoint-tablet) {
-        font: $xbold 3.2rem/4.2rem $regular;
+        font: $bold 3.2rem/4.2rem $heading;
       }
       @media (min-width: $breakpoint-laptop) {
-        font: $xbold 4.0rem/5.6rem $regular;
+        font: $bold 4.0rem/5.6rem $heading;
       }
       @media (min-width: $breakpoint-desktop) {
-        font: $normal 5.6rem/6.6rem $regular;
+        font: $bold 5.6rem/6.6rem $heading;
       }
     }
   }
