@@ -20,10 +20,53 @@ section.home {
   }
 }
 
-section.home.brands {
+section.home.carousel-container {
   background: $sand;
-  padding: $padding 0;
+  padding: $padding-half 0;s
+  overflow: hidden;
+  position: relative;
+  .carousel {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    .carousel-track {
+      display: inline-flex;
+      animation: scroll 40s linear infinite;
+      &:hover {
+        animation-play-state: paused;
+      }
+      .carousel-item {
+        display: inline-block;
+        margin: 0 2rem;
+        img {
+          transition: transform 0.3s ease;
+          max-width: none;
+        }
+        &:hover { 
+          img {
+            transform: scale(1.1); /* Increase size to 110% */
+          }
+        }
+      }
+    }
+  }
 }
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+section.home.logo-strip {
+  background: $sand;
+  padding: $padding-half 0;
+
+}
+
 
 section.home.services {
   background: $suntan;

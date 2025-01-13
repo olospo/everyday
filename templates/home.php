@@ -12,11 +12,56 @@ get_header(); ?>
   </div>  
 </section>
 
-<!-- <section class="home brands">
-  <div class="container">
-    
-  </div>  
-</section> -->
+<section class="home carousel-container">
+  <div class="carousel">
+    <div class="carousel-track">
+      <!-- Carousel items -->
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/zola-logo.png" alt="" />
+      </div>
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/goop-logo.png" alt="" />
+      </div>
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/butcherbox-logo.png" alt="" />
+      </div>
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/blueapron-logo.png" alt="" />
+      </div>
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/1stdibs-logo.png" alt="" />
+      </div>
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/ninja-logo.png" alt="" />
+      </div>
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/primer-logo.png" alt="" />
+      </div>
+      <!-- Duplicate -->
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/zola-logo.png" alt="" />
+      </div>
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/goop-logo.png" alt="" />
+      </div>
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/butcherbox-logo.png" alt="" />
+      </div>
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/blueapron-logo.png" alt="" />
+      </div>
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/1stdibs-logo.png" alt="" />
+      </div>
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/ninja-logo.png" alt="" />
+      </div>
+      <div class="carousel-item">
+        <img width="auto" height="auto" src="<?php bloginfo('template_directory'); ?>/img/primer-logo.png" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="home services">
   <div class="container">
