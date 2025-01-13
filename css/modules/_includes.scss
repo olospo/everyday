@@ -316,7 +316,7 @@ section.content_section + section.content_section {
 
 section.cta {
   &.collaborate {
-    padding: 120px 0;
+    padding: 110px 0;
     background: $bgreen url('../img/collab-bg.svg') right center no-repeat;
     border-bottom: 5px solid $cream;
     h4 {
@@ -329,15 +329,17 @@ section.cta {
         font: $bold 4.0rem/5.6rem $heading;
       }
       @media (min-width: $breakpoint-desktop) {
-        font: $bold 5.6rem/6.6rem $heading;
+        font: $bold 7.2rem/7.2rem $heading;
       }
     }
   }
   p {
     color: $white;
     font: $normal 2.0rem/3.0rem $regular;
+    margin: 40px 0;
     @media (min-width: $breakpoint-tablet) {
       font: $normal 2.4rem/3.2rem $regular;
     }
+    
   }
 }
