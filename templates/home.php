@@ -65,8 +65,10 @@ get_header(); ?>
 
 <section class="home services">
   <div class="container">
-    <h2>Our expertise is in UX design for customer-focused products.</h2>
-    <a href="#" class="button accent">See our work</a>
+    <div class="six columns">
+      <h2>Our expertise is in UX design for customer-focused products.</h2>
+      <a href="#" class="button accent">See our work</a>
+    </div>
   </div>  
 </section>
 

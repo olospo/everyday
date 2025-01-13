@@ -7,6 +7,9 @@ section.home.hero {
   @media (min-width: $breakpoint-tablet) {
     padding: $padding 0;
   }
+  h1 {
+    color: $cream;
+  }
 }
 
 section.home {
@@ -21,8 +24,8 @@ section.home {
 }
 
 section.home.carousel-container {
-  background: $sand;
-  padding: $padding-half 0;s
+  background: $cream;
+  padding: $padding-half 0;
   overflow: hidden;
   position: relative;
   .carousel {
@@ -62,7 +65,7 @@ section.home.carousel-container {
 }
 
 section.home.logo-strip {
-  background: $sand;
+  background: $cream;
   padding: $padding-half 0;
 
 }
@@ -79,7 +82,7 @@ section.home.reputation {
   background-size: cover;
   padding: 80px 0;
   h2 {
-    color: $suntan;
+    color: $cream;
   }
   .testimonial {
     min-height: 600px;
@@ -103,7 +106,7 @@ section.home.reputation {
 }
 
 section.home.work {
-  background: $sand;
+  background: $cream;
   padding: $padding 0;
   .work-wrapper {
     @media (min-width: $breakpoint-tablet) {

@@ -122,3 +122,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.carousel-track');
+  const items = Array.from(track.children);
+
+  let itemWidth = items[0].offsetWidth + parseInt(window.getComputedStyle(items[0]).marginRight, 10) * 2;
+
+  function updateScroll() {
+    if (track.scrollLeft >= itemWidth) {
+      track.appendChild(track.firstElementChild);
+      track.scrollLeft -= itemWidth;
+    }
+    requestAnimationFrame(updateScroll);
+  }
+
+  requestAnimationFrame(updateScroll);
+});

@@ -11,31 +11,20 @@ footer {
     padding: 40px 0px;
   }
   .logo {
-    img, svg {
+    svg {
       max-height: 120px;
       margin-bottom: 30px;
       @media (min-width: $breakpoint-tablet) {
         max-height: 160px;
         margin-bottom: 0px;
       }
+      path, polygon {
+        fill: $bgreen80;
+      }
     }
-  }
-  h5 {
-    color: $white;
-    margin-bottom: 10px;
-    font: $bold 2.2rem/3.2rem $regular;
-    @media (min-width: $breakpoint-tablet) {
-      text-align: left; 
+    p {
+      font: $bold 3.2rem/4.2rem $heading;
     }
-  }
-  p, address {
-    font: $normal 1.4rem/2.4rem $regular;
-    @media (min-width: $breakpoint-laptop) {
-      font: $normal 1.6rem/2.7rem $regular;
-    }
-  }
-  address {
-    margin-bottom: 20px;
   }
   a {
     color: $white;
@@ -45,43 +34,24 @@ footer {
       text-decoration-color: $blue;
     }
   }
-  ul.social {
-    margin-bottom: 20px;
+  .newsletter {
+    background: url('../img/squiggle.png') top left repeat-x;
+    margin: 20px 0 0 0;
+    padding-top: 20px;
     @media (min-width: $breakpoint-tablet) {
-      margin-bottom: 10px;
+      margin: 40px 0 0 0;
+      padding-top: 40px;
     }
   }
-  ul {
-    margin-bottom: 10px;
-  }
-  ul.social {
-    text-align: left;
-    margin: 10px 0;
-    @media (min-width: $breakpoint-tablet) {
-      margin: 20px 0 0 0;
+  .sitemap {
+    h5 {
+      font: $bold 3.2rem/4.2rem $heading;
     }
-    li {
-      display: inline-block;
-      margin: 0px 3px;
-      a {
-        svg {
-          height: auto;
-          width: 30px;
-          @media (min-width: $breakpoint-tablet) {
-            width: 38px;
-          }
-          path {
-            transition: all ease .3s;
-            fill: $white;
-          }
-        }
-        &:hover {
-          svg {
-            path {
-              transition: all ease .3s;
-              fill: $green;
-            }
-          }
+    ul {
+      li {
+        margin: 10px 0;
+        a {
+          font: $normal 2.4rem/3.4rem $regular;
         }
       }
     }
@@ -96,7 +66,7 @@ footer {
       padding-top: 40px;
     }
     p {
-      font: $normal 1.4rem/2.4rem $regular;
+      font: $normal 2.0rem/2.4rem $regular;
     }
   }
   .search {
