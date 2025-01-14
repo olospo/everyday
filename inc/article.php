@@ -1,7 +1,7 @@
 <article class="insight twelve columns">
   <a href="<?php the_permalink(); ?>">
   <div class="image six columns">
-    <img src="<?php the_post_thumbnail_url( 'featured-img' ); ?>" />
+    <img src="<?php the_post_thumbnail_url( 'featured-img' ); ?>" alt ="<?php the_title(); ?>"/>
   </div>
   </a>
   <div class="content six columns">
