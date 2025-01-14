@@ -42,6 +42,7 @@ header {
           }
         }
         a {
+          cursor: pointer;
           position: relative;
           border-bottom: 2px solid $green;
           font: $normal 2.4rem/3.2rem $regular;
