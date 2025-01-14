@@ -1,19 +1,9 @@
 $( document ).ready(function() {
+  // Mobile Menu Toggle
   $(".mobile_menu").click(function() {
-    $('.mobile').toggleClass('active');
+    $('nav.mobile').fadeToggle();
+    $('header').toggleClass("open");
     $(this).toggleClass("open");
-    $('nav.menu').toggleClass("open");
-  });
-
-  $('.site-menu').click(function() {
-    $('ul.sites').toggleClass('active');
-    $(this).toggleClass("open");
-  });
-  
-  $(".primary .search_icon").click(function() {
-    $('.primary .search_form').fadeToggle();
-    $(this).toggleClass("open");
-    $('#menu-main').fadeToggle();
   });
   
 });

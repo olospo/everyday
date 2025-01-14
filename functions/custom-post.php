@@ -26,8 +26,8 @@ function custom_post_type() {
     'show_in_menu'        => true,
     'show_in_nav_menus'   => true,
     'show_in_admin_bar'   => true,
-    'menu_position'       => 26,
-    'menu_icon'           => 'dashicons-editor-alignleft',
+    'menu_position'       => 20,
+    'menu_icon'           => 'dashicons-portfolio',
     'can_export'          => true,
     'has_archive'         => true,
     'exclude_from_search' => false,
@@ -35,6 +35,41 @@ function custom_post_type() {
     'capability_type'     => 'post',
   );
   register_post_type( 'casestudy', $args );
+  
+  $labels = array(
+    'name'                => _x( 'Careers', 'Post Type General Name', 'text_domain' ),
+    'singular_name'       => _x( 'Career', 'Post Type Singular Name', 'text_domain' ),
+    'menu_name'           => __( 'Careers', 'text_domain' ),
+    'all_items'           => __( 'All Careers', 'text_domain' ),
+    'view_item'           => __( 'View Career', 'text_domain' ),
+    'add_new_item'        => __( 'Add Career', 'text_domain' ),
+    'add_new'             => __( 'Add New', 'text_domain' ),
+    'edit_item'           => __( 'Edit Career', 'text_domain' ),
+    'update_item'         => __( 'Update Career', 'text_domain' ),
+    'search_items'        => __( 'Search Careers', 'text_domain' ),
+    'not_found'           => __( 'Not found', 'text_domain' ),
+    'not_found_in_trash'  => __( 'Not found in Trash', 'text_domain' ),
+  );
+  $args = array(
+    'label'               => __( 'Careers', 'text_domain' ),
+    'description'         => __( 'Everyday Careers', 'text_domain' ),
+    'labels'              => $labels,
+    'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom fields', 'excerpt' ),
+    'hierarchical'        => false,
+    'public'              => true,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'show_in_nav_menus'   => true,
+    'show_in_admin_bar'   => true,
+    'menu_position'       => 21,
+    'menu_icon'           => 'dashicons-groups',
+    'can_export'          => true,
+    'has_archive'         => true,
+    'exclude_from_search' => false,
+    'publicly_queryable'  => true,
+    'capability_type'     => 'post',
+  );
+  register_post_type( 'career', $args );
   
 }
 

@@ -3,283 +3,99 @@ header {
   .site-title {
     color: $white;
     margin: 20px 0px;
-    // line-height: 0;
+    @media (min-width: $breakpoint-laptop) {
+      margin: 25px 0px;
+    }
     img, svg {
       max-height: 100px;
     }
   }
-  .extra {
-    position: relative;
-    a.help {
-      position: absolute;
-      top: 40px;
-      right: 0px;
-      
-    }
-  }
-}
-nav.menu {
-  background:$green;
-  &.open {
-    background: $blue;
-    @media (min-width: 940px) {
-      background:#F0F1F5;
-    }
-    .primary {
-      a.menu-toggle {
-        color: $white;
-        span {
-          background:  $white;
-        }
-        &.open {
-          span{
-            background-color: $white !important;
-          }
-        }
-      }
-    }
-    
-  }
-  .primary {
-    box-sizing: border-box;
-    letter-spacing: 0.1rem;
-    @media (min-width: 940px) {
-      height: 50px;
-    }
-    a.menu-toggle {
-      color: $blue;
-      cursor: pointer;
-      transform: rotate(0deg);
-      transition: .3s ease-in-out;
-      height: 10px;
-      z-index: 30;
-      display: none; 
-      @media (max-width: 940px) {
-        display: block;
-        margin: 15px 0;
-        position: relative;
-      }
-      &:before {
-        content: "Menu";
-        position: absolute;
-        right: 40px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: -1;
-        font-size: 15px;
-      }
-      span{
-        display: block;
-        position: absolute;
-        height: 2px;
-        width: 20px;
-        background:  $blue;
-        opacity: 1;
-        right: 0;
-        transform: rotate(0deg);
-        transition: .3s ease-in-out;
-        &:nth-child(1) {top: 0px;}
-        &:nth-child(2), &:nth-child(3) {top: 5px;}
-        &:nth-child(4) {top: 10px;}
-      }
-      &.open {
-        &:before {
-          content: "Close Menu";
-        }
-        span{
-          background-color: $blue !important;
-          &:nth-child(1), &:nth-child(4) { opacity: 0; }
-          &:nth-child(2) {transform: rotate(45deg);}
-          &:nth-child(3) {transform: rotate(-45deg);}
-        }
-      }
-    }
-    
-    ul#menu-main {
+  nav.menu {
+    font: $normal 2.4rem/3.2rem $regular;
+    display: none;
+    @media (min-width: $breakpoint-laptop) {
       display: block;
-      position: relative; // Ensure ul has a relative positioning context
+    }
+    ul {
+      font-size: 0;
       margin: 0;
-      text-align: left;
+      text-align: right;
       line-height:1em;
-      margin-right: 35px;
-      @media (max-width: 940px) {
-        margin-right: 60px;
-        &:not(.active) {
-          display: none; // Hide the menu on mobile when not active
-        }
-      }
+      @media (min-width: $breakpoint-laptop) {
+        display: block;
+      } 
       li {
+        position: relative;
         display: inline-block;
+        &:hover {
+          cursor: pointer;
+        }
+        &.current_page_item a, &.current-menu-item a, &.current-page-ancestor a, &.current-post-ancestor a, &.current-menu-parent a, &.current-category-ancestor a, &.current_page_parent a, &:hover a {
+          color: $cream;
+          padding: 8px 0px;
+          margin: 20px 15px;
+          border-bottom: 2px solid $cream;
+        }
         a {
-          font: $normal 1.6rem/2.0rem $regular;
+          border-bottom: 2px solid $green;
+          font: $normal 2.4rem/3.2rem $regular;
           @include transition(all 0.2s ease-out);
+          line-height:1em;
           display: block;
-          color: $blue;
+          color: $white;
+          border-bottom: 2px solid transparent;
           text-decoration: none;
-          padding: 15px 20px;
-          margin: 0px;
-          &:hover {
-            margin: 0;
-            background: $blue;
-            color: $white;
-          }
+          padding: 8px 0px;
+          margin: 20px 15px;
         }
-        &.current_page_item,
-        &.current-menu-item, 
-        &.current-page-ancestor, 
-        &.current-post-ancestor, 
-        &.current-menu-parent, 
-        &.current-category-ancestor, 
-        &.current_page_parent {
-          > a {
-            margin: 0;
-            background: $blue;
-            color: $white;
+        &.menu-item-has-children, &.page_item_has_children {
+          a {
+            background: url('../img/menu_arrow.svg') right center no-repeat;
+            padding-right: 20px;
             &:hover {
-              margin: 0;
-              background: $blue;
-              color: $white;
+              background: url('../img/menu_arrow_hover.svg') right center no-repeat;
+            }
+            // Active state (current page item, current menu item, etc.)
+            &.current_page_item,
+            &.current-menu-item,
+            &.current-page-ancestor,
+            &.current-post-ancestor,
+            &.current-menu-parent,
+            &.current-category-ancestor,
+            &.current_page_parent {
+              background: url('../img/menu_arrow_hover.svg') right center no-repeat;
             }
           }
-        }
-        &.menu-item-has-children, 
-        &.page_item_has_children {
-          > a {
-            background: url('../img/menu_arrow.svg') right 20px center no-repeat;
-            padding-right: 50px;
-            &:hover {
-              background: $blue url('../img/menu_arrow_hover.svg') right 20px center no-repeat;
-              padding-right: 50px;
-              color: $white;
-            }
-          }
-        }
-        &.current_page_item.menu-item-has-children, 
-        &.current-menu-item.menu-item-has-children, 
-        &.current-page-ancestor.menu-item-has-children, 
-        &.current-post-ancestor.menu-item-has-children, 
-        &.current-menu-parent.menu-item-has-children, 
-        &.current-category-ancestor.menu-item-has-children, 
-        &.current_page_parent.menu-item-has-children,
-        &.current_page_item.page_item_has_children, 
-        &.current-menu-item.page_item_has_children, 
-        &.current-page-ancestor.page_item_has_children, 
-        &.current-post-ancestor.page_item_has_children, 
-        &.current-menu-parent.page_item_has_children, 
-        &.current-category-ancestor.page_item_has_children, 
-        &.current_page_parent.page_item_has_children {
-          > a {
-            background: $blue url('../img/menu_arrow_hover.svg') right 20px center no-repeat; // Apply the hover background
-            padding-right: 50px; // Ensure padding for arrow space
-            color: $white; // Text color
-          }
-        }
-        &.menu-item-26.current_page_item,
-        &.menu-item-26.current-menu-item, 
-        &.menu-item-26.current-page-ancestor, 
-        &.menu-item-26.current-post-ancestor, 
-        &.menu-item-26.current-menu-parent, 
-        &.menu-item-26.current-category-ancestor, 
-        &.menu-item-26.current_page_parent {
-          > a {
-            margin: 0;
-            background: $green;
-            color: $white;
-            &:hover {
-              margin: 0;
-              background: $green;
-              color: $white;
-            }
-          }
-        }
-        &.menu-item-26.menu-item-has-children, 
-        &.menu-item-26.page_item_has_children {
-          > a {
-            background: url('../img/menu_arrow.svg') right 20px center no-repeat;
-            padding-right: 50px;
-            &:hover {
-              background: $green url('../img/menu_arrow_hover.svg') right 20px center no-repeat;
-              padding-right: 50px;
-              color: $white;
-            }
-          }
-        }
-        
-        &.menu-item-26.current_page_item.menu-item-has-children, 
-        &.menu-item-26.current-menu-item.menu-item-has-children, 
-        &.menu-item-26.current-page-ancestor.menu-item-has-children, 
-        &.menu-item-26.current-post-ancestor.menu-item-has-children, 
-        &.menu-item-26.current-menu-parent.menu-item-has-children, 
-        &.menu-item-26.current-category-ancestor.menu-item-has-children, 
-        &.menu-item-26.current_page_parent.menu-item-has-children,
-        &.menu-item-26.current_page_item.page_item_has_children, 
-        &.menu-item-26.current-menu-item.page_item_has_children, 
-        &.menu-item-26.current-page-ancestor.page_item_has_children, 
-        &.menu-item-26.current-post-ancestor.page_item_has_children, 
-        &.menu-item-26.current-menu-parent.page_item_has_children, 
-        &.menu-item-26.current-category-ancestor.page_item_has_children, 
-        &.menu-item-26.current_page_parent.page_item_has_children {
-          > a {
-            background: $green url('../img/menu_arrow_hover.svg') right 20px center no-repeat; // Apply the hover background
-            padding-right: 50px; // Ensure padding for arrow space
-            color: $white; // Text color
-          }
-        }
-        
-        &.menu-item-26 {
           ul {
+            border: 0;
+            text-align: left;
             li {
+              box-sizing: border-box;
+              padding: 5px 0px;
+              // display: block;
               a {
-              font: $normal 1.5rem/2.0rem $regular;
-              margin: 0;
-              background: #F0F1F5;
-              color: $green;
-                &:hover {
-                  margin: 0;
-                  background: $green;
-                  color: $white;
-                }
-              }
-              &.current-menu-item {
-                a {
-                  background: $green;
-                  color: $white;
-                }
-              }
-            }
-          }
-        }
-        
-      
-        ul {
-          border: none;
-          text-align: left;
-          li {
-            display: block;
-            border-bottom: 1px solid #c9cad1;
-            &:last-child {
-              border-bottom: none;
-            }
-            a {
-              font: $normal 1.5rem/2.0rem $regular;
-              margin: 0;
-              background: #F0F1F5;
-              color: $blue;
-              &:hover {
+                cursor: pointer;
+                letter-spacing: 0px;
+                text-transform: none;
+                font: $normal 1.4rem/3.0rem $regular;
+                color: $black;
                 margin: 0;
-                background: $blue;
-                color: $white;
+                border-bottom: 2px solid transparent;
+                background: none !important;
               }
-              &.menu-item-has-children, 
-              &.page_item_has_children {
-                > a {
-                  background: url('../img/menu_arrow.svg') right 20px center no-repeat;
-                  padding-right: 50px;
-                  &:hover {
-                    background: $blue url('../img/menu_arrow_hover.svg') right 20px center no-repeat;
-                    padding-right: 50px;
-                    color: $white;
-                  }
+              &:after { 
+                width: 0px;
+              }
+              &:hover a, &.current-menu-item a, &.current_page_item a {
+                color: $cream;
+              }
+              &.menu-item-has-children, &.page_item_has_children {
+                a {
+                  background: url('../img/menu_arrow.svg') right center no-repeat;
+                  padding-right: 20px;
+                }
+                a:hover > ul {
+                    position: relative;
                 }
               }
             }
@@ -287,190 +103,96 @@ nav.menu {
         }
       }
     }
-
-    ul ul {
-      position: absolute;
-      z-index: 9999;
-      background: #F0F1F5;
-      margin: 0;
-      letter-spacing: 0;
-      @include invisible();
-      opacity: 0;
-      visibility: hidden;
-      min-width: 300px;
-      left: 0; // Align left edge with the parent item
-      top: 100%; // Position the submenu just below the parent item
-    }
-    
-    ul li {
-      position: relative; // This creates a positioning context for the submenu
-    }
-    
-    ul li:hover > ul {
-      @include visible();
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    ul ul ul {
-      position: absolute;
-      right: calc(100%); // Position the second-level submenu to the right of its parent
-      top: 0; // Align it to the top of the parent item
-      letter-spacing: 0;
-      @include invisible();
-      opacity: 0;
-      visibility: hidden;
-      min-width: 300px;
-    }
-    
-    ul ul li:hover > ul {
-      @include visible();
-      opacity: 1;
-      visibility: visible;
-    }
-    .search_icon {
-      background: url('../img/search_icon.svg') no-repeat center center;
-      background-size: contain;
-      width: 20px;  
-      height: auto;
-      padding: 15px 0px;
-      float: right;
-      box-sizing: border-box;
-      position: absolute;
-      top: 10px;
-      right: 0px;
-      cursor: pointer;
-      &.open {
-        background: url('../img/close_icon.svg') no-repeat center center;
-      }
-    }
-    
-    .search {
-      top: 0px;
-      right: 0;
-      display: block;
-      @media (max-width: 940px) {
-        display: none;
-      }
-      .search_form {
-        display: none;
-        position: absolute;
-        top: 0px;
-        right: 35px;
-        z-index: 1;
-        form {
-          position: relative;
-          float: right;
-          &.focused {
-            border-bottom: 1px solid $green;
-          }
-          input {
-            margin: 0;
-            display: inline-block;
-            &.search {
-              z-index: 1;
-              text-align: left;
-              box-sizing: border-box;
-              font: $normal 1.6rem/2.6rem $regular;
-              background: $white;
-              border: 1px solid $blue;
-              padding: 12px 20px 11px 20px;
-              color: $blue;
-              &:focus {
-                outline: none;
-              }
-              &::placeholder { 
-                color: $blue;
-                opacity: 1;
-              }
-            }
-            &.search-submit {
-              z-index: 2;
-              overflow: hidden;
-              box-sizing: border-box;
-              font: $normal 1.6rem/2.6rem $regular;
-              background: $blue;
-              color: $white;
-              border: 1px solid transparent;
-              padding: 12px 0 10px 0;
-              position: relative;
-              cursor: pointer;
-              width: 80px;
-              &:hover {
-                background: $green;
-              }
-            }
-          }
-        }
-      }
-    }
   }
-}
-nav.mobile {
-  display: none;
-  top: 90px;
-  overflow: scroll;
-  background: #F0F1F5;
-  z-index: 1000;
-  width: 100%;
-  @media (min-width: $breakpoint-tablet) {
-    top: 166px;
-  }
-  @media (max-width: $breakpoint-desktop) {
-    &:not(.active) {
-      display: none; // Hide the menu on mobile when not active
-    }
-  }
-  &.active {
+  button.menu-toggle {
+    background: transparent;
+    border: none;
     display: block;
-    @media (min-width: 940px) {
+    height: 30px;
+    width: 30px;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 30;
+    @media (min-width: $breakpoint-laptop) {
       display: none;
     }
+    span{
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: $cream;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: .5s ease-in-out;
+      &:nth-child(1) {top: 0px;}
+      &:nth-child(2) { top: 10px; background: $cream;}
+    }
+    &.open {
+      span{
+        background-color: $cream !important;
+        &:nth-child(1) {top: 5px;transform: rotate(45deg);}
+        &:nth-child(2) {top: 5px; transform: rotate(-45deg);}
+      }
+    }
   }
+}
+
+nav.mobile {
+  display: none;
+  position: absolute;
+  overflow: scroll;
+  background: $green;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
   ul {
-    text-align: left;
-    margin: 10px 0px;
-    padding: 0px 20px 0 10px;
+    margin: 20px 0px;
+    padding: 0px 25px;
     li {
-      
       text-align: left;
       display: block;
-      // margin: 10px 0px;
       &.current_page_item a, &.current-menu-item a, &.current-page-ancestor a, &.current-post-ancestor a, &.current-menu-parent a, &.current-category-ancestor a, &.current_page_parent a, &:hover a {
-        font: $normal 1.6rem/1.8rem $regular !important;
-        color: $blue;
-        padding: 15px 0px;
+        font: $normal 2.2rem/2.4rem $heading !important;
+        color: $white;
+        margin: 0px 0px;
+        padding: 20px 0;
+        font-weight: bold;
       }
       a {
-        font: $normal 1.6rem/1.8rem $regular !important;
+        font: $normal 2.2rem/2.4rem $heading !important;
         @include transition(all 0.2s ease-out);
         line-height: 1.4rem;
         display: block;
-        color: $blue;
+        color: $white;
         text-decoration: none;
-        margin: 0px 10px;
-        padding: 15px 0px;
-        margin-right: 50px;
+        margin: 0px 0px;
+        padding: 20px 0;
+        border-bottom: 1px solid $cream;
       }
-      
       &.menu-item-has-children {
         position: relative;
         a {
-          margin-right: 50px;
+          padding-right: 40px;
           
         }
         .sub-toggle {
           cursor: pointer;
           position: absolute;
           right: 5px;
-          top: 5px;
+          top: 20px;
           margin: auto;
-          padding: 20px;
-          background: url('../img/menu_arrow.svg') center center no-repeat;
+          padding: 10px;
+          background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
           -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
           &.open {
-            background: url('../img/menu_arrow.svg') center center no-repeat;
+            background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
             transform-origin: center center;
             -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
@@ -484,12 +206,12 @@ nav.mobile {
       }
       &.current_page_parent.menu-item-has-children {
         .sub-toggle {
-          background: url('../img/menu_arrow.svg') center center no-repeat;
+          background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
           transform-origin: center center;
           -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
           &.open {
-            background: url('../img/menu_arrow.svg') center center no-repeat;
+            background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
             transform-origin: center center;
             -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
@@ -501,60 +223,59 @@ nav.mobile {
       }
       ul.sub-menu {
         display: none;
-        margin: 0 0px 0 10px;
+        margin: 0 0px 0 0px;
         padding: 0;
         li {
-          padding-left: 10px;
+          padding-left: 0px;
           a {
-            
-          }
-        }
-        &:nth-last-child(2), &:last-child {
-          a {
-            border-bottom: 1px solid #e1e1ff;
+            background: $cream;
+            padding-right: 20px;
           }
         }
       }
+      
     }
   }
-  .search {
-    .search_form {
-      padding: 0 20px 20px 20px;
-      form {
-        input {
-          margin: 0;
-          display: inline-block;
-          &.search {
-            text-align: left;
-            box-sizing: border-box;
-            font: $normal 1.6rem/2.6rem $regular;
-            background: $white;
-            padding: 5px 10px;
-            color: $blue;
-            border: 1px solid $blue;
-            &:focus {
-              outline: none;
-            }
-            &::placeholder { 
-              color: $blue;
-              opacity: 1;
-            }
-          }
-          &.search-submit {
-            text-indent: -9999px;
-            overflow: hidden;
-            box-sizing: border-box;
-            font: $normal 1.6rem/2.6rem $regular;
-            background: $white;
-            border: 1px solid transparent;
-            padding: 5px;
-            
-            background: $blue url(../img/search_icon_white.svg) center center no-repeat;
-            cursor: pointer;
-            width: 40px;
-          }
-        }
-      }
+}
+
+  
+@mixin invisible() {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity linear 0.5s, visibility linear 0.5s;
+}
+
+@mixin visible() {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity linear 0.5s, visibility linear 0.5s;
+}
+
+nav.primary ul ul {
+  position: absolute;
+  z-index: 9999;
+  background: $white-bg;
+  margin: 0;
+  letter-spacing: 0px;
+  @include invisible();
+  opacity: 0;
+  visibility: hidden;
+  top: 102px;
+  right: 0;
+  width: 200px;
+  padding: 10px 20px;
+  text-align: left;
+  li {
+    display: block;
+    a {
+      display: block;
+      padding: 0px !important;
     }
   }
+}
+
+nav.primary ul li:hover > ul {
+  @include visible();
+  opacity: 1;
+  visibility: visible;
 }

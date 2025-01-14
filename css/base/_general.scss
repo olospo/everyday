@@ -414,6 +414,10 @@ section.hero {
       }
     }
   }
+  &.single {
+    background: $green;
+    padding: $padding 0;
+  }
 }
 
 @keyframes bgZoom {

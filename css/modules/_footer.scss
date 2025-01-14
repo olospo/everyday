@@ -30,8 +30,8 @@ footer {
     color: $white;
     text-decoration-color: $white;
     &:hover {
-      color: $white;
-      text-decoration-color: $blue;
+      color: $bgreen80;
+      text-decoration-color: $bgreen80;
     }
   }
   .newsletter {
@@ -44,12 +44,16 @@ footer {
     }
   }
   .sitemap {
+    padding: 20px 0 0 0;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 0;
+    }
     h5 {
       font: $bold 3.2rem/4.2rem $heading;
     }
     ul {
       li {
-        margin: 10px 0;
+        margin: 15px 0;
         a {
           font: $normal 2.4rem/3.4rem $regular;
         }

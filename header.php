@@ -11,25 +11,18 @@
 <body <?php body_class(); ?>>
 <header class="main">
   <div class="container">
-    <div class="logo six columns">  
+    <div class="logo four columns">  
       <?php get_template_part( 'inc/logo' ); ?>
     </div>
+    <nav class="menu eight columns">
+      <?php wp_nav_menu( array( 'theme_location' => 'main', 'container'=> false, 'menu_class'=> false ) ); ?>
+    </nav>
+    <button class="menu-toggle mobile_menu">
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header>
-
-<!-- <nav class="menu">
-  <div class="container">
-    <div class="primary twelve columns">
-      <a class="menu-toggle mobile_menu" aria-controls="primary-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </a>
-      <?php // wp_nav_menu( array( 'theme_location' => 'main', 'container'=> false, 'menu_class'=> false ) ); ?>
-    </div>
-  </div>
-</nav> -->
 
 <nav class="mobile">
   <?php wp_nav_menu( array( 'theme_location' => 'main', 'container'=> false, 'menu_class'=> false ) ); ?>
