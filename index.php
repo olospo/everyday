@@ -1,6 +1,14 @@
 <?php /* Archive */
 get_header(); ?>
 
+<section class="hero single">
+  <div class="container">
+    <div class="content ten columns">
+      <h1>Insights</h1>
+    </div>
+  </div>  
+</section>
+
 <section class="archive">
   <div class="container">
     <div class="twelve columns">

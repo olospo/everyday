@@ -440,10 +440,11 @@ section.hero {
   clear: both;
   position: relative;
   margin-top: 0px;
-  padding: 20px 0px;
+  padding: 20px 0px 0px 0px;
   font: $bold 1.6rem/2.2rem $regular;
   ul {
     text-align: center;
+    margin: 0;
     li {
       display: inline-block;
       list-style: none;
@@ -453,23 +454,27 @@ section.hero {
         margin: 5px;
         padding: 10px;
         width: 25px;
-        background: $white;
-        border: 1px solid $blue;
-        color: $blue;
+        background: $cream;
+        border-bottom: 1px solid $cream;
+        color: $green;
         text-decoration: none;
         &:hover {
-          background: $blue;
-          color: $white;
+          background: $suntan;
+          border-bottom: 1px solid $green;
+          color: $green;
         }
       }
       &.next, &.prev {
-        display: none;
+        a {
+          background: $suntan;
+          border: 1px solid $green;
+        }
       }
       &.active {
         a {
-          background: $blue;
-          border: 1px solid $blue;
-          color: $white;
+          background: $suntan;
+          border-bottom: 1px solid $green;
+          color: $green;
           text-decoration: none;
         }
       }
