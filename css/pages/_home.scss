@@ -4,11 +4,17 @@ section.home.hero {
   padding: $padding-half 0;
   background: $green;
   background-size: cover;
+  position: relative;
   @media (min-width: $breakpoint-tablet) {
     padding: $padding 0;
   }
   h1 {
     color: $cream;
+  }
+  .sunrise {
+    right: 0;
+    bottom: -90px;
+    position: absolute;
   }
 }
 
@@ -88,11 +94,16 @@ section.home.reputation {
     min-height: 600px;
     .image {
       background: $bgreen;
-      height: 600px;
+      height: 200px;
+      @media (min-width: $breakpoint-tablet) {
+        height: 600px;
+      }
     }
     .quote {
       background: $suntan;
+      @media (min-width: $breakpoint-tablet) {
       height: 600px;
+      }
       padding: 40px;
       p {
         font: $bold 2.0rem/3.0rem $heading;
