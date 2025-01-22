@@ -147,11 +147,10 @@ section.cta.collaborate {
   }
 }
 
-@keyframes wiggle {
-   0% { background-position: 0% bottom; } 
-   100% { background-position: 100% bottom;  } 
-} 
-
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
 @keyframes fadeInAndDrop {
   0% { opacity: 0; transform: translate3d(0,-60%,0); }
@@ -160,16 +159,10 @@ section.cta.collaborate {
 }
 
 @keyframes bgZoom {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.05);
-  }
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
 }
 
 @keyframes opacity {
-	to {
-		opacity: 1;
-	}
+	to { opacity: 1; }
 }

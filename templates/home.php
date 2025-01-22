@@ -79,6 +79,15 @@ get_header(); ?>
       <h2>Our expertise is in UX design for customer-focused products.</h2>
       <a href="#" class="button accent">See our work</a>
     </div>
+    <div class="focus four columns offset-by-two">
+      <h3>Our Focus</h3>
+      <ul>
+        <li><a href="#">Consumer health & wellness</a></li>
+        <li><a href="#">Learning & play</a></li>
+        <li><a href="#">Beauty & personal care</a></li>
+        <li><a href="#">Food & nutrition</a></li>
+        <li><a href="#">Marketplaces & platforms</a></li>
+      </ul>
   </div>  
 </section>
 

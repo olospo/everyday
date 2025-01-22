@@ -61,25 +61,29 @@ section.home.carousel-container {
   }
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-section.home.logo-strip {
-  background: $cream;
-  padding: $padding-half 0;
-
-}
-
-
 section.home.services {
   background: $suntan;
   padding: $padding 0;
+  .focus {
+    h3 {
+      font: $bold 3.2rem/4.2rem $heading;
+      margin-bottom: 20px;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        margin: 5px 0;
+        padding: 0;
+        list-style: none;
+        a {
+          font: $bold 3.2rem/4.2rem $heading;
+          color: $bgreen;
+          text-decoration-color: $bgreen;
+        }
+      }
+    }
+  }
 }
 
 section.home.reputation {
