@@ -20,10 +20,7 @@ get_header(); ?>
         <div class="twelve columns">
         <?php numeric_posts_nav(); ?>
         </div>
-        <?php else : ?>
-        <h2>We don’t have any open roles now,  but don’t let that stop you.</h2>
-        <p>We may not have any open positions right now, but we're always excited to connect with exceptional talent who share our vision. Send us a message to careers@everydayindustries.com.</p>
-        <?php endif; wp_reset_query(); ?>
+        <?php else : endif; wp_reset_query(); ?>
     </div>
   </div>
 </section>

@@ -1,0 +1,43 @@
+// News
+
+section.archive {
+  padding: $padding 0;
+  background: $cream;
+}
+
+article.work {
+  margin-bottom: 4%;
+  border: 1px solid #D6D6D6;
+  background: $suntan;
+  .content {
+    
+    box-sizing: border-box;
+    width: 100%;
+    padding: 4%;
+    margin: 0;
+    img {
+      margin-bottom: 4%;
+    }
+    h3 {
+      color: $green;
+      font: $bold 2.0rem/3.0rem $heading;
+      @media (min-width: $breakpoint-tablet) {
+        font: $bold 3.2rem/4.2rem $heading;
+      }
+      @media (min-width: $breakpoint-laptop) {
+        font: $bold 4.0rem/4.8rem $heading;
+      }
+      a {
+        text-decoration: none;
+        color: $green;
+        &:hover {
+          color: $bgreen;
+        }
+      }
+    }
+  }
+  &:nth-child(2n+1) {
+    margin-left: 0;
+    clear: left;
+  }
+}
