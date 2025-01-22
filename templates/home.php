@@ -75,11 +75,11 @@ get_header(); ?>
 
 <section class="home services">
   <div class="container">
-    <div class="six columns">
+    <div class="five columns">
       <h2>Our expertise is in UX design for customer-focused products.</h2>
       <a href="#" class="button accent">See our work</a>
     </div>
-    <div class="focus four columns offset-by-two">
+    <div class="focus five columns offset-by-two">
       <h3>Our Focus</h3>
       <ul>
         <li><a href="#">Consumer health & wellness</a></li>
