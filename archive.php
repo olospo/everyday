@@ -4,7 +4,7 @@ get_header(); ?>
 <section class="hero single">
   <div class="container">
     <div class="content ten columns">
-      <h1>Want to work together?</h1>
+      <h1>Digital product design</h1>
     </div>
   </div>
 </section>
@@ -14,7 +14,7 @@ get_header(); ?>
     <div class="twelve columns">
       <div class="news_listing">
           <?php if ( have_posts() ) : while (have_posts()) : the_post();  ?>
-            <?php get_template_part('inc/article'); ?>
+            <?php get_template_part('inc/work'); ?>
           <?php endwhile; ?>
         </div>
         <div class="twelve columns">
