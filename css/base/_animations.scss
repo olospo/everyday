@@ -185,16 +185,16 @@ section.about.team {
   h2 {
     @include fade();
   }
-  article {
-    @include slide();
-  }
+  
   &.visible {
     h2 {
       @include reset();
     }
-    article {
+  }
+  article {
+    @include rise();
+    &.visible {
       @include reset();
-      @include delay-children();
     }
   }
 }
