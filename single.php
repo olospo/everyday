@@ -6,7 +6,7 @@ while ( have_posts() ) : the_post(); ?>
 <section class="hero single">
   <div class="container">
     <div class="content ten columns">
-      <h1><?php the_title(); ?></h1>
+      
     </div>
   </div>
 </section>
@@ -14,6 +14,19 @@ while ( have_posts() ) : the_post(); ?>
 <section class="post news">
   <div class="container flex">
     <div class="content eight columns">
+      <h1><?php the_title(); ?></h1>
+      <?php
+      // Get the primary category for the current post (Yoast SEO stores it in a custom field)
+      $primary_category_id = get_post_meta(get_the_ID(), '_yoast_wpseo_primary_category', true);
+      
+      if ($primary_category_id) { // If a primary category is set, fetch it
+        $primary_category = get_term($primary_category_id, 'category');
+        if ($primary_category && !is_wp_error($primary_category)) {
+          echo '<span class="cat"><a href="' . esc_url(get_category_link($primary_category->term_id)) . '">' . esc_html($primary_category->name) . '</a></span>';
+        }
+      }
+      ?>
+      <p><span class="date"><?php the_time("F j, Y"); ?></span></p>
       <?php the_content(); ?>
     </div>
     <aside class="four columns">
