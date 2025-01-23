@@ -3,14 +3,16 @@
 section.about.hero {
   padding: $padding-half 0 0 0;
   background: $green;
-  position: relative;
   @media (min-width: $breakpoint-tablet) {
     padding: $padding 0 0 0;
   }
-  .container {
-    background: $green url('../img/everyday-cutoff.svg') center bottom no-repeat; 
-    background-size: contain;
-    padding: 0 0 80px 0;
+  .cutoff {
+    margin: 0;
+    svg {
+      width: 100%;
+      display: block;
+      margin-bottom: 0;
+    }
   }
   h1 {
     color: $cream;

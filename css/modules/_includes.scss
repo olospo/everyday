@@ -316,30 +316,28 @@ section.content_section + section.content_section {
 
 section.cta {
   &.collaborate {
-    padding: 110px 0;
-    background: $bgreen url('../img/collab-bg.svg') right center no-repeat;
     border-bottom: 5px solid $cream;
+    padding: 80px 0;
+    background: $bgreen url('../img/collab-bg.svg') 35% center no-repeat;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 110px 0;
+      background: $bgreen url('../img/collab-bg.svg') right center no-repeat;
+    }
+    
     h4 {
       color: $white;
-      font: $bold 2.0rem/3.0rem $heading;
-      @media (min-width: $breakpoint-tablet) {
-        font: $bold 3.2rem/4.2rem $heading;
-      }
-      @media (min-width: $breakpoint-laptop) {
-        font: $bold 4.0rem/5.6rem $heading;
-      }
+      font: $bold 5.4rem/5.6rem $heading;
       @media (min-width: $breakpoint-desktop) {
-        font: $bold 7.2rem/7.2rem $heading;
+        font: $bold 6.4rem/6.4rem $heading;
       }
     }
   }
   p {
     color: $white;
-    font: $normal 2.0rem/3.0rem $regular;
-    margin: 40px 0;
+    font: $normal 2.4rem/3.2rem $regular;
+    margin: 20px 0;
     @media (min-width: $breakpoint-tablet) {
-      font: $normal 2.4rem/3.2rem $regular;
+      margin: 40px 0;
     }
-    
   }
 }

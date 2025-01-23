@@ -20,8 +20,8 @@
 
 @mixin rise() {
   opacity: 0;
-  transform: translate3d(0,500px,0);
-  transition: opacity linear 1s, transform ease-in 1.5s;
+  transform: translate3d(0,100px,0);
+  transition: opacity linear 1s, transform ease-out 1s;
 }
 
 @mixin reset-fade() {
@@ -51,6 +51,7 @@
   &:nth-child(14)  {transition-delay: 2.6s;}
 }
 
+// Home 
 section.home.hero {
   h1, a.button {
     @include fade();
@@ -70,7 +71,6 @@ section.home.hero {
       opacity: 1;
     }
   }
-  
 }
 
 section.home.carousel-container {
@@ -136,6 +136,70 @@ section.home.insights {
   }
 }
 
+// About
+section.about.hero {
+  h1 {
+    @include fade();
+  }
+  .cutoff {
+    @include rise();
+  }
+  &.visible {
+    h1, .cutoff {
+      @include reset();
+    }
+  }
+}
+
+section.about.office {
+  img, span {
+    @include fade();
+  }
+  &.visible {
+    img {
+      @include reset();
+    }
+    span {
+      @include reset();
+      transition-delay: 1s;
+    }
+  }
+}
+
+section.about.what {
+  h2, p {
+    @include fade();
+  }
+  &.visible {
+    h2 {
+      @include reset();
+    }
+    p {
+      @include reset();
+      transition-delay: 0.2s;
+    }
+  }
+}
+
+section.about.team {
+  h2 {
+    @include fade();
+  }
+  article {
+    @include slide();
+  }
+  &.visible {
+    h2 {
+      @include reset();
+    }
+    article {
+      @include reset();
+      @include delay-children();
+    }
+  }
+}
+
+// Includes 
 section.cta.collaborate {
   h4, p, a {
     @include slide();

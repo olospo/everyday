@@ -8,12 +8,15 @@ get_header(); ?>
 <section class="about hero">
   <div class="container">
     <div class="content six columns">
-      <h1>Since 2012,  we’ve helped big and small teams design products that impact people’s lives.</h1>
+      <h1>Since 2012, we’ve helped big and small teams design products that impact people’s lives.</h1>
+    </div>
+    <div class="cutoff twelve columns">
+      <img src="<?php bloginfo('template_directory'); ?>/img/everyday-cutoff.svg">
     </div>
   </div>  
 </section>
 
-<section class="office">
+<section class="about office">
   <div class="container">
     <div class="twelve columns">
       <img src="<?php bloginfo('template_directory'); ?>/img/office.jpg" alt="Everyday Office">
@@ -22,7 +25,7 @@ get_header(); ?>
   </div>
 </section>
 
-<section class="what">
+<section class="about what">
   <div class="container">
     <div class="ten columns offset-by-one">
     <h2>What we do</h2>
@@ -31,7 +34,7 @@ get_header(); ?>
   </div>
 </section>
 
-<section class="team">
+<section class="about team">
   <div class="container">
     <div class="content twelve columns">
       <h2><?php echo $teamHeading; ?></h2>
