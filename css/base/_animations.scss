@@ -14,8 +14,8 @@
 }
 @mixin slide() {
   opacity: 0;
-  transform: translate3d(-60px,0,0);
-  transition: opacity linear 1s, transform ease-in 0.4s;
+  transform: translate3d(-100px,0,0);
+  transition: opacity linear 1s, transform ease-in 0.6s;
 }
 
 @mixin rise() {
@@ -51,6 +51,17 @@
   &:nth-child(14)  {transition-delay: 2.6s;}
 }
 
+// General 
+section.hero {
+  h1 {
+    @include fade();
+  }
+  &.visible {
+    h1 {
+      @include reset();
+    }
+  }
+}
 // Home 
 section.home.hero {
   h1, a.button {
@@ -81,6 +92,28 @@ section.home.carousel-container {
     .carousel-item {
       @include reset();
       @include delay-children();
+    }
+  }
+}
+
+section.home.services {
+  h2, h3, a {
+    @include fade();
+  }
+  ul {
+    li {
+      @include fade();
+    }
+  }
+  &.visible {
+    h2, h3, a {
+      @include reset();
+    }
+    ul {
+      li {
+        @include reset();
+        @include delay-children();
+      }
     }
   }
 }
@@ -150,7 +183,7 @@ section.about.hero {
   .cutoff {
     opacity: 0;
     transform: translate3d(0,120px,0);
-    transition: opacity linear 0.7s, transform ease-out 0.7s;
+    transition: opacity linear 0.8s, transform linear 0.8s;
   }
   &.visible {
     h1, .cutoff {
