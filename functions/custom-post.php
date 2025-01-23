@@ -37,6 +37,41 @@ function custom_post_type() {
   register_post_type( 'casestudy', $args );
   
   $labels = array(
+    'name'                => _x( 'Profiles', 'Post Type General Name', 'text_domain' ),
+    'singular_name'       => _x( 'Profile', 'Post Type Singular Name', 'text_domain' ),
+    'menu_name'           => __( 'Profiles', 'text_domain' ),
+    'all_items'           => __( 'All Profiles', 'text_domain' ),
+    'view_item'           => __( 'View Profile', 'text_domain' ),
+    'add_new_item'        => __( 'Add Profile', 'text_domain' ),
+    'add_new'             => __( 'Add New', 'text_domain' ),
+    'edit_item'           => __( 'Edit Profile', 'text_domain' ),
+    'update_item'         => __( 'Update Profile', 'text_domain' ),
+    'search_items'        => __( 'Search Profiles', 'text_domain' ),
+    'not_found'           => __( 'Not found', 'text_domain' ),
+    'not_found_in_trash'  => __( 'Not found in Trash', 'text_domain' ),
+  );
+  $args = array(
+    'label'               => __( 'Profiles', 'text_domain' ),
+    'description'         => __( 'Everyday Profiles', 'text_domain' ),
+    'labels'              => $labels,
+    'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom fields', 'excerpt' ),
+    'hierarchical'        => false,
+    'public'              => true,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'show_in_nav_menus'   => true,
+    'show_in_admin_bar'   => true,
+    'menu_position'       => 21,
+    'menu_icon'           => 'dashicons-admin-users',
+    'can_export'          => true,
+    'has_archive'         => false,
+    'exclude_from_search' => false,
+    'publicly_queryable'  => false,
+    'capability_type'     => 'post',
+  );
+  register_post_type( 'profile', $args );
+  
+  $labels = array(
     'name'                => _x( 'Careers', 'Post Type General Name', 'text_domain' ),
     'singular_name'       => _x( 'Career', 'Post Type Singular Name', 'text_domain' ),
     'menu_name'           => __( 'Careers', 'text_domain' ),
@@ -61,7 +96,7 @@ function custom_post_type() {
     'show_in_menu'        => true,
     'show_in_nav_menus'   => true,
     'show_in_admin_bar'   => true,
-    'menu_position'       => 21,
+    'menu_position'       => 22,
     'menu_icon'           => 'dashicons-groups',
     'can_export'          => true,
     'has_archive'         => true,
@@ -72,6 +107,20 @@ function custom_post_type() {
   register_post_type( 'career', $args );
   
 }
+
+function custom_taxonomy() {
+  $labels = array(
+    'name' => __( 'Industry' ),
+    'singular_name' => __( 'industry' ),
+    'menu_name' => __( 'Industry' ),
+  );
+  $args = array(
+    'labels' => $labels,
+    'hierarchical' => true,
+  );
+  register_taxonomy( 'industry', 'casestudy', $args );
+}
+add_action( 'init', 'custom_taxonomy' );
 
 // Ensure the custom post type registration runs during the appropriate action
 add_action( 'init', 'custom_post_type' );
