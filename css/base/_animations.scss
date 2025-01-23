@@ -125,11 +125,17 @@ section.home.work {
 }
 
 section.home.insights {
-  article {
-    @include slide();
+  h2 {
+    @include fade();
   }
   &.visible {
-    article {
+    h2 { 
+      @include reset();
+    }
+  }
+  article {
+    @include rise();
+    &.visible {
       @include reset();
       @include delay-children();
     }
@@ -142,7 +148,9 @@ section.about.hero {
     @include fade();
   }
   .cutoff {
-    @include rise();
+    opacity: 0;
+    transform: translate3d(0,120px,0);
+    transition: opacity linear 0.7s, transform ease-out 0.7s;
   }
   &.visible {
     h1, .cutoff {
@@ -192,7 +200,29 @@ section.about.team {
     }
   }
   article {
-    @include rise();
+    opacity: 0;
+    transform: translate3d(0,50px,0);
+    transition: opacity linear 0.7s, transform ease-out 0.7s;
+    &.visible {
+      @include reset();
+    }
+  }
+}
+
+// Insights 
+section.archive {
+  .filters, .pagination {
+    @include fade();
+  }
+  &.visible {
+    .filters, .pagination {
+      @include reset();
+    }
+  }
+  article {
+    opacity: 0;
+    transform: translate3d(0,50px,0);
+    transition: opacity linear 0.7s, transform ease-out 0.7s;
     &.visible {
       @include reset();
     }

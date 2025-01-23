@@ -52,7 +52,7 @@ var componentVisible = (function ($) {
     handler: function() {
       $(this.element).addClass("visible");
     },
-    offset: '70%'
+    offset: '90%'
   });
 
 })(jQuery);
