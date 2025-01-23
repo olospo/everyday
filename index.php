@@ -11,6 +11,9 @@ get_header(); ?>
 
 <section class="archive">
   <div class="container">
+    <div class="filters twelve columns">
+      <?php get_template_part('inc/insight_filter'); ?>
+    </div>
     <div class="twelve columns">
       <div class="news_listing">
         <?php if ( have_posts() ) : while (have_posts()) : the_post();  ?>
