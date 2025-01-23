@@ -166,8 +166,12 @@ section.home.work {
         margin-bottom: 5px;
       }
       span.cat {
-        margin-bottom: 0;
-        border: none;
+        margin: 10px 0 0 0;
+        a {
+          
+          border: none;
+        }
+        
       }
       &.active {
         h3 {
@@ -183,7 +187,6 @@ section.home.work {
     margin: 40px 0 0 0;
   }
 }
-
 
 section.home.insights {
   background: $suntan;

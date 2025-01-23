@@ -126,7 +126,7 @@ get_header(); ?>
             <article class="work-item <?php echo $counter === 1 ? 'active' : ''; ?>" data-image="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>" data-link="<?php the_permalink(); ?>">
               <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
               <p><?php echo get_field('short_description'); ?></p>
-              <span class="cat">Consumer health & wellness</span>
+              <span class="cat"><a href="#">Consumer health & wellness</a></span>
             </article>
           <?php endwhile; ?>
         <?php else : ?>

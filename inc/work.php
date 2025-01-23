@@ -5,7 +5,7 @@
   </div>
   </a>
   <div class="content six columns">
-    <span class="cat">Consumer health & wellness</span>
+    <span class="cat"><a href="#">Consumer health & wellness</a></span>
     <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
     
     <p><?php echo get_field('short_description'); ?></p>

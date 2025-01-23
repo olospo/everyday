@@ -50,13 +50,22 @@
   }
 }
 span.cat {
-  background: $suntan;
-  border: 1px solid #DDDBCA;
-  color: #6C6A59;
-  padding: 8px;
-  @include border-radius(10px);
+  
   font: $xbold 1.2rem/1.2rem $regular;
   text-transform: uppercase;
   margin-bottom: 20px;
   display: inline-block;
+  a {
+    background: $suntan;
+    padding: 10px;
+    color: #6C6A59;
+    border: 1px solid #DDDBCA;
+    @include border-radius(10px);
+    text-decoration: none;
+    &:hover {
+      border: 1px solid $green;
+      background: $green;
+      color: $white;
+    }
+  }
 }
