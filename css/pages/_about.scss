@@ -1,8 +1,63 @@
 // About
 
+section.about.hero {
+  padding: $padding-half 0 0 0;
+  background: $green;
+  position: relative;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0 0 0;
+  }
+  .container {
+    background: $green url('../img/everyday-cutoff.svg') center bottom no-repeat; 
+    background-size: contain;
+    padding: 0 0 80px 0;
+  }
+  h1 {
+    color: $cream;
+    
+  }
+}
+
+section.office {
+  padding: $padding 0;
+  position: relative;
+  span {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: $white;
+    font: $bold 2.4rem/2.8rem $heading;
+    padding: 5px 10px;
+    @include border-radius(5px);
+  }
+}
+section.what {
+  padding: $padding 0;
+  h2 {
+    font: $bold 2.4rem/2.8rem $heading;
+    @media (min-width: $breakpoint-desktop) {
+      font: $bold 3.2rem/4.2rem $heading;
+    }
+  }
+  p {
+    font: $bold 3.2rem/4.2rem $heading;
+    @media (min-width: $breakpoint-desktop) {
+      font: $bold 4.8rem/5.8rem $heading;
+    }
+  }
+}
+
 section.team {
   padding: $padding 0;
-  article.profile {
+  h2 {
+    font: $bold 4.0rem/4.8rem $heading;
+    margin-bottom: 20px;
+    @media (min-width: $breakpoint-desktop) {
+      font: $bold 5.6rem/6.6rem $heading;
+      margin-bottom: 40px;
+    }
+  }
+  article.profile, article.joinus {
     clear: both;
     overflow: hidden;
     margin-bottom: 4%;
@@ -10,7 +65,16 @@ section.team {
       
     }
     .content {
-      
+      h3 {
+        font: $bold 3.2rem/4.0rem $heading;
+        @media (min-width: $breakpoint-desktop) {
+          font: $bold 4.0rem/4.8rem $heading;
+        }
+        margin-bottom: 10px;
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
