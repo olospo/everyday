@@ -11,7 +11,7 @@ get_header(); ?>
       <h1>Since 2012, we’ve helped big and small teams design products that impact people’s lives.</h1>
     </div>
     <div class="cutoff twelve columns">
-      <img src="<?php bloginfo('template_directory'); ?>/img/everyday-cutoff.svg">
+      <img src="<?php bloginfo('template_directory'); ?>/img/everyday-cut.svg">
     </div>
   </div>  
 </section>
