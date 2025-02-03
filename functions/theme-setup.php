@@ -7,6 +7,9 @@
   add_image_size( 'background-img', 1400, 700, true ); // Featured Image size 
   // Menus
   register_nav_menu( 'main', 'Main Menu' );
+  register_nav_menu( 'footer-1', 'Footer Menu One');
+  register_nav_menu( 'footer-2', 'Footer Menu Two');
+  register_nav_menu( 'footer-3', 'Footer Menu Three');
   // Page Excerpt support
   add_post_type_support( 'page', 'excerpt' );
   // Title Tag Support

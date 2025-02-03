@@ -33,11 +33,7 @@
       </div>
       <div class="sitemap one-third column">
         <h5>About us</h5>
-        <ul>
-          <li><a href="#">Work</a></li>
-          <li><a href="#">Studio</a></li>
-          <li><a href="#">Careers</a></li>
-        </ul>
+        <?php wp_nav_menu( array( 'theme_location' => 'footer-3', 'container'=> false, 'menu_class'=> false ) ); ?>
       </div>
     </div>
     <div class="copyright twelve columns">

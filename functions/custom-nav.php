@@ -1,15 +1,25 @@
 <?php
 function custom_nav_active_class( $classes, $item ) {
-    // Check if we are on a single Case Study or the Case Studies archive.
-    if ( is_singular( 'casestudy' ) || is_post_type_archive( 'casestudy' ) ) {
-        // Get the URL of the Case Studies archive.
-        $case_studies_archive_url = get_post_type_archive_link( 'casestudy' );
-        
-        // If the current menu item's URL matches the Case Studies archive URL, mark it as current.
-        if ( isset( $item->url ) && $case_studies_archive_url && $item->url == $case_studies_archive_url ) {
-            $classes[] = 'current-menu-item';
+    // Check if we are on a single Case Study, the Case Study archive,
+    // a single Career, or the Career archive.
+    if ( is_singular( 'casestudy' ) || is_post_type_archive( 'casestudy' ) || is_singular( 'career' ) || is_post_type_archive( 'career' ) ) {
+
+        // For the Case Study CPT.
+        if ( is_singular( 'casestudy' ) || is_post_type_archive( 'casestudy' ) ) {
+            $casestudy_archive_url = get_post_type_archive_link( 'casestudy' );
+            if ( isset( $item->url ) && $casestudy_archive_url && $item->url == $casestudy_archive_url ) {
+                $classes[] = 'current-menu-item';
+            }
         }
-        
+
+        // For the Career CPT.
+        if ( is_singular( 'career' ) || is_post_type_archive( 'career' ) ) {
+            $career_archive_url = get_post_type_archive_link( 'career' );
+            if ( isset( $item->url ) && $career_archive_url && $item->url == $career_archive_url ) {
+                $classes[] = 'current-menu-item';
+            }
+        }
+
         // Remove any active classes from the blog page (Insights) if it is set as the posts page.
         $blog_page_id = get_option( 'page_for_posts' );
         if ( $blog_page_id ) {
@@ -23,6 +33,7 @@ function custom_nav_active_class( $classes, $item ) {
     return $classes;
 }
 add_filter( 'nav_menu_css_class', 'custom_nav_active_class', 10, 2 );
+
 
 
 // Custom walker for page navigation.
