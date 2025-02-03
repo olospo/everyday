@@ -1,22 +1,29 @@
 <?php
-// Custom menu classes for specific post types.
-function custom_menu_classes($classes, $item, $args) {
-    if ($args->theme_location == 'main') {
-        if (is_post_type_archive('resource') || is_singular('resource')) {
-            if ($item->object_id == get_option('page_for_posts')) {
-                $classes = array_diff($classes, array('current_page_parent', 'current-menu-item', 'current_page_ancestor'));
-            }
+function custom_nav_active_class( $classes, $item ) {
+    // Check if we are on a single Case Study or the Case Studies archive.
+    if ( is_singular( 'casestudy' ) || is_post_type_archive( 'casestudy' ) ) {
+        // Get the URL of the Case Studies archive.
+        $case_studies_archive_url = get_post_type_archive_link( 'casestudy' );
+        
+        // If the current menu item's URL matches the Case Studies archive URL, mark it as current.
+        if ( isset( $item->url ) && $case_studies_archive_url && $item->url == $case_studies_archive_url ) {
+            $classes[] = 'current-menu-item';
         }
         
-        if (is_post_type_archive('resource') || is_singular('resource')) {
-            if ($item->object == 'custom' && $item->url == get_post_type_archive_link('resources')) {
-                $classes[] = 'current-menu-item';
+        // Remove any active classes from the blog page (Insights) if it is set as the posts page.
+        $blog_page_id = get_option( 'page_for_posts' );
+        if ( $blog_page_id ) {
+            $blog_page_url = get_permalink( $blog_page_id );
+            if ( isset( $item->url ) && $blog_page_url && $item->url == $blog_page_url ) {
+                // Remove WordPress's default active classes.
+                $classes = array_diff( $classes, array( 'current-menu-item', 'current_page_item', 'current_page_parent', 'current_page_ancestor' ) );
             }
         }
     }
     return $classes;
 }
-add_filter('nav_menu_css_class', 'custom_menu_classes', 10, 3);
+add_filter( 'nav_menu_css_class', 'custom_nav_active_class', 10, 2 );
+
 
 // Custom walker for page navigation.
 class childNav extends Walker_page {
