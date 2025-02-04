@@ -10,7 +10,11 @@
       <p>Digital product design studio</p>
     </div>
     <div class="newsletter twelve columns">
-      <!-- <h5>Get our newsletter</h5> -->
+      <h5>Get our newsletter</h5>
+      <form action="#" method="POST" class="newsletter-form">
+        <input type="email" name="email" placeholder="Your email address here" required><button type="submit"></button>
+        <p class="privacy-text">By signing up, you agree to our <a href="#">Privacy Policy</a>*.</p>
+      </form>
     </div>
     <div class="row">
       <div class="sitemap one-third column">
