@@ -2,7 +2,11 @@
   <div class="container">
     <div class="six columns">
       <h2>UX insights in your inbox</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Get our newsletter</p>
+      <form action="#" method="POST" class="newsletter-form">
+        <input type="email" name="email" placeholder="Your email address here" required><button type="submit"></button>
+        <p class="privacy-text">By signing up, you agree to our <a href="#">Privacy Policy</a>*.</p>
+      </form>
     </div>
   </div>
 </section>

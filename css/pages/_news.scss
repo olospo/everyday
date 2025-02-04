@@ -75,11 +75,46 @@ article.insight {
 section.insight-cta {
   margin-top: 20px;
   margin-bottom: 40px;
-  background: $blue;
+  background: $blue url('../img/newsletter_bg.png') right center no-repeat;
   padding: $padding;
   color: $white;
   h2 {
     color: $white;
     font: $bold 5.6rem/5.6rem $heading;
+    margin-bottom: 40px;
+  }
+  p {
+    font: $normal 2.4rem/3.6rem $regular;
+    margin-bottom: 10px;
+  }
+  form.newsletter-form {
+    max-width: 400px;
+    input[type="email"] {
+      font: $normal 2.0rem/2.4rem $regular;
+      padding: 15px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+    }
+    button {
+      position: absolute;
+      background: $orange url('../img/arrow.png') center center no-repeat;
+      color: $white;
+      border: none;
+      cursor: pointer;
+      height: 54px;
+      width: 54px;
+      @include border-radius(0 5px 5px 0);
+      &:hover {
+        background: $orange60 url('../img/arrow.png') center center no-repeat;
+      }
+    }
+    .privacy-text {
+      margin: 20px 0 0 0;
+      font: $normal 1.6rem/2.0rem $regular;
+      color: $white;
+      a {
+        color: $white;
+      }
+    }
   }
 }
