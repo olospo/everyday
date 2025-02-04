@@ -61,5 +61,77 @@ section.services.offering {
 
 section.services.capabilities {
   background: $suntan;
-  padding: $padding 0;
+  padding: 80px 0;
+  h2 {
+    font: $bold 4.0rem/4.8rem $heading;
+    margin-bottom: 20px;
+    @media (min-width: $breakpoint-desktop) {
+      font: $bold 4.8rem/5.6rem $heading;
+      margin-bottom: 40px;
+    }
+  }
+  .ux, .product, .strategy {
+    h3 {
+      font: $bold 3.2rem/4.2rem $heading;
+      margin: 0 0 10px 20px;
+    }
+    ul {
+      margin: 0;
+      li {
+        margin: 0 0 0 15px;
+        list-style-position: inside;
+        list-style-type: square;
+        font: $normal 2.4rem/3.6rem $regular;
+      }
+    }
+  }
+  .ux {
+    border-left: 4px solid #37A78F;
+  }
+  .product {
+    border-left: 4px solid #FAA237;
+  }
+  .strategy {
+    border-left: 4px solid #E7C1FC;
+  }
+}
+
+section.services.reputation {
+  background: $blue;
+  // background: $bgreen url('../img/reputation-bg.png') center center no-repeat;
+  background-size: cover;
+  padding: 80px 0;
+  h2 {
+    color: $cream;
+    font: $bold 4.0rem/4.8rem $heading;
+    margin-bottom: 20px;
+    @media (min-width: $breakpoint-desktop) {
+      font: $bold 5.6rem/6.6rem $heading;
+      margin-bottom: 40px;
+    }
+  }
+  .testimonial {
+    min-height: 600px;
+    .image {
+      background: $bgreen;
+      height: 200px;
+      @media (min-width: $breakpoint-tablet) {
+        height: 600px;
+      }
+    }
+    .quote {
+      background: $suntan;
+      @media (min-width: $breakpoint-tablet) {
+      height: 600px;
+      }
+      padding: 40px;
+      p {
+        font: $bold 2.0rem/3.0rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 3.2rem/4.2rem $heading;
+        }
+      }
+      
+    }
+  }
 }

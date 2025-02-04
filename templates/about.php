@@ -7,7 +7,7 @@ get_header(); ?>
 
 <section class="about hero">
   <div class="container">
-    <div class="content six columns">
+    <div class="content seven columns">
       <h1>Since 2012, we’ve helped big and small teams design products that impact people’s lives.</h1>
     </div>
     <div class="cutoff twelve columns">
