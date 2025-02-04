@@ -187,6 +187,24 @@ section.services.offering {
   }
 }
 
+section.services.capabilities {
+  h3, ul li {
+    @include fade();
+  }
+  &.visible {
+    .ux::before, .product::before, .strategy::before {
+      animation: drawBorder 1.5s forwards;
+    }
+    h3 {
+      @include reset();
+    }
+    ul, li {
+      @include reset();
+      @include delay-children();
+    }
+  }
+}
+
 // About
 section.about.hero {
   h1 {
@@ -295,6 +313,13 @@ section.cta.collaborate {
       @include reset();
       
     }
+  }
+}
+
+@keyframes drawBorder {
+  to {
+    opacity: 1;
+    height: 100%; // Expand to full height of the container
   }
 }
 

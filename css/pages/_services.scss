@@ -71,6 +71,7 @@ section.services.capabilities {
     }
   }
   .ux, .product, .strategy {
+    position: relative;
     h3 {
       font: $bold 3.2rem/4.2rem $heading;
       margin: 0 0 10px 20px;
@@ -84,15 +85,24 @@ section.services.capabilities {
         font: $normal 2.4rem/3.6rem $regular;
       }
     }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      opacity: 0;
+    }
   }
-  .ux {
-    border-left: 4px solid #37A78F;
+  .ux::before {
+    background-color: #37A78F;
   }
-  .product {
-    border-left: 4px solid #FAA237;
+  .product::before  {
+    background-color: #FAA237;
   }
-  .strategy {
-    border-left: 4px solid #E7C1FC;
+  .strategy::before  {
+    background-color: #E7C1FC;
   }
 }
 
