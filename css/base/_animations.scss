@@ -175,6 +175,18 @@ section.home.insights {
   }
 }
 
+// Services
+section.services.offering {
+  .service {
+    opacity: 0;
+    transform: translate3d(0,50px,0);
+    transition: opacity linear 0.7s, transform ease-out 0.7s;
+    &.visible {
+      @include reset();
+    }
+  }
+}
+
 // About
 section.about.hero {
   h1 {
