@@ -35,7 +35,7 @@ section.archive {
 }
 
 article.insight {
-  margin: 20px 0;
+  margin-bottom: 20px;
   border: 1px solid #D6D6D6;
   background: $suntan;
   .content {
@@ -60,5 +60,26 @@ article.insight {
         }
       }
     }
+  }
+  &.small {
+    &:nth-child(2n+1) {
+      clear: both;
+      margin-left: 0;
+    }
+    .content {
+      padding: 4%;
+    }
+  }
+}
+
+section.insight-cta {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  background: $blue;
+  padding: $padding;
+  color: $white;
+  h2 {
+    color: $white;
+    font: $bold 5.6rem/5.6rem $heading;
   }
 }

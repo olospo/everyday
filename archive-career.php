@@ -16,7 +16,6 @@ get_header(); ?>
           <?php if ( have_posts() ) : while (have_posts()) : the_post();  ?>
             <?php get_template_part('inc/career'); ?>
           <?php endwhile; ?>
-          
           <article class="career cta six columns">
             <div class="content six columns">
               <h3>No suitable roles right now?<br /> Don’t let that stop you.</h3>
