@@ -80,17 +80,35 @@ get_header(); ?>
   <div class="container">
     <h2>Our reputation is driven by results</h2>
     <div class="testimonial twelve columns">
-      <div class="quote six columns">
-        <blockquote>
-          <p>Working with Everyday Industries has been a game changer for Alloy Health. From absorbing and analyzing our complex user flow, to navigating our upgrade needs, Everyday has been a delight to work with and brought meaningful change and value to our entire user experience.</p>
-          <cite>Anne Fulenwider</cite>, Co-founder at Alloy Health
-        </blockquote>
-      </div>
-      <div class="quote six columns">
-        <blockquote>
-          <p>Working with Everyday Industries has been a game changer for Alloy Health. From absorbing and analyzing our complex user flow, to navigating our upgrade needs, Everyday has been a delight to work with and brought meaningful change and value to our entire user experience.</p>
-          <cite>Anne Fulenwider</cite>, Co-founder at Alloy Health
-        </blockquote>
+      <div class="slider">
+        <div class="slide quote">
+          <blockquote>
+            <p>Working with Everyday Industries has been a game changer for Alloy Health. From absorbing and analyzing our complex user flow, to navigating our upgrade needs, Everyday has been a delight to work with and brought meaningful change and value to our entire user experience.</p>
+            <cite>Anne Fulenwider</cite><br />
+            <span>Co-founder at Alloy Health</span>
+          </blockquote>
+        </div>
+        <div class="slide quote">
+          <blockquote>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <cite>Anne Fulenwider</cite><br />
+            <span>Co-founder at Alloy Health</span>
+          </blockquote>
+        </div>
+        <div class="slide quote">
+          <blockquote>
+            <p>Working with Everyday Industries has been a game changer for Alloy Health. From absorbing and analyzing our complex user flow, to navigating our upgrade needs, Everyday has been a delight to work with and brought meaningful change and value to our entire user experience.</p>
+            <cite>Tom Brooks</cite><br />
+            <span>Founder at Olospo</span>
+          </blockquote>
+        </div>
+        <div class="slide quote">
+          <blockquote>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <cite>Anne Fulenwider</cite><br />
+            <span>Co-founder at Alloy Health</span>
+          </blockquote>
+        </div>
       </div>
     </div>
   </div>  

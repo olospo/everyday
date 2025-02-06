@@ -188,14 +188,14 @@ section.services.offering {
 }
 
 section.services.capabilities {
-  h3, ul li {
+  h2, h3, ul li {
     @include fade();
   }
   &.visible {
     .ux::before, .product::before, .strategy::before {
       animation: drawBorder 1.5s forwards;
     }
-    h3 {
+    h2, h3 {
       @include reset();
     }
     ul, li {

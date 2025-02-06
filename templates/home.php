@@ -101,7 +101,8 @@ get_header(); ?>
       <div class="quote one-half column">
         <blockquote>
           <p>Working with Everyday Industries has been a game changer for Alloy Health. From absorbing and analyzing our complex user flow, to navigating our upgrade needs, Everyday has been a delight to work with and brought meaningful change and value to our entire user experience.</p>
-          <cite>Anne Fulenwider</cite>, Co-founder at Alloy Health
+          <cite>Anne Fulenwider</cite><br />
+          <span>Co-founder at Alloy Health</span>
         </blockquote>
       </div>
     </div>

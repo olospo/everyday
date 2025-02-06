@@ -109,10 +109,10 @@ section.home.reputation {
     }
     .quote {
       background: $suntan;
-      @media (min-width: $breakpoint-tablet) {
-      height: 600px;
-      }
       padding: 40px;
+      @media (min-width: $breakpoint-tablet) {
+        height: 600px;
+      }
       p {
         font: $bold 2.0rem/3.0rem $heading;
         @media (min-width: $breakpoint-tablet) {

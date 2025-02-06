@@ -8,6 +8,17 @@ $( document ).ready(function() {
   
 });
 
+$(".slider").slick({
+  dots: false,
+  arrows: true,
+  infinite: true,
+  speed: 1000,
+  slidesToShow: 2,
+  slidesToScroll:2,
+  fade: false,
+  autoplay: true,
+});
+
 // SVG as Images
 $(function(){
   activate('img[src*=".svg"]');

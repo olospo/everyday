@@ -121,27 +121,22 @@ section.services.reputation {
     }
   }
   .testimonial {
-    min-height: 600px;
-    .image {
-      background: $bgreen;
-      height: 200px;
+    .quote {
+      margin: 0 0 0 20px;
+      background: $suntan;
+      padding: 40px;
       @media (min-width: $breakpoint-tablet) {
         height: 600px;
       }
-    }
-    .quote {
-      background: $suntan;
-      @media (min-width: $breakpoint-tablet) {
-      height: 600px;
-      }
-      padding: 40px;
       p {
         font: $bold 2.0rem/3.0rem $heading;
         @media (min-width: $breakpoint-tablet) {
           font: $bold 3.2rem/4.2rem $heading;
         }
       }
-      
+      &:nth-child(odd) {
+        margin: 0 20px 0 0;
+      }
     }
   }
 }
