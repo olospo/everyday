@@ -12,11 +12,13 @@ $(".slider").slick({
   dots: false,
   arrows: true,
   infinite: true,
-  speed: 1000,
+  speed: 400,
+  autoplaySpeed: 4000,
   slidesToShow: 2,
   slidesToScroll:2,
   fade: false,
-  autoplay: true,
+  autoplay: false,
+  cssEase: "linear"
 });
 
 // SVG as Images

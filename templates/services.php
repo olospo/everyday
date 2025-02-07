@@ -114,6 +114,27 @@ get_header(); ?>
   </div>  
 </section>
 
+<section class="services reasons">
+  <div class="container">
+    <div class="statement one-half column">
+      <div class="content">
+        <p>For over a decade we’ve helped big and small teams design products that impact people’s lives.</p>
+      </div>
+    </div>
+    <div class="reasons one-half column">
+      <div class="content">
+        <h3>Founder-led teams</h3>
+        <p>At Everyday, you work directly with experienced designers our co-founders lead dedicated, senior-level teams to ensure project success.</p>
+        <h3>Collaborative innovation</h3>
+        <p>We bring fresh perspectives, you bring deep product knowledge—together, we create solutions.</p>
+        <h3>Quick wins, Real results</h3>
+        <p>We pinpoint your highest-impact opportunities and help you make design changes that drive immediate value.</p>
+      </div>
+    </div>
+  </div>
+</section>
+    
+
 <?php get_template_part('inc/collaborate'); ?>
 
 <?php endwhile; // end of the loop. ?>
