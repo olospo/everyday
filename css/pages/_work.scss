@@ -9,8 +9,16 @@ article.work {
   margin-bottom: 4%;
   border: 1px solid #D6D6D6;
   background: $suntan;
+  .zoom {
+    position: relative;
+    overflow: hidden;
+  }
   .image {
     min-height: 320px;
+    transition: transform 0.5s ease;
+    &:hover {
+      transform: scale(1.05); 
+    }
   }
   .content {
     box-sizing: border-box;

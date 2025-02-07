@@ -20,11 +20,13 @@ get_header(); ?>
     <div class="container">
       <div class="news_listing twelve columns">
         <article class="insight twelve columns">
-          <a href="<?php the_permalink(); ?>">
-            <div class="image six columns">
-              <img src="<?php the_post_thumbnail_url( 'featured-img' ); ?>" alt="<?php the_title(); ?>" />
-            </div>
-          </a>
+          <div class="six columns">
+            <a href="<?php the_permalink(); ?>">
+              <div class="zoom">
+                <div class="image" style="background: url('<?php the_post_thumbnail_url( 'featured-img' ); ?>') center center no-repeat; background-size: cover;"></div>
+              </div>
+            </a>
+          </div>
           <div class="content six columns">
             <?php 
               $primary_category_id = get_post_meta( get_the_ID(), '_yoast_wpseo_primary_category', true );

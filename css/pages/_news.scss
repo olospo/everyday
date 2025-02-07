@@ -38,10 +38,19 @@ article.insight {
   margin-bottom: 20px;
   border: 1px solid #D6D6D6;
   background: $suntan;
+  
+  .zoom {
+    position: relative;
+    overflow: hidden;
+  }
   .image {
-    min-height: 300px;
+    transition: transform 1s ease;
+    min-height: 320px;
     @media (min-width: $breakpoint-laptop) {
       min-height: 400px;
+    }
+    &:hover {
+      transform: scale(1.2); 
     }
   }
   .content {
