@@ -38,6 +38,12 @@ article.insight {
   margin-bottom: 20px;
   border: 1px solid #D6D6D6;
   background: $suntan;
+  .image {
+    min-height: 300px;
+    @media (min-width: $breakpoint-laptop) {
+      min-height: 400px;
+    }
+  }
   .content {
     padding: 4%;
     @media (min-width: $breakpoint-tablet) {

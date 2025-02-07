@@ -1,6 +1,6 @@
 <article class="insight small six columns">
   <a href="<?php the_permalink(); ?>">
-    <img src="<?php the_post_thumbnail_url( 'featured-img' ); ?>" alt ="<?php the_title(); ?>"/>
+  <div class="image" style="background: url('<?php the_post_thumbnail_url( 'featured-img' ); ?>') center center no-repeat; background-size: cover;"></div>
   </a>
   <div class="content">
     <?php $primary_category_id = get_post_meta(get_the_ID(), '_yoast_wpseo_primary_category', true);
