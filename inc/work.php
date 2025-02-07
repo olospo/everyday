@@ -1,8 +1,6 @@
 <article class="work six columns">
   <a href="<?php the_permalink(); ?>">
-  <div class="image">
-    <img src="<?php the_post_thumbnail_url( 'featured-img' ); ?>" alt ="<?php the_title(); ?>"/>
-  </div>
+  <div class="image" style="background: url('<?php the_post_thumbnail_url( 'featured-img' ); ?>') center center no-repeat; background-size: cover;"></div>
   </a>
   <div class="content six columns">
     <span class="cat"><a href="#">Consumer health & wellness</a></span>

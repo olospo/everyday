@@ -9,15 +9,15 @@ article.work {
   margin-bottom: 4%;
   border: 1px solid #D6D6D6;
   background: $suntan;
+  .image {
+    min-height: 320px;
+  }
   .content {
-    
     box-sizing: border-box;
     width: 100%;
     padding: 4%;
     margin: 0;
-    img {
-      margin-bottom: 4%;
-    }
+    
     h3 {
       color: $green;
       font: $bold 2.0rem/3.0rem $heading;
