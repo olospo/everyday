@@ -15,9 +15,9 @@ article.work {
   }
   .image {
     min-height: 320px;
-    transition: transform 0.5s ease;
+    transition: transform 1s ease;
     &:hover {
-      transform: scale(1.05); 
+      transform: scale(1.1); 
     }
   }
   .content {
