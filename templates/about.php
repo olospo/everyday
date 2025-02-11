@@ -77,6 +77,15 @@ get_header(); ?>
   </div>
 </section>
 
+<section class="about why">
+  <div class="container">
+    <div class="content twelve columns">
+      <h3>Our why</h3>
+      <p>We believe the best ideas emerge when diverse minds come together, challenge each other, and listen generously. We are driven by curiosity and a desire to make digital products that matter.</p>
+    </div>
+  </div>
+</section>
+
 <?php get_template_part('inc/collaborate'); ?>
 
 <?php endwhile; // end of the loop. ?>

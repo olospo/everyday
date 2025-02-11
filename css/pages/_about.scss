@@ -113,4 +113,20 @@ section.about.reasons {
 
 section.about.why {
   padding: $padding 0;
+  .content {
+    border: 1px solid $green;
+    padding: 30px;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 60px;
+    }
+    @media (min-width: $breakpoint-desktop) {
+      padding: 80px 120px;
+    }
+    h3 {
+      font: $bold 3.2rem/4.2rem $heading;
+    }
+    p {
+      font: $bold 4.8rem/5.8rem $heading;
+    }
+  }
 }
