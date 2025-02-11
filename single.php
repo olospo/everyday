@@ -3,12 +3,7 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-<section class="hero single">
-  <div class="container">
-    <div class="content ten columns">
-      
-    </div>
-  </div>
+<section class="hero casestudy" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('<?php the_post_thumbnail_url( 'full' ); ?>') center center no-repeat; background-size: cover;">
 </section>
 
 <section class="post news">
@@ -16,8 +11,7 @@ while ( have_posts() ) : the_post(); ?>
     <div class="content eight columns">
       <h1><?php the_title(); ?></h1>
       <?php
-      // Get the primary category for the current post (Yoast SEO stores it in a custom field)
-      $primary_category_id = get_post_meta(get_the_ID(), '_yoast_wpseo_primary_category', true);
+      $primary_category_id = get_post_meta(get_the_ID(), '_yoast_wpseo_primary_category', true); // Get the primary category
       
       if ($primary_category_id) { // If a primary category is set, fetch it
         $primary_category = get_term($primary_category_id, 'category');

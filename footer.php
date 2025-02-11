@@ -8,6 +8,7 @@
     <div class="logo four columns">
       <img src="<?php bloginfo('template_directory'); ?>/img/everyday-logo.svg" alt="<?php echo bloginfo( 'name' ); ?>">
       <p>Digital product design studio</p>
+      <a href="<?php echo get_site_url(); ?>/contact" class="contact">Contact us</a>
     </div>
     <div class="newsletter twelve columns">
       <h5>Get our newsletter</h5>

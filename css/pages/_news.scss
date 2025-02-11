@@ -1,5 +1,20 @@
 // News
 
+
+body.single-post {
+  header {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+  section.hero.casestudy {
+    height: 480px;
+    z-index: 1;
+  }
+}
+
 section.archive {
   padding: $padding-half 0 $padding 0;
   background: $cream;

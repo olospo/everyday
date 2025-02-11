@@ -33,7 +33,7 @@ header {
         }
         &.current_page_item a, &.current-menu-item a, &.current-page-ancestor a, &.current-post-ancestor a, &.current-menu-parent a, &.current-category-ancestor a, &.current_page_parent a, &:hover a {
           color: $cream;
-          padding: 8px 10px 20px 10px;
+          padding: 8px 9px 20px 9px;
           margin: 20px 5px;
           position: relative;
           &::after {
@@ -44,13 +44,12 @@ header {
         a {
           cursor: pointer;
           position: relative;
-          border-bottom: 2px solid $green;
           font: $normal 2.4rem/3.2rem $regular;
           line-height:1em;
           display: block;
           color: $white;
           text-decoration: none;
-          padding: 8px 10px 20px 10px;
+          padding: 8px 9px 20px 9px;
           margin: 20px 5px;
           &::after {
             content: "";
