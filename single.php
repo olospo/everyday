@@ -1,14 +1,16 @@
 <?php /* Single Post */
 get_header();
 
+$headerimg = get_field('header_image');
+
 while ( have_posts() ) : the_post(); ?>
 
-<section class="hero casestudy" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('<?php the_post_thumbnail_url( 'full' ); ?>') center center no-repeat; background-size: cover;">
+<section class="hero casestudy" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('<?php echo $headerimg; ?>') center center no-repeat; background-size: cover;">
 </section>
 
 <section class="post news">
   <div class="container flex">
-    <div class="content eight columns">
+    <div class="content seven columns">
       <h1><?php the_title(); ?></h1>
       <?php
       $primary_category_id = get_post_meta(get_the_ID(), '_yoast_wpseo_primary_category', true); // Get the primary category
@@ -20,12 +22,15 @@ while ( have_posts() ) : the_post(); ?>
         }
       }
       ?>
-      <p><span class="date"><?php the_time("F j, Y"); ?></span></p>
+      <p class="date"><?php the_time("F j, Y"); ?></p>
       <?php the_content(); ?>
     </div>
-    <aside class="four columns">
+    <aside class="ux-insights five columns">
       <h3>UX insights in your inbox</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <form action="#" method="POST" class="newsletter-form">
+        <input type="email" name="email" placeholder="Your email address here" required><button type="submit"></button>
+        <p class="privacy-text">By signing up, you agree to our <a href="#">Privacy Policy</a>*.</p>
+      </form>
     </aside>
   </div>
 </section>
