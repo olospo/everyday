@@ -80,3 +80,37 @@ section.team {
     }
   }
 }
+
+section.about.reasons {
+  padding: $padding-half 0;
+  .container {
+    display: flex;
+  }
+  .statement {
+    background: $green;
+    position: relative;
+    .content {
+      padding: 120px;
+      @include vertical-align();
+      p {
+        font: $bold 9.6rem/9.6rem $heading;
+        color: $suntan;
+      }
+    }
+  }
+  .reasons {
+    background: $suntan;
+    color: $green;
+    padding: 60px;
+    h3 {
+      font: $bold 3.2rem/4.2rem $heading;
+    }
+    p {
+      font: $normal 2.2rem/3.4rem $regular;
+    }
+  }
+}
+
+section.about.why {
+  padding: $padding 0;
+}
