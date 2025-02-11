@@ -133,7 +133,51 @@ get_header(); ?>
     </div>
   </div>
 </section>
-    
+
+<section class="services specialties">
+  <div class="container">
+    <div class="six columns">
+      <h2>Specialties</h2>
+      <p>Leverage our deep expertise in UX, product design, and strategy to align teams and make digital products customers love.</p>
+    </div>
+    <div class="twelve columns">
+      <ul>
+        <li><a href="#">Websites</a></li>
+        <li><a href="#">Mobile app</a></li>
+        <li><a href="#">Device UI</a></li>
+        <li><a href="#">Research & Strategy</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="services industries">
+  <div class="container">
+    <div class="twelve columns">
+      <h2>Industries</h2>
+      <div class="industry">
+        <h3>Consumer health & wellness</h3>
+        <p>Baby tracking by Nara, Mars pets, Clare, Alloy health, Forfend</p>
+      </div>
+      <div class="industry">
+        <h3>Learning & play</h3>
+        <p>Primer, Tinyhood</p>
+      </div>
+      <div class="industry">
+        <h3>Consumer health & wellness</h3>
+        <p>Baby tracking by Nara, Mars pets, Clare, Alloy health, Forfend</p>
+      </div>
+      <div class="industry">
+        <h3>Consumer health & wellness</h3>
+        <p>Baby tracking by Nara, Mars pets, Clare, Alloy health, Forfend</p>
+      </div>
+      <div class="industry">
+        <h3>Consumer health & wellness</h3>
+        <p>Baby tracking by Nara, Mars pets, Clare, Alloy health, Forfend</p>
+      </div>
+    </div>
+  </div>
+</section> 
 
 <?php get_template_part('inc/collaborate'); ?>
 
