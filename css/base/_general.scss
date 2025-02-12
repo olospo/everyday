@@ -405,13 +405,9 @@ section.hero {
   }
   .content {
     h1 {
-      font: $bold 2.4rem/3.6rem $heading;
-      color: $white;
+      font: $bold 4.0rem/4.8rem $heading;
       margin-bottom: 20px;
-      @media (min-width: $breakpoint-tablet) {
-        font: $bold 3.6rem/4.5rem $heading;
-        margin-bottom: 20px;
-      }
+      color: $white;
       @media (min-width: $breakpoint-desktop) {
         font: $bold 6.4rem/6.4rem $heading;
         margin-bottom: 40px;
