@@ -1,6 +1,5 @@
 // News
 
-
 body.single-post {
   header {
     background: transparent;
@@ -8,6 +7,11 @@ body.single-post {
     top: 0;
     width: 100%;
     z-index: 2;
+  }
+  &.admin-bar {
+    header {
+      top: 32px;
+    }
   }
   section.hero.casestudy {
     height: 480px;
@@ -53,14 +57,22 @@ body.single-post {
       margin: 20px 0;
     }
     aside.ux-insights {
-      background: $blue;
-      padding: 40px;
+      background: $blue url('../img/ux-insights-bg.png') bottom center no-repeat;
+      background-size: 100% 180px;
+      padding: 20px 20px 200px 20px;
+      @media (min-width: $breakpoint-laptop) {
+        background-size: 100% 240px;
+        padding: 40px 40px 280px 40px;
+      }
       h3 {
         color: $white;
         font: $bold 3.2rem/4.0rem $heading;
         @media (min-width: $breakpoint-laptop) {
           font: $bold 4.8rem/5.6rem $heading;
         }
+      }
+      p {
+        color: $white;
       }
       form.newsletter-form {
         max-width: 100%;

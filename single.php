@@ -27,6 +27,7 @@ while ( have_posts() ) : the_post(); ?>
     </div>
     <aside class="ux-insights five columns">
       <h3>UX insights in your inbox</h3>
+      <p>Get our newsletter</p>
       <form action="#" method="POST" class="newsletter-form">
         <input type="email" name="email" placeholder="Your email address here" required><button type="submit"></button>
         <p class="privacy-text">By signing up, you agree to our <a href="#">Privacy Policy</a>*.</p>

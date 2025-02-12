@@ -272,6 +272,40 @@ section.about.team {
   }
 }
 
+section.about.reasons {
+  .statement p {
+    @include fade();
+  }
+  .reasons h3, .reasons p {
+    @include fade();
+  }
+  &.visible {
+    .statement p {
+      @include reset();
+    }
+    .reasons h3, .reasons p {
+      @include reset();
+      transition-delay: 0.4s;
+    }
+  }
+}
+
+section.about.why {
+  h3, p {
+    @include fade();
+  }
+  &.visible {
+    h3 {
+      @include reset();
+    }
+    p {
+      @include reset();
+      transition-delay: 0.4s;
+    }
+  }
+}
+
+
 // Insights 
 section.archive {
   .filters, .pagination {
