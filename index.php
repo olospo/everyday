@@ -12,7 +12,9 @@ get_header(); ?>
 <section class="archive">
   <div class="container">
     <div class="filters twelve columns">
-      <?php get_template_part('inc/insight_filter'); ?>
+      <div class="filter-container">
+        <?php get_template_part('inc/insight_filter'); ?>
+      </div>
     </div>
   </div>
   <?php if ( have_posts() ) : the_post(); ?>

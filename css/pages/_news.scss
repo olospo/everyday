@@ -114,31 +114,46 @@ body.single-post {
 section.archive {
   padding: $padding-half 0 $padding 0;
   background: $cream;
-  .filters ul {
-    margin: 0;
-    li {
-      display: inline-block;
-      margin: 10px 5px;
-      padding: 0;
-      &.filter{
+  
+  .filters {
+    .filter-container {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+    }
+    .filter-container::-webkit-scrollbar {
+      display: none;  /* Hide the scrollbar */
+    }
+    ul {
+      margin: 0 0 30px 0;
+      li {
+        flex: 0 0 auto;
         margin-right: 10px;
-      }
-      a {
-        cursor: pointer;
-        padding: 10px 15px;
-        @include border-radius(5px);
-        transition: background 0.3s ease;
-        color: $green;
-        text-decoration: none;
-        &.current {
-          color: $white;
-          background: $green;
-          text-decoration: none;
+        display: inline-block;
+        margin: 10px 5px;
+        padding: 0;
+        &.filter{
+          margin-right: 10px;
         }
-        &:hover {
-          color: $white;
-          background: $green;
+        a {
+          cursor: pointer;
+          padding: 10px 15px;
+          @include border-radius(5px);
+          transition: background 0.3s ease;
+          color: $green;
           text-decoration: none;
+          &.current {
+            color: $white;
+            background: $green;
+            text-decoration: none;
+          }
+          &:hover {
+            color: $white;
+            background: $green;
+            text-decoration: none;
+          }
         }
       }
     }

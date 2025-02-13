@@ -142,3 +142,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   requestAnimationFrame(updateScroll);
 });
+
+document.querySelector('.filter-container').addEventListener('wheel', function(e) {
+  if (e.deltaY !== 0) {
+    e.preventDefault();
+    this.scrollLeft += e.deltaY * 0.5;  // Adjust multiplier for speed control
+  }
+}, { passive: false });
