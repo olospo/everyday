@@ -14,8 +14,11 @@ body.single-post {
     }
   }
   section.hero.casestudy {
-    height: 480px;
     z-index: 1;
+    height: 240px;
+    @media (min-width: $breakpoint-laptop) {
+      height: 480px;
+    }
   }
   
   section.post {

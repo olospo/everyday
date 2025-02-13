@@ -12,7 +12,7 @@ get_header(); ?>
 <section class="archive">
   <div class="container">
     <div class="twelve columns">
-      <div class="news_listing">
+      <div class="careers_listing">
           <?php if ( have_posts() ) : while (have_posts()) : the_post();  ?>
             <?php get_template_part('inc/career'); ?>
           <?php endwhile; ?>
@@ -30,7 +30,7 @@ get_header(); ?>
         <div class="twelve columns">
          <h3>We don’t have any open roles now, but don’t let that stop you.</h3>
          <p>We may not have any open positions right now, but we're always excited to connect with exceptional talent who share our vision. Send us a message to careers@everydayindustries.com.</p>
-         <img src="<?php bloginfo('template_directory'); ?>/img/careers-empty.png" alt="No open roles">
+        <img src="<?php bloginfo('template_directory'); ?>/img/careers-empty.png" alt="No open roles">
         </div>
         <?php endif; wp_reset_query(); ?>
     </div>

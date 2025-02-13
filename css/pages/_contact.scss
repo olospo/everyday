@@ -1,11 +1,11 @@
 // Contact
 
 section.contact.form {
+  display: flex;
   padding: 0;
   @media (min-width: $breakpoint-tablet) {
     padding: $padding 0;
   }
-  display: flex;
   .container {
     @media (max-width: $breakpoint-tablet) {
       width: 100%;

@@ -3,6 +3,9 @@
 section.archive {
   padding: $padding 0;
   background: $cream;
+  .careers_listing {
+    display: flex;
+  }
 }
 
 article.career {
@@ -10,8 +13,23 @@ article.career {
   border: 1px solid #D6D6D6;
   background: $suntan;
   &.cta {
+    background: $bgreen;
     .content {
-      width: unset;
+      @include vertical-align();
+      padding: 80px;
+      h3 {
+        font: $bold 3.2rem/4.2rem $heading;
+        @media (min-width: $breakpoint-laptop) {
+          font: $bold 4.0rem/4.8rem $heading;
+        }
+      }
+      h3, p {
+        color: $cream;
+      }
+      a {
+        color: $cream;
+        text-decoration-color: $cream;
+      }
     }
   }
   .content {
