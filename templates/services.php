@@ -138,13 +138,25 @@ get_header(); ?>
     <div class="six columns">
       <h2>Specialties</h2>
       <p>Leverage our deep expertise in UX, product design, and strategy to align teams and make digital products customers love.</p>
+      <a href="<?php echo get_site_url(); ?>/casestudy/" class="casestudy button accent">See our work</a>
     </div>
     <div class="twelve columns">
       <ul>
-        <li><a href="#">Websites</a></li>
-        <li><a href="#">Mobile app</a></li>
-        <li><a href="#">Device UI</a></li>
-        <li><a href="#">Research & Strategy</a></li>
+        <?php
+        // Get all specialties that have posts
+        $specialties = get_terms( array(
+          'taxonomy'   => 'specialty',
+          'hide_empty' => true,
+        ) );
+        
+        if ( ! empty( $specialties ) && ! is_wp_error( $specialties ) ) {
+          foreach ( $specialties as $specialty ) {
+            // Get the term link for each specialty
+            $specialty_link = get_term_link( $specialty );
+            echo '<li><a href="' . esc_url( $specialty_link ) . '">' . esc_html( $specialty->name ) . '</a></li>';
+          }
+        }
+        ?>
       </ul>
     </div>
   </div>

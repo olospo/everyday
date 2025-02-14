@@ -50,7 +50,7 @@ get_header(); ?>
         <div class="content nine columns">
           <h3>Join us</h3>
           <p>Interested in joining our team?</p>
-          <a href="<?php echo get_site_url(); ?>/careers">View roles</a>
+          <a href="<?php echo get_site_url(); ?>/career">View roles</a>
         </div>
       </article>
     </div>
