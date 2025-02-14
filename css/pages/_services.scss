@@ -14,33 +14,37 @@ section.services.hero {
 section.services.offering {
   padding: $padding 0;
   .service {
-    display: flex;
-    align-items: stretch;
+    
     min-height: 360px;
     margin-bottom: 40px;
     border: 1px solid #D6D6D6;
     background: $suntan;
+    @media (min-width: $breakpoint-tablet) {
+      display: flex;
+      align-items: stretch;
+    }
     .image {
-      width: 50%;
+      min-height: 240px;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      @media (min-width: $breakpoint-tablet) {
+        min-height: 360px;
+        width: 50%;
+      }
     }
     .content {
-      width: 50%;
       padding: 4%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       @media (min-width: $breakpoint-tablet) {
+        width: 50%;
         padding: 2% 4% 2% 0;
       }
       h2 {
         color: $green;
-        font: $bold 2.0rem/3.0rem $heading;
-        @media (min-width: $breakpoint-tablet) {
-          font: $bold 3.2rem/4.2rem $heading;
-        }
+        font: $bold 3.2rem/4.2rem $heading;
         @media (min-width: $breakpoint-laptop) {
           font: $bold 4.0rem/4.8rem $heading;
         }
@@ -61,7 +65,10 @@ section.services.offering {
 
 section.services.capabilities {
   background: $suntan;
-  padding: 80px 0;
+  padding: 40px 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: 80px 0;
+  }
   h2 {
     font: $bold 4.0rem/4.8rem $heading;
     margin-bottom: 20px;
@@ -72,9 +79,21 @@ section.services.capabilities {
   }
   .ux, .product, .strategy {
     position: relative;
+    margin-bottom: 20px;
+    @media (min-width: $breakpoint-tablet) {
+      margin-bottom: 0px;
+    }
+    &:last-child {
+      margin-bottom: 0px;
+    }
     h3 {
       font: $bold 3.2rem/4.2rem $heading;
-      margin: 0 0 10px 20px;
+      margin: 0 0 0px 20px;
+      cursor: pointer;
+      @media (min-width: $breakpoint-tablet) {
+        margin: 0 0 10px 20px;
+        cursor: none;
+      }
     }
     ul {
       margin: 0;
@@ -83,6 +102,18 @@ section.services.capabilities {
         list-style-position: inside;
         list-style-type: square;
         font: $normal 2.4rem/3.6rem $regular;
+        @media (min-width: $breakpoint-tablet) {
+          margin: 0 0 0 15px;
+        }
+      }
+      &.collapsed {
+        display: none;
+        @media (min-width: $breakpoint-tablet) {
+          display: block;
+        }
+        &.show {
+          display: block;
+        }
       }
     }
     &::before {
@@ -104,6 +135,17 @@ section.services.capabilities {
   .strategy::before  {
     background-color: #E7C1FC;
   }
+  
+  @media (max-width: $breakpoint-mobile) {
+    ul.collapsed {
+      display: none; /* Initially hidden */
+    }
+    ul.collapsed.show {
+      display: block; /* Show when toggled */
+    }
+  }
+  
+  
 }
 
 section.services.reputation {

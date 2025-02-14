@@ -42,8 +42,8 @@ get_header(); ?>
     <h2>Capabilities</h2>
     <div class="row">
       <div class="ux one-third column">
-        <h3>UX</h3>
-        <ul>
+        <h3 class="toggle">UX</h3>
+        <ul class="collapsed">
           <li>Information architecture</li>
           <li>Competitive analysis</li>
           <li>Concept design</li>
@@ -52,8 +52,8 @@ get_header(); ?>
         </ul>
       </div>
       <div class="product one-third column">
-        <h3>Product design</h3>
-        <ul>
+        <h3 class="toggle">Product design</h3>
+        <ul class="collapsed">
           <li>Prototyping</li>
           <li>Hi fidelity design</li>
           <li>Design systems</li>
@@ -62,8 +62,8 @@ get_header(); ?>
         </ul>
       </div>
       <div class="strategy one-third column">
-        <h3>Design strategy</h3>
-        <ul>
+        <h3 class="toggle">Design strategy</h3>
+        <ul class="collapsed">
           <li>Workshops</li>
           <li>Experience principles</li>
           <li>Journey mapping</li>

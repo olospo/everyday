@@ -18,7 +18,16 @@ $(".slider").slick({
   slidesToScroll:2,
   fade: false,
   autoplay: false,
-  cssEase: "linear"
+  cssEase: "linear",
+  responsive: [
+    {
+      breakpoint: 600,
+      settings: {
+        arrows: false,
+        slidesToShow: 1
+      }
+    }
+  ]
 });
 
 // SVG as Images
@@ -126,26 +135,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const track = document.querySelector('.carousel-track');
-  const items = Array.from(track.children);
 
-  let itemWidth = items[0].offsetWidth + parseInt(window.getComputedStyle(items[0]).marginRight, 10) * 2;
-
-  function updateScroll() {
-    if (track.scrollLeft >= itemWidth) {
-      track.appendChild(track.firstElementChild);
-      track.scrollLeft -= itemWidth;
+// Capabilities List 
+document.querySelectorAll('h3.toggle').forEach(function(header) {
+  header.addEventListener('click', function() {
+    const list = this.nextElementSibling;
+    if (list.classList.contains('collapsed')) {
+      list.classList.remove('collapsed');
+      list.classList.add('show');
+    } else {
+      list.classList.remove('show');
+      list.classList.add('collapsed');
     }
-    requestAnimationFrame(updateScroll);
-  }
-
-  requestAnimationFrame(updateScroll);
+  });
 });
-
-document.querySelector('.filter-container').addEventListener('wheel', function(e) {
-  if (e.deltaY !== 0) {
-    e.preventDefault();
-    this.scrollLeft += e.deltaY * 0.5;  // Adjust multiplier for speed control
-  }
-}, { passive: false });
