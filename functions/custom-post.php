@@ -110,15 +110,15 @@ function custom_post_type() {
 
 function custom_taxonomy() {
   $labels = array(
-    'name' => __( 'Industry' ),
-    'singular_name' => __( 'industry' ),
-    'menu_name' => __( 'Industry' ),
+    'name' => __( 'Specialties' ),
+    'singular_name' => __( 'specialty' ),
+    'menu_name' => __( 'Specialties' ),
   );
   $args = array(
     'labels' => $labels,
     'hierarchical' => true,
   );
-  register_taxonomy( 'industry', 'casestudy', $args );
+  register_taxonomy( 'specialty', 'casestudy', $args );
 }
 add_action( 'init', 'custom_taxonomy' );
 

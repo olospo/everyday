@@ -16,8 +16,7 @@ get_header(); ?>
       <div class="image six columns" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/new-product.png');"></div>
       <div class="content six columns">
         <h2>New product design</h2>
-        <p>
-          Turn ideas into beautifully designed products users love. From initial concept through to final implementation, we design experiences that solve real user needs and drive business growth.
+        <p>Turn ideas into beautifully designed products users love. From initial concept through to final implementation, we design experiences that solve real user needs and drive business growth.
         </p>
       </div>
     </div>

@@ -11,6 +11,13 @@ get_header(); ?>
 
 <section class="archive">
   <div class="container">
+    <div class="filters twelve columns">
+      <div class="filter-container">
+        <?php get_template_part('inc/casestudy_filter'); ?>
+      </div>
+    </div>
+  </div>
+  <div class="container">
     <div class="twelve columns">
       <div class="news_listing">
           <?php if ( have_posts() ) : while (have_posts()) : the_post();  ?>
@@ -24,5 +31,7 @@ get_header(); ?>
     </div>
   </div>
 </section>
+
+<?php get_template_part('inc/collaborate'); ?>
 
 <?php get_footer();  ?>
