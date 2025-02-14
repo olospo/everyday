@@ -125,6 +125,30 @@ add_action( 'init', 'custom_taxonomy' );
 // Ensure the custom post type registration runs during the appropriate action
 add_action( 'init', 'custom_post_type' );
 
+// Add a new column for 'specialty' to the Case Studies admin list.
+function add_specialty_column( $columns ) {
+    // Insert the new column after the title column.
+    $new_columns = array();
+    foreach ( $columns as $key => $value ) {
+        $new_columns[ $key ] = $value;
+        if ( 'title' === $key ) {
+            $new_columns['specialty'] = __( 'Specialties', 'your-textdomain' );
+        }
+    }
+    return $new_columns;
+}
+add_filter( 'manage_edit-casestudy_columns', 'add_specialty_column' );
+
+// Populate the 'specialty' column for each Case Study.
+function show_specialty_column( $column, $post_id ) {
+    if ( 'specialty' === $column ) {
+        $terms = get_the_term_list( $post_id, 'specialty', '', ', ', '' );
+        echo $terms ? $terms : '—';
+    }
+}
+add_action( 'manage_casestudy_posts_custom_column', 'show_specialty_column', 10, 2 );
+
+
 // CPT Menu Item: Adds 'current_page_parent' class to menu items based on post type.
 add_filter('nav_menu_css_class', 'current_type_nav_class', 10, 2);
 function current_type_nav_class($classes, $item) {
