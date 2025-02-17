@@ -8,7 +8,7 @@ $( document ).ready(function() {
   
 });
 
-$(".slider").slick({
+$(".services .slider").slick({
   dots: false,
   arrows: true,
   infinite: true,
@@ -29,6 +29,31 @@ $(".slider").slick({
     }
   ]
 });
+
+
+$(".home .slider").slick({
+  dots: false,
+  arrows: true,
+  infinite: true,
+  speed: 400,
+  autoplaySpeed: 4000,
+  slidesToShow: 1,
+  slidesToScroll:1,
+  fade: true,
+  autoplay: false,
+  cssEase: "linear",
+  responsive: [
+    {
+      breakpoint: 600,
+      settings: {
+        dots: true,
+        arrows: false,
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+
 
 // SVG as Images
 $(function(){

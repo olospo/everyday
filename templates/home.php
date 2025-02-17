@@ -94,16 +94,30 @@ get_header(); ?>
 <section class="home reputation">
   <div class="container">
     <h2>Our reputation is driven by results</h2>
-    <div class="testimonial twelve columns">
-      <div class="image one-half column">
-
+    <div class="slider testimonial twelve columns">
+      <div class="slide">
+        <div class="image one-half column">
+          <div class="content"><img src="<?php bloginfo('template_directory'); ?>/img/alloy.svg" /></div>
+        </div>
+        <div class="quote one-half column">
+          <blockquote>
+            <p>Working with Everyday Industries has been a game changer for Alloy Health. From absorbing and analyzing our complex user flow, to navigating our upgrade needs, Everyday has been a delight to work with and brought meaningful change and value to our entire user experience.</p>
+            <cite>Anne Fulenwider</cite><br />
+            <span>Co-founder at Alloy Health</span>
+          </blockquote>
+        </div>
       </div>
-      <div class="quote one-half column">
-        <blockquote>
-          <p>Working with Everyday Industries has been a game changer for Alloy Health. From absorbing and analyzing our complex user flow, to navigating our upgrade needs, Everyday has been a delight to work with and brought meaningful change and value to our entire user experience.</p>
-          <cite>Anne Fulenwider</cite><br />
-          <span>Co-founder at Alloy Health</span>
-        </blockquote>
+      <div class="slide">
+        <div class="image one-half column">
+          <div class="content"><img src="<?php bloginfo('template_directory'); ?>/img/ninja.svg" /></div>
+        </div>
+        <div class="quote one-half column">
+          <blockquote>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <cite>Irure Reprehenderit</cite><br />
+            <span>Founder at Ninja</span>
+          </blockquote>
+        </div>
       </div>
     </div>
   </div>  

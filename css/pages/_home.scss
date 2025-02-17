@@ -91,26 +91,39 @@ section.home.services {
 }
 
 section.home.reputation {
-  background: $green;
-  // background: $green url('../img/reputation-bg.png') center center no-repeat;
+  background: $green url('../img/reputation-bg.png') center top no-repeat;
   background-size: cover;
-  padding: 80px 0;
+  padding: 40px 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: 80px 0;
+  }
   h2 {
     color: $cream;
   }
   .testimonial {
     min-height: 600px;
     .image {
+      position: relative;
+      min-height: 200px;
       background: $bgreen;
-      height: 200px;
       @media (min-width: $breakpoint-tablet) {
-        height: 600px;
+        min-height: 600px;
+      }
+      .content {
+        @include center-align();
+        img, svg {
+          max-width: 140px;
+          @media (min-width: $breakpoint-tablet) {
+            max-width: 400px;
+          }
+        }
       }
     }
     .quote {
       background: $suntan;
-      padding: 40px;
+      padding: 0 20px;
       @media (min-width: $breakpoint-tablet) {
+        padding: 40px;
         height: 600px;
       }
       p {
@@ -119,7 +132,30 @@ section.home.reputation {
           font: $bold 3.2rem/4.2rem $heading;
         }
       }
-      
+      cite {
+        color: #3F3D31;
+        font: $bold 2.0rem/3.0rem $regular;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 3.2rem/4.2rem $regular;
+        }
+      }
+      span {
+        color: #3F3D31;
+        font: $normal 2.0rem/3.0rem $regular;
+        @media (min-width: $breakpoint-tablet) {
+          font: $normal 3.2rem/4.2rem $regular;
+        }
+      }
+    }
+    .slick-dots {
+      bottom: -40px;
+      li {
+        border: 2px solid $suntan;
+        background: transparent;
+        &.slick-active {
+          background: $bgreen;
+        }
+      }
     }
   }
 }

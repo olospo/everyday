@@ -150,8 +150,8 @@ section.services.capabilities {
 
 section.services.reputation {
   background: $blue;
-  // background: $bgreen url('../img/reputation-bg.png') center center no-repeat;
-  background-size: cover;
+  background: $bgreen url('../img/reputation-service-bg.svg') top center repeat-x;
+  background-size: auto auto;
   padding: 80px 0;
   h2 {
     color: $cream;
@@ -179,23 +179,45 @@ section.services.reputation {
       &:nth-child(odd) {
         margin: 0 20px 0 0;
       }
+      blockquote {
+        &:before {
+          font-size: 14rem;
+          content: "“";    
+          left: 0;
+          top: 40px;
+        }
+      }
     }
   }
 }
 
 section.services.reasons {
-  padding: $padding 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
   .container {
-    display: flex;
+    width: 100%;
+    @media (min-width: $breakpoint-tablet) {
+      width: 100%;
+      display: flex;
+    }
   }
   .statement {
     background: $bgreen;
-    position: relative;
+    @media (min-width: $breakpoint-tablet) {
+      position: relative;
+    }
     .content {
-      padding: 120px;
-      @include vertical-align();
+      padding: 50px 30px;
+      @media (min-width: $breakpoint-tablet) {
+        padding: 120px;
+        @include vertical-align();
+      }
       p {
-        font: $bold 5.6rem/5.6rem $heading;
+        font: $bold 4.8rem/5.6rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 5.6rem/5.6rem $heading;
+        }
         color: $suntan;
       }
     }
@@ -203,7 +225,10 @@ section.services.reasons {
   .reasons {
     background: $suntan;
     color: $green;
-    padding: 60px;
+    padding: 30px;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 60px;
+    }
     h3 {
       font: $bold 3.2rem/4.2rem $heading;
     }

@@ -346,15 +346,20 @@ section {
   blockquote {
     display: inline-block;
     position: relative; 
-    padding: 40px 0 0 0;
+    padding: 60px 0 0 0;
     color: $black;
     margin: 20px 0;
     font: $light 2.4rem/3.4rem $regular;
     &:before, &:after{
       font-family: Arial, sans-serif;
       position: absolute;
-      color: $black;
-      font-size:80px;
+      color: #DDDBCA;
+      font-family: $heading;
+      font-size: 14rem;
+      @media (min-width: $breakpoint-tablet) {
+        font-size: 24rem;
+      }
+      
     }
     p {
       font: $light 1.8rem/2.8rem $regular;
@@ -363,9 +368,12 @@ section {
       }
     }
     &:before{
-      content: "“";        
-      top: 20px;
+      content: "“";    
       left: 0;
+      top: 40px;
+      @media (min-width: $breakpoint-tablet) {
+        top: 60px;
+      }
     }
   }
 }
