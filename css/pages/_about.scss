@@ -24,8 +24,13 @@ section.about.hero {
 }
 
 section.office {
-  padding: $padding 0;
   position: relative;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
+  .container {
+    width: 100%;
+  }
   span {
     position: absolute;
     bottom: 30px;
@@ -37,7 +42,10 @@ section.office {
   }
 }
 section.what {
-  padding: $padding 0;
+  padding: $padding-half 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
   h2 {
     font: $bold 2.4rem/2.8rem $heading;
     @media (min-width: $breakpoint-desktop) {
@@ -53,7 +61,10 @@ section.what {
 }
 
 section.team {
-  padding: $padding 0;
+  padding: $padding-half 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
   h2 {
     font: $bold 4.0rem/4.8rem $heading;
     margin-bottom: 20px;
