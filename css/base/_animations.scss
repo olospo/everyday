@@ -117,6 +117,29 @@ section.home.services {
     }
   }
 }
+section.home.reputation {
+  h2 {
+    @include fade();
+  }
+  .testimonial .slide {
+    @include fade();
+  }
+  .slick-arrow {
+    @include fade();
+  }
+  &.visible {
+    h2 {
+      @include reset();
+    }
+    .testimonial .slide {
+      @include reset();
+    }
+    .slick-arrow {
+      @include reset();
+      transition-delay: 1.0s;
+    }
+  }
+}
 
 section.home.work {
   .work-wrapper {

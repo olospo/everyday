@@ -123,23 +123,30 @@
 }
 
 
+
 .slick-prev:before, .slick-next:before
 {
   font: $bold 3.6rem/3.4rem $regular;
   opacity: 1;
-  color: $blue;
+  color: $green;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+}
+
+.slick-prev:hover, .slick-next:hover {
+  color: $bgreen;
+  background: $green;
+  border: 1px solid $bgreen;
 }
 
 .slick-prev:hover:before, .slick-next:hover:before {
-  color: $blue;
+  color: $bgreen;
+  background: $green;
 }
 
 
 .slick-next, .slick-prev {
-  top: -75px;
+  top: -95px;
 }
 
 .slick-prev {

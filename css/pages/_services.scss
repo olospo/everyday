@@ -175,10 +175,11 @@ section.services.reputation {
   }
   .testimonial {
     .quote {
-      margin: 0 0 0 20px;
+      margin: 0;
       background: $suntan;
       padding: 40px;
       @media (min-width: $breakpoint-tablet) {
+        margin: 0 0 0 20px;
         height: 600px;
       }
       p {
@@ -187,8 +188,24 @@ section.services.reputation {
           font: $bold 3.2rem/4.2rem $heading;
         }
       }
+      cite {
+        color: #3F3D31;
+        font: $bold 2.0rem/3.0rem $regular;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 3.2rem/4.2rem $regular;
+        }
+      }
+      span {
+        color: #3F3D31;
+        font: $normal 2.0rem/3.0rem $regular;
+        @media (min-width: $breakpoint-tablet) {
+          font: $normal 3.2rem/4.2rem $regular;
+        }
+      }
       &:nth-child(odd) {
-        margin: 0 20px 0 0;
+        @media (min-width: $breakpoint-tablet) {
+          margin: 0 20px 0 0;
+        }
       }
       blockquote {
         &:before {
