@@ -167,8 +167,8 @@ get_header(); ?>
     <div class="twelve columns">
       <h2>Industries</h2>
       <div class="industry">
-        <h3>Consumer health & wellness</h3>
-        <p>Baby tracking by Nara, Mars pets, Clare, Alloy health, Forfend</p>
+        <h3><a href="#">Consumer health & wellness</a></h3>
+        <p><a href="#">Baby tracking by Nara</a>, Mars pets, Clare, <a href="#">Alloy health</a>, <a href="#">Forfend</a></p>
       </div>
       <div class="industry">
         <h3>Learning & play</h3>

@@ -4,7 +4,7 @@
 
 @mixin fade() {
   opacity: 0;
-  transition: opacity linear 1s, transform ease-in 1s;
+  transition: opacity linear 1s;
 }
 
 @mixin drop() {
@@ -199,6 +199,93 @@ section.services.capabilities {
       @include reset();
     }
     ul, li {
+      @include reset();
+      @include delay-children();
+    }
+  }
+}
+
+section.services.reputation {
+  h2 {
+    @include fade();
+  }
+  .testimonial .slide {
+    @include fade();
+  }
+  .slick-arrow {
+    @include fade();
+  }
+  &.visible {
+    h2 {
+      @include reset();
+    }
+    .testimonial .slide {
+      @include reset();
+      @include delay-children();
+    }
+    .slick-arrow {
+      @include reset();
+      transition-delay: 1.5s;
+    }
+  }
+}
+
+section.services.reasons {
+  .statement p {
+    @include fade();
+  }
+  .reasons h3, .reasons p {
+    @include fade();
+  }
+  &.visible {
+    .statement p {
+      @include reset();
+    }
+    .reasons h3, .reasons p {
+      @include reset();
+      transition-delay: 0.4s;
+    }
+  }
+}
+
+section.services.specialties {
+  h2, p, a.button {
+    @include fade();
+  }
+  ul li {
+    @include fade();
+  }
+  &.visible {
+    h2 {
+      @include reset();
+    }
+    p {
+      @include reset();
+      transition-delay: 0.2s;
+    }
+    a.button {
+      @include reset();
+      transition-delay: 1.2s;
+    }
+    ul li {
+      @include reset();
+      @include delay-children();
+    }
+  }
+}
+
+section.services.industries {
+  h2 {
+    @include fade();
+  }
+  .industry {
+    @include fade();
+  }
+  &.visible {
+    h2 {
+      @include reset();
+    }
+    .industry {
       @include reset();
       @include delay-children();
     }

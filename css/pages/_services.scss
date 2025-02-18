@@ -199,6 +199,9 @@ section.services.reputation {
         }
       }
     }
+    .slick-arrow {
+      top: -95px;
+    }
   }
 }
 
@@ -328,6 +331,21 @@ section.services.reasons {
     h3 {
       font: $bold 4.0rem/4.8rem $heading;
       margin-bottom: 10px;
+      a {
+        color: $green;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+          text-decoration-color: $green;
+        }
+      }
+    }
+    a {
+      color: $green;
+      text-decoration-color: $green;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }

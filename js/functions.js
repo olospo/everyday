@@ -21,8 +21,9 @@ $(".services .slider").slick({
   cssEase: "linear",
   responsive: [
     {
-      breakpoint: 600,
+      breakpoint: 1024,
       settings: {
+        dots: true,
         arrows: false,
         slidesToShow: 1
       }
