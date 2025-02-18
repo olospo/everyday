@@ -8,7 +8,15 @@ header {
       margin: 25px 0px;
     }
     svg {
-      height: 33px;
+      transition: all 0.5s ease;
+      height: 24px;
+      width: auto;
+      display: block;
+      max-width: 100%;
+      @media (min-width: $breakpoint-laptop) {
+        height: 33px;
+        width: auto;
+      }
     }
   }
   nav.menu {

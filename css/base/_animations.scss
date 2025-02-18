@@ -51,6 +51,18 @@
   &:nth-child(14)  {transition-delay: 2.6s;}
 }
 
+header {
+  .logo {
+    @include fade();
+  }
+  &.visible {
+    .logo {
+      @include reset();
+      transition-delay: 0.2s;
+    }
+  }
+}
+
 // General 
 section.hero {
   h1 {
@@ -59,6 +71,7 @@ section.hero {
   &.visible {
     h1 {
       @include reset();
+      transition-delay: 0.2s;
     }
   }
 }
@@ -328,6 +341,7 @@ section.about.hero {
   &.visible {
     h1, .cutoff {
       @include reset();
+      transition-delay: 0.2s;
     }
   }
 }
