@@ -20,6 +20,19 @@ section.home.hero {
       display: block;
     }
   }
+  a.service {
+    width: 100%;
+    box-sizing: border-box;
+    @media (min-width: $breakpoint-tablet) {
+      width: auto;
+    }
+  }
+  a.work {
+    display: none;
+    @media (min-width: $breakpoint-tablet) {
+      display: inline-block;
+    }
+  }
 }
 
 section.home {
@@ -66,9 +79,10 @@ section.home.carousel-container {
 }
 
 section.home.services {
-  background: $suntan url('../img/lightning_bolt.svg') center center no-repeat;
+  background: $suntan;
   padding: 40px 0;
   @media (min-width: $breakpoint-tablet) {
+    background: $suntan url('../img/lightning_bolt.svg') center center no-repeat;
     padding: 80px 0;
   }
   .focus {
@@ -86,23 +100,36 @@ section.home.services {
         width: 220px;
         height: 12px;
         background-image: url('../img/squiggle-green.svg');
-
         background-repeat: repeat-x;
       }
     }
     ul {
-      margin: 0;
       padding: 0;
+      margin: 0 0 100px 0;
+      @media (min-width: $breakpoint-tablet) {
+        margin: 0;
+      }
       li {
         margin: 5px 0;
         padding: 0;
         list-style: none;
         a {
-          font: $bold 3.2rem/4.2rem $heading;
           color: $bgreen;
           text-decoration-color: $bgreen;
+          font: $bold 2.4rem/2.8rem $heading;
+          @media (min-width: $breakpoint-tablet) {
+            font: $bold 3.2rem/4.2rem $heading;
+          }
         }
       }
+    }
+  }
+  a.button {
+    @media (max-width: $breakpoint-tablet) {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      box-sizing: border-box;
     }
   }
 }

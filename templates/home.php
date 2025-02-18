@@ -7,7 +7,7 @@ get_header(); ?>
   <div class="container">
     <div class="content six columns">
       <h1>Digital product design that transforms how people live, work, and connect.</h1>
-      <a href="#" class="button accent">View our services</a> <a href="#" class="button accent">See our work</a>
+      <a href="#" class="button accent service">View our services</a> <a href="#" class="button accent work">See our work</a>
     </div>
     <div class="sunrise">
       <svg width="839px" height="502px" viewBox="0 0 839 502" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
