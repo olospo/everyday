@@ -79,7 +79,7 @@ get_header(); ?>
       <h2>Our expertise is in UX design for customer-focused products.</h2>
       <a href="#" class="button accent">See our work</a>
     </div>
-    <div class="focus five columns offset-by-two">
+    <div class="focus four columns offset-by-three">
       <h3>Our Focus</h3>
       <ul>
         <li><a href="#">Consumer health & wellness</a></li>

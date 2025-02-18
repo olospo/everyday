@@ -66,12 +66,29 @@ section.home.carousel-container {
 }
 
 section.home.services {
-  background: $suntan;
-  padding: $padding 0;
+  background: $suntan url('../img/lightning_bolt.svg') center center no-repeat;
+  padding: 40px 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: 80px 0;
+  }
   .focus {
     h3 {
+      background: $suntan;
+      position: relative;
       font: $bold 3.2rem/4.2rem $heading;
       margin-bottom: 20px;
+      z-index: 2;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 150px;
+        top: 17px;
+        width: 220px;
+        height: 12px;
+        background-image: url('../img/squiggle-green.svg');
+
+        background-repeat: repeat-x;
+      }
     }
     ul {
       margin: 0;
