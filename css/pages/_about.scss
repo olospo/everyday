@@ -98,7 +98,10 @@ section.team {
 section.about.reasons {
   padding: $padding-half 0;
   .container {
-    display: flex;
+    width: 100%;
+    @media (min-width: $breakpoint-tablet) {
+      display: flex;
+    }
   }
   .statement {
     background: $green;
