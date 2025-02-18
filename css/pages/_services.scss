@@ -90,9 +90,31 @@ section.services.capabilities {
       font: $bold 3.2rem/4.2rem $heading;
       margin: 0 0 0px 20px;
       cursor: pointer;
+      position: relative;
       @media (min-width: $breakpoint-tablet) {
+        background: transparent;
         margin: 0 0 10px 20px;
         cursor: none;
+      }
+      @media (max-width: $breakpoint-tablet) {
+        &::after {
+          content: '';
+          background: url('../img/arrow_down.png') no-repeat center;
+          background-size: contain;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 40px;
+          height: 40px;
+          transition: transform 0.2s ease-in-out;
+        }
+        &.active {
+          margin-bottom: 10px;
+          &::after {
+            transform: translateY(-50%) rotate(180deg);
+          }
+        }
       }
     }
     ul {
@@ -135,17 +157,6 @@ section.services.capabilities {
   .strategy::before  {
     background-color: #E7C1FC;
   }
-  
-  @media (max-width: $breakpoint-mobile) {
-    ul.collapsed {
-      display: none; /* Initially hidden */
-    }
-    ul.collapsed.show {
-      display: block; /* Show when toggled */
-    }
-  }
-  
-  
 }
 
 section.services.reputation {
@@ -214,11 +225,11 @@ section.services.reasons {
         @include vertical-align();
       }
       p {
+        color: $suntan;
         font: $bold 4.8rem/5.6rem $heading;
         @media (min-width: $breakpoint-tablet) {
           font: $bold 5.6rem/5.6rem $heading;
         }
-        color: $suntan;
       }
     }
   }

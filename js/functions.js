@@ -161,10 +161,12 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Capabilities List 
 document.querySelectorAll('h3.toggle').forEach(function(header) {
   header.addEventListener('click', function() {
     const list = this.nextElementSibling;
+    // Toggle active class on the clicked header
+    this.classList.toggle('active');
+    
     if (list.classList.contains('collapsed')) {
       list.classList.remove('collapsed');
       list.classList.add('show');
@@ -174,3 +176,4 @@ document.querySelectorAll('h3.toggle').forEach(function(header) {
     }
   });
 });
+

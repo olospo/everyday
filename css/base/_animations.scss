@@ -294,6 +294,9 @@ section.about.why {
   h3, p {
     @include fade();
   }
+  .content {
+    transition: border-color 1s ease-in-out;
+  }
   &.visible {
     h3 {
       @include reset();
@@ -301,6 +304,9 @@ section.about.why {
     p {
       @include reset();
       transition-delay: 0.4s;
+    }
+    .content {
+      border: 1px solid $green;
     }
   }
 }
@@ -335,6 +341,49 @@ section.archive {
       }
     }
   }
+}
+
+// Contact
+
+section.contact.form {
+  h2, p {
+    @include fade();
+  }
+  form {
+    @include fade();
+  }
+  .bg {
+    background: #18584a;
+    position: relative;
+    &::after {
+      content: '';
+      background: url(../img/contact-bg.svg) center center no-repeat;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0; /* Start with the background image invisible */
+      transition: opacity 1s ease-in-out; /* Fade-in effect */
+    }
+    
+  }
+  &.visible {
+    h2, p {
+      @include reset();
+      @include delay-children();
+    }
+    form {
+      @include reset();
+      transition-delay: 0.2s;
+    }
+    .bg {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+  
 }
 
 // Includes 
