@@ -10,7 +10,7 @@ get_header(); while ( have_posts() ) : the_post(); ?>
   </div>  
 </section>
 
-<section class="services intro">
+<section class="service intro">
   <div class="container">
     <div class="eight columns">
       <h2>What we can do for you</h2>
@@ -18,7 +18,7 @@ get_header(); while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-<section class="services approach">
+<section class="service approach">
   <div class="container">
     
   </div>
@@ -62,7 +62,7 @@ get_header(); while ( have_posts() ) : the_post(); ?>
   </div>  
 </section>
 
-<section class="services products">
+<section class="service products">
   <div class="container">
     <h2>Products we’ve helped launch</h2>
     <?php
@@ -82,7 +82,7 @@ get_header(); while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-<section class="home insights">
+<section class="service insights">
   <div class="container">
     <h2>Dive deeper into our thinking</h2>
     <div class="twelve columns">
@@ -122,12 +122,13 @@ get_header(); while ( have_posts() ) : the_post(); ?>
   </div>  
 </section>
 
-<section class="services offering">
+<section class="service offering">
   <div class="container">
+    <h2>How we can help</h2>
     <div class="service twelve columns">
       <div class="image six columns" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/new-product.png');"></div>
       <div class="content six columns">
-        <h2><a href="<?php echo get_site_url(); ?>/what-we-do/customer-research-services/">New product design</a></h2>
+        <h3><a href="<?php echo get_site_url(); ?>/what-we-do/customer-research-services/">New product design</a></h3>
         <p>Turn ideas into beautifully designed products users love. From initial concept through to final implementation, we design experiences that solve real user needs and drive business growth.
         </p>
       </div>
@@ -135,14 +136,14 @@ get_header(); while ( have_posts() ) : the_post(); ?>
     <div class="service twelve columns">
       <div class="image six columns" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/product-redesigns.png');"></div>
       <div class="content six columns">
-        <h2><a href="<?php echo get_site_url(); ?>/what-we-do/product-evaluations/">Product Redesigns</a><h2>
+        <h3><a href="<?php echo get_site_url(); ?>/what-we-do/product-evaluations/">Product Redesigns</a><h3>
         <p>Transform your existing product into an exceptional experience. Whether modernizing your interface or completely reimagining your product, we help you design products that drive results.</p>
       </div>
     </div>
     <div class="service twelve columns">
       <div class="image six columns" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/ux-eval.png');"></div>
       <div class="content six columns">
-        <h2><a href="<?php echo get_site_url(); ?>/what-we-do/user-experience-design-services/">UX evaluations</a><h2>
+        <h3><a href="<?php echo get_site_url(); ?>/what-we-do/user-experience-design-services/">UX evaluations</a><h3>
         <p>Get expert insight into your product experience. Our comprehensive evaluation identifies opportunities to improve usability, engagement, and conversion through design.</p>
       </div>
     </div>

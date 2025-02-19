@@ -15,40 +15,6 @@ section.services.hero {
   }
 }
 
-section.services.intro {
-  padding: $padding-half 0;
-  background: $cream;
-  @media (min-width: $breakpoint-tablet) {
-    padding: $padding 0;
-  }
-  h2 {
-    font: $bold 4.0rem/4.8rem $heading;
-    margin-bottom: 20px;
-    @media (min-width: $breakpoint-desktop) {
-      font: $bold 5.6rem/6.6rem $heading;
-    }
-  }
-  p {
-    font: $normal 2.4rem/3.4rem $regular;
-  }
-}
-
-section.services.products {
-  padding: $padding-half 0;
-  background: $cream;
-  @media (min-width: $breakpoint-tablet) {
-    padding: $padding 0;
-  }
-  h2 {
-    font: $bold 4.0rem/4.8rem $heading;
-    margin-bottom: 20px;
-    @media (min-width: $breakpoint-desktop) {
-      font: $bold 5.6rem/6.6rem $heading;
-      margin-bottom: 40px;
-    }
-  }
-}
-
 section.services.offering {
   padding: $padding 0;
   .service {
