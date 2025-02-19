@@ -21,9 +21,7 @@
       <div class="sitemap one-third column">
         <h5>What we do</h5>
         <ul>
-          <li><a href="#">New product design</a></li>
-          <li><a href="#">Product redesigns</a></li>
-          <li><a href="#">UX evaluations</a></li>
+          <?php wp_nav_menu( array( 'theme_location' => 'footer-1', 'container'=> false, 'menu_class'=> false ) ); ?>
         </ul>
       </div>
       <div class="sitemap one-third column">

@@ -307,21 +307,31 @@ section.services.reasons {
     li {
       padding: 0;
       margin: 0;
-      position: relative;
-      display: flex;
-      align-items: center;
+      text-align: center;
+      list-style: none;
+      &:first-child {
+        text-align: left;
+      }
+      &:last-child {
+        text-align: right;
+      }
       a {
         font: $bold 4.0rem/4.8rem $heading;
         color: $cream;
         text-decoration-color: $cream;
       }
-      &:not(:last-child)::after {
+      &::marker {
+        font-size: 0;
+        display: none;
+      }
+      &:not(:first-child):before {
         display: none;
         @media (min-width: $breakpoint-laptop) {
+          background: $bgreen;
           display: block;
           content: "";
           position: absolute;
-          right: 0;
+          left: 0;
           top: 50%;
           transform: translateY(-50%);
           width: 1px;
