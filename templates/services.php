@@ -1,7 +1,6 @@
 <?php /* Template Name: Services */
 get_header(); while ( have_posts() ) : the_post(); ?>
 
-
 <section class="services hero">
   <div class="container">
     <div class="content eight columns">

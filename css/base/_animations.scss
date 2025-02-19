@@ -65,11 +65,11 @@ header {
 
 // General 
 section.hero {
-  h1 {
+  h1, p {
     @include fade();
   }
   &.visible {
-    h1 {
+    h1, p {
       @include reset();
       transition-delay: 0.2s;
     }
