@@ -329,6 +329,48 @@ section.services.industries {
   }
 }
 
+section.service.intro {
+  h2, p {
+    @include fade();
+  }
+  &.visible {
+    h2 {
+      @include reset();
+    }
+    p {
+      @include reset();
+      transition-delay: 0.2s;
+    }
+  }
+}
+
+section.service.approach {
+  h2, article {
+    @include fade();
+  }
+  form {
+    @include fade();
+  }
+  &.visible {
+    h2, p {
+      @include reset();
+    }
+    article {
+      @include reset();
+      @include delay-children();
+    }
+    form {
+      @include reset();
+      transition-delay: 0.2s;
+    }
+    .bg {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
 // About
 section.about.hero {
   h1 {
@@ -476,22 +518,6 @@ section.contact.form {
   }
   form {
     @include fade();
-  }
-  .bg {
-    background: #18584a;
-    position: relative;
-    &::after {
-      content: '';
-      background: url(../img/contact-bg.svg) center center no-repeat;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      opacity: 0; /* Start with the background image invisible */
-      transition: opacity 1s ease-in-out; /* Fade-in effect */
-    }
-    
   }
   &.visible {
     h2, p {

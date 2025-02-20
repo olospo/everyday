@@ -88,7 +88,19 @@ section.contact.form {
     }
   }
   .bg {
-    // background: $bgreen url('../img/contact-bg.svg') center center no-repeat;
     height: 100%;
+    background: #18584a;
+    position: relative;
+    &::after {
+      content: '';
+      background: url(../img/contact-bg.svg) center center no-repeat;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0; /* Start with the background image invisible */
+      transition: opacity 1s ease-in-out; /* Fade-in effect */
+    }
   }
 }

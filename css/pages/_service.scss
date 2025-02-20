@@ -17,6 +17,72 @@ section.service.intro {
   }
 }
 
+section.service.approach {
+  background: $suntan;
+  padding: $padding-half 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
+  h2 {
+    position: relative;
+    font: $bold 5.6rem/5.6rem $heading;
+    margin-bottom: 40px;
+    z-index: 2;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 320px;
+      top: 30px;
+      width: calc(100% - 320px);
+      height: 12px;
+      background-image: url('../img/squiggle-green.svg');
+      background-repeat: repeat-x;
+    }
+  }
+  .container {
+    display: flex;
+    position: relative;
+  }
+  .content {
+    position: relative;
+    article {
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid $green;
+      h3 {
+        font: $bold 3.2rem/4.2rem $heading;
+        margin-bottom: 20px;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 4.0rem/4.8rem $heading;
+        }
+      }
+      p {
+        font: $normal 2.4rem/3.4rem $regular;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    
+  }
+  .bg {
+    // height: 100%;
+    background: #18584a;
+    position: relative;
+    &::after {
+      content: '';
+      background: url(../img/repeating_pattern.svg) center 0px repeat-y;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0; /* Start with the background image invisible */
+      transition: opacity 1s ease-in-out; /* Fade-in effect */
+    }
+  }
+}
+
 section.service.products {
   padding: $padding-half 0;
   background: $cream;
