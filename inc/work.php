@@ -5,7 +5,14 @@
     </div>
   </a>
   <div class="content six columns">
-    <span class="cat"><a href="#">Consumer health & wellness</a></span>
+    <?php
+    $industries = get_the_terms(get_the_ID(), 'industry');
+    if ($industries && !is_wp_error($industries)) {
+        foreach ($industries as $industry) {
+            echo '<span class="cat"><a href="' . esc_url(get_term_link($industry->term_id, 'industry')) . '">' . esc_html($industry->name) . '</a></span>';
+        }
+    }
+    ?>
     <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
     
     <p><?php echo get_field('short_description'); ?></p>

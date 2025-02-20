@@ -104,9 +104,9 @@ function custom_post_type() {
     'publicly_queryable'  => true,
     'capability_type'     => 'post',
   );
-  register_post_type( 'career', $args );
-  
+  register_post_type( 'career', $args );  
 }
+add_action( 'init', 'custom_post_type' );
 
 function custom_taxonomy() {
   $labels = array(
@@ -119,34 +119,60 @@ function custom_taxonomy() {
     'hierarchical' => true,
   );
   register_taxonomy( 'specialty', 'casestudy', $args );
+  
+  $labels = array(
+    'name' => __( 'Industries' ),
+    'singular_name' => __( 'industry' ),
+    'menu_name' => __( 'Industries' ),
+  );
+  $args = array(
+    'labels' => $labels,
+    'hierarchical' => true,
+  );
+  register_taxonomy( 'industry', 'casestudy', $args );
 }
 add_action( 'init', 'custom_taxonomy' );
 
-// Ensure the custom post type registration runs during the appropriate action
-add_action( 'init', 'custom_post_type' );
+
 
 // Add a new column for 'specialty' to the Case Studies admin list.
-function add_specialty_column( $columns ) {
-    // Insert the new column after the title column.
+function add_taxonomy_columns( $columns ) {
+    // Insert the new columns after the title column.
     $new_columns = array();
     foreach ( $columns as $key => $value ) {
         $new_columns[ $key ] = $value;
         if ( 'title' === $key ) {
+            // Add Specialty column
             $new_columns['specialty'] = __( 'Specialties', 'your-textdomain' );
+            // Add Industry column
+            $new_columns['industry'] = __( 'Industries', 'your-textdomain' );
         }
     }
     return $new_columns;
 }
-add_filter( 'manage_edit-casestudy_columns', 'add_specialty_column' );
+add_filter( 'manage_edit-casestudy_columns', 'add_taxonomy_columns' );
 
-// Populate the 'specialty' column for each Case Study.
-function show_specialty_column( $column, $post_id ) {
-    if ( 'specialty' === $column ) {
-        $terms = get_the_term_list( $post_id, 'specialty', '', ', ', '' );
-        echo $terms ? $terms : '—';
+
+function populate_taxonomy_columns( $column, $post_id ) {
+    switch ( $column ) {
+        case 'specialty':
+            // Get the specialty taxonomy terms for this post
+            $terms = get_the_term_list( $post_id, 'specialty', '', ', ', '' );
+            if ( is_string( $terms ) ) {
+                echo $terms;
+            }
+            break;
+        case 'industry':
+            // Get the industry taxonomy terms for this post
+            $terms = get_the_term_list( $post_id, 'industry', '', ', ', '' );
+            if ( is_string( $terms ) ) {
+                echo $terms;
+            } 
+            break;
     }
 }
-add_action( 'manage_casestudy_posts_custom_column', 'show_specialty_column', 10, 2 );
+add_action( 'manage_casestudy_posts_custom_column', 'populate_taxonomy_columns', 10, 2 );
+
 
 
 // CPT Menu Item: Adds 'current_page_parent' class to menu items based on post type.

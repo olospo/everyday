@@ -157,7 +157,6 @@ get_header(); while ( have_posts() ) : the_post(); ?>
           }
         }
         ?>
-
       </ul>
     </div>
   </div>
@@ -167,29 +166,61 @@ get_header(); while ( have_posts() ) : the_post(); ?>
   <div class="container">
     <div class="twelve columns">
       <h2>Industries</h2>
-      <div class="industry">
-        <h3><a href="#">Consumer health & wellness</a></h3>
-        <p><a href="#">Baby tracking by Nara</a>, Mars pets, Clare, <a href="#">Alloy health</a>, <a href="#">Forfend</a></p>
-      </div>
-      <div class="industry">
-        <h3>Learning & play</h3>
-        <p>Primer, Tinyhood</p>
-      </div>
-      <div class="industry">
-        <h3>Consumer health & wellness</h3>
-        <p>Baby tracking by Nara, Mars pets, Clare, Alloy health, Forfend</p>
-      </div>
-      <div class="industry">
-        <h3>Consumer health & wellness</h3>
-        <p>Baby tracking by Nara, Mars pets, Clare, Alloy health, Forfend</p>
-      </div>
-      <div class="industry">
-        <h3>Consumer health & wellness</h3>
-        <p>Baby tracking by Nara, Mars pets, Clare, Alloy health, Forfend</p>
-      </div>
+
+      <?php
+      // Get all the industries (terms from the 'industry' taxonomy)
+      $industries = get_terms(array(
+        'taxonomy' => 'industry',
+        'hide_empty' => false, // Set to true if you only want industries that have case studies
+      ));
+
+      if ($industries && !is_wp_error($industries)) {
+        foreach ($industries as $industry) {
+          // Display the Industry name as a link
+          echo '<div class="industry">';
+          echo '<h3><a href="' . esc_url(get_term_link($industry)) . '">' . esc_html($industry->name) . '</a></h3>';
+
+          // Get the case studies assigned to this industry
+          $args = array(
+            'post_type' => 'casestudy',
+            'tax_query' => array(
+              array(
+                'taxonomy' => 'industry',
+                'field' => 'term_id',
+                'terms' => $industry->term_id,
+              ),
+            ),
+          );
+          $case_studies = new WP_Query($args);
+
+          // Check if there are case studies for this industry
+          if ($case_studies->have_posts()) {
+            echo '<p>';
+            // Loop through the case studies
+            while ($case_studies->have_posts()) {
+              $case_studies->the_post();
+              echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
+              if ($case_studies->current_post < $case_studies->post_count - 1) {
+                echo ', '; // Add a comma between case studies, but not after the last one
+              }
+            }
+            echo '</p>';
+          } else {
+            echo '<p>' . __('No case studies available for this industry.', 'your-textdomain') . '</p>';
+          }
+
+          // Reset post data
+          wp_reset_postdata();
+
+          echo '</div>';
+        }
+      } else {
+        echo '<p>' . __('No industries found.', 'your-textdomain') . '</p>';
+      }
+      ?>
     </div>
   </div>
-</section> 
+</section>
 
 <?php get_template_part('inc/collaborate'); ?>
 

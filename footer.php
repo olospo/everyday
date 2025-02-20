@@ -20,19 +20,11 @@
     <div class="row">
       <div class="sitemap one-third column">
         <h5>What we do</h5>
-        <ul>
-          <?php wp_nav_menu( array( 'theme_location' => 'footer-1', 'container'=> false, 'menu_class'=> false ) ); ?>
-        </ul>
+        <?php wp_nav_menu( array( 'theme_location' => 'footer-1', 'container'=> false, 'menu_class'=> false ) ); ?>
       </div>
       <div class="sitemap one-third column">
         <h5>Our focus</h5>
-        <ul>
-          <li><a href="#">Consumer health & wellness</a></li>
-          <li><a href="#">Beauty & personal care</a></li>
-          <li><a href="#">Learning & play</a></li>
-          <li><a href="#">Food & nutrition</a></li>
-          <li><a href="#">Marketplaces & platforms</a></li>
-        </ul>
+        <?php wp_nav_menu( array( 'theme_location' => 'footer-2', 'container'=> false, 'menu_class'=> false ) ); ?>
       </div>
       <div class="sitemap one-third column">
         <h5>About us</h5>

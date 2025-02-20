@@ -7,7 +7,7 @@ get_header(); ?>
   <div class="container">
     <div class="content six columns">
       <h1>Digital product design that transforms how people live, work, and connect.</h1>
-      <a href="#" class="button accent service">View our services</a> <a href="#" class="button accent work">See our work</a>
+      <a href="<?php echo get_site_url(); ?>/what-we-do/" class="button accent service">View our services</a> <a href="<?php echo get_site_url(); ?>/casestudy/" class="button accent work">See our work</a>
     </div>
     <div class="sunrise">
       <svg width="839px" height="502px" viewBox="0 0 839 502" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -77,16 +77,27 @@ get_header(); ?>
   <div class="container">
     <div class="five columns">
       <h2>Our expertise is in UX design for customer-focused products.</h2>
-      <a href="#" class="button accent">See our work</a>
+      <a href="<?php echo get_site_url(); ?>/casestudy/" class="button accent">See our work</a>
     </div>
     <div class="focus four columns offset-by-three">
       <h3>Our Focus</h3>
       <ul>
-        <li><a href="#">Consumer health & wellness</a></li>
-        <li><a href="#">Learning & play</a></li>
-        <li><a href="#">Beauty & personal care</a></li>
-        <li><a href="#">Food & nutrition</a></li>
-        <li><a href="#">Marketplaces & platforms</a></li>
+        <?php
+        $specialties = get_terms( array(
+          'taxonomy'   => 'industry',
+          'hide_empty' => true,
+          'orderby'    => 'term_id',
+          'order'      => 'DESC'
+        ) );
+        
+        if ( ! empty( $specialties ) && ! is_wp_error( $specialties ) ) {
+          foreach ( $specialties as $specialty ) {
+            $specialty_link = get_term_link( $specialty );
+            // Echo each <li> without any space or newline
+            echo '<li><a href="' . esc_url( $specialty_link ) . '">' . esc_html( $specialty->name ) . '</a></li>';
+          }
+        }
+        ?>
       </ul>
   </div>  
 </section>
@@ -141,7 +152,14 @@ get_header(); ?>
             <article class="work-item <?php echo $counter === 1 ? 'active' : ''; ?>" data-image="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>" data-link="<?php the_permalink(); ?>">
               <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
               <p><?php echo get_field('short_description'); ?></p>
-              <span class="cat"><a href="#">Consumer health & wellness</a></span>
+              <?php
+              $industries = get_the_terms(get_the_ID(), 'industry');
+              if ($industries && !is_wp_error($industries)) {
+                  foreach ($industries as $industry) {
+                      echo '<span class="cat"><a href="' . esc_url(get_term_link($industry->term_id, 'industry')) . '">' . esc_html($industry->name) . '</a></span>';
+                  }
+              }
+              ?>
             </article>
           <?php endwhile; ?>
         <?php else : ?>
@@ -155,7 +173,7 @@ get_header(); ?>
       </div>
     </div>
     <div class="all-wrapper twelve columns">
-      <a href="#" class="button accent">View all work</a>
+      <a href="<?php echo get_site_url(); ?>/casestudy/" class="button accent">View all work</a>
     </div>
   </div>  
 </section>
