@@ -19,6 +19,15 @@ function custom_nav_active_class( $classes, $item ) {
                 $classes[] = 'current-menu-item';
             }
         }
+        
+        // For the Industry taxonomy or industry archive.
+        if ( is_singular( 'industry' ) || is_post_type_archive( 'industry' ) ) {
+            // Page with ID 29 is the parent for industry
+            $what_we_do_page_id = 29;
+            if ( isset( $item->url ) && $what_we_do_page_id && $item->url == get_permalink( $what_we_do_page_id ) ) {
+                $classes[] = 'current-menu-item'; // Mark 'What We Do' as active
+            }
+        }
 
         // Remove any active classes from the blog page (Insights) if it is set as the posts page.
         $blog_page_id = get_option( 'page_for_posts' );

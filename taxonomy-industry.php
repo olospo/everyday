@@ -1,4 +1,13 @@
-<?php /* News Archive */
+<?php /* Industries */
+
+$term = get_queried_object(); // Get the current term object
+
+if (isset($term->term_id)) {
+  $title = get_field('intro_title', 'term_' . $term->term_id);
+  $content = get_field('intro_content', 'term_' . $term->term_id);
+  $selected_case_studies = get_field('case_studies', 'term_' . $term->term_id);
+}
+
 get_header(); ?>
 
 <section class="services hero">
@@ -12,8 +21,8 @@ get_header(); ?>
 <section class="service intro">
   <div class="container">
     <div class="eight columns">
-      <h2>What we can do for you</h2>
-      <p>Launching a new product is an exciting and chaotic journey. Our services simplify the process through design, rapid prototyping, and iterative testing so you can bring ideas to market confidently. We collaborate closely with you to evaluate product ideas, validate concepts, and design excellent experiences - launching products customers want.</p>
+      <h2><?php echo $title; ?></h2>
+      <?php echo $content; ?>
   </div>
 </section>
 
@@ -55,62 +64,118 @@ get_header(); ?>
   </div>  
 </section>
 
-<section class="archive">
+<?php if ($selected_case_studies) : ?>
+<section class="service products">
   <div class="container">
+    <h2>Case Studies</h2>
     <div class="twelve columns">
       <div class="news_listing">
-      <?php if ( have_posts() ) : while (have_posts()) : the_post();  ?>
-        <?php get_template_part('inc/work'); ?>
-      <?php endwhile; ?>
+      <?php 
+        // Loop through the selected posts (if multiple are selected)
+        foreach ($selected_case_studies as $post) :
+          setup_postdata($post);
+          get_template_part('inc/work');
+        endforeach;
+        wp_reset_postdata();
+      ?>
       </div>
       <div class="twelve columns">
         <?php numeric_posts_nav(); ?>
       </div>
-      <?php else : endif; wp_reset_query(); ?>
     </div>
   </div>
 </section>
+<?php endif; // End check for selected posts ?>
 
 <section class="service insights">
   <div class="container">
     <h2>Dive deeper into our thinking</h2>
     <div class="twelve columns">
-    <?php $args = array(
-      'post_type' => 'post',
-      'posts_per_page' => 3,
-      'post_status' => 'publish',
-    ); query_posts($args); ?>
-      <?php if ( have_posts() ) : while (have_posts()) : the_post(); ?>
-      <article class="insight twelve columns">
-        <div class="six columns">
-          <a href="<?php the_permalink(); ?>">
-            <div class="zoom">
-              <div class="image" style="background: url('<?php the_post_thumbnail_url( 'featured-img' ); ?>') center center no-repeat; background-size: cover;"></div>
+    <?php
+      // Get the insight_topic field (assuming it's attached to the current taxonomy term).
+      $insight_topics = get_field('insight_topic', get_queried_object());
+
+      // Set up default query arguments.
+      $args = array(
+        'post_type'      => 'post',
+        'posts_per_page' => 3,
+        'post_status'    => 'publish'
+      );
+
+      // If the insight_topic field has been set, modify the query to filter by these categories.
+      if ( $insight_topics ) {
+        $cat_ids = array();
+        // Loop through each selected topic. Depending on your ACF settings this may be an object or an ID.
+        foreach ( $insight_topics as $topic ) {
+          if ( is_object( $topic ) ) {
+            $cat_ids[] = $topic->term_id;
+          } else {
+            $cat_ids[] = $topic;
+          }
+        }
+        // Add a tax_query to restrict posts to the selected categories.
+        $args['tax_query'] = array(
+          array(
+            'taxonomy' => 'category',
+            'field'    => 'term_id',
+            'terms'    => $cat_ids,
+          ),
+        );
+      }
+
+      // Run the custom query.
+      $insight_query = new WP_Query( $args );
+
+      // If no posts are found for the selected categories, revert back to the default query.
+      if ( ! $insight_query->have_posts() ) {
+        $args = array(
+          'post_type'      => 'post',
+          'posts_per_page' => 3,
+          'post_status'    => 'publish'
+        );
+        $insight_query = new WP_Query( $args );
+      }
+
+      // Loop through the posts.
+      if ( $insight_query->have_posts() ) :
+        while ( $insight_query->have_posts() ) : $insight_query->the_post();
+    ?>
+          <article class="insight twelve columns">
+            <div class="six columns">
+              <a href="<?php the_permalink(); ?>">
+                <div class="zoom">
+                  <div class="image" style="background: url('<?php the_post_thumbnail_url( 'featured-img' ); ?>') center center no-repeat; background-size: cover;"></div>
+                </div>
+              </a>
             </div>
-          </a>
-        </div>
-        <div class="content six columns">
-          <?php 
-            $primary_category_id = get_post_meta( get_the_ID(), '_yoast_wpseo_primary_category', true );
-            if ( $primary_category_id ) {
-              $primary_category = get_term( $primary_category_id, 'category' );
-              if ( $primary_category && ! is_wp_error( $primary_category ) ) {
-                echo '<span class="cat"><a href="' . esc_url( get_category_link( $primary_category->term_id ) ) . '">' . esc_html( $primary_category->name ) . '</a></span>';
-              }
-            }
-          ?>
-          <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-          <?php the_excerpt(); ?>
-          <span class="date"><?php the_time("F j, Y"); ?></span>
-        </div>
-      </article>
-      <?php endwhile; else : ?>
-    <!-- No posts found -->
-    <?php endif; wp_reset_query(); ?>
+            <div class="content six columns">
+              <?php 
+                // Display primary category if available via Yoast SEO.
+                $primary_category_id = get_post_meta( get_the_ID(), '_yoast_wpseo_primary_category', true );
+                if ( $primary_category_id ) {
+                  $primary_category = get_term( $primary_category_id, 'category' );
+                  if ( $primary_category && ! is_wp_error( $primary_category ) ) {
+                    echo '<span class="cat"><a href="' . esc_url( get_category_link( $primary_category->term_id ) ) . '">' . esc_html( $primary_category->name ) . '</a></span>';
+                  }
+                }
+              ?>
+              <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+              <?php the_excerpt(); ?>
+              <span class="date"><?php the_time( "F j, Y" ); ?></span>
+            </div>
+          </article>
+    <?php
+        endwhile;
+      else :
+        echo '<p>No insights found.</p>';
+      endif;
+      wp_reset_postdata();
+    ?>
     </div>
   </div>  
 </section>
-  
+
+
 <?php get_template_part('inc/collaborate'); ?>
 
 <?php get_footer();  ?>

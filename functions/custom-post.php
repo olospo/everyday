@@ -128,12 +128,22 @@ function custom_taxonomy() {
   $args = array(
     'labels' => $labels,
     'hierarchical' => true,
+    'show_tagcloud' => false, 
+    'meta_box_cb' => false,
   );
   register_taxonomy( 'industry', 'casestudy', $args );
 }
 add_action( 'init', 'custom_taxonomy' );
 
-
+function hide_industry_taxonomy_description_field() {
+    echo '<style>
+        .taxonomy-industry .term-description-wrap, .taxonomy-industry .term-parent-wrap {
+            display: none !important;
+        }
+        
+    </style>';
+}
+add_action('admin_head', 'hide_industry_taxonomy_description_field');
 
 // Add a new column for 'specialty' to the Case Studies admin list.
 function add_taxonomy_columns( $columns ) {

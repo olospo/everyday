@@ -166,7 +166,6 @@ get_header(); while ( have_posts() ) : the_post(); ?>
   <div class="container">
     <div class="twelve columns">
       <h2>Industries</h2>
-
       <?php
       // Get all the industries (terms from the 'industry' taxonomy)
       $industries = get_terms(array(
@@ -208,15 +207,11 @@ get_header(); while ( have_posts() ) : the_post(); ?>
           } else {
             echo '<p>' . __('No case studies available for this industry.', 'your-textdomain') . '</p>';
           }
-
           // Reset post data
           wp_reset_postdata();
-
           echo '</div>';
         }
-      } else {
-        echo '<p>' . __('No industries found.', 'your-textdomain') . '</p>';
-      }
+      } 
       ?>
     </div>
   </div>
