@@ -485,8 +485,12 @@ section.archive {
     @include fade();
   }
   &.visible {
-    .filters, .pagination {
+    .pagination {
       @include reset();
+    }
+    .filters {
+      @include reset();
+      transition-delay: 0.3s;
     }
   }
   article {
