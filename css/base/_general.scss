@@ -161,34 +161,6 @@ section {
       margin-top: 0;
     }
   }
-  p.jump {
-    margin: 0 0 10px 0;
-    font: $bold 1.5rem/1.5rem $regular;
-  }
-  ul.jump {
-    margin: 0px 0 20px 0;
-    li {
-      margin: 5px;
-      display: inline-block;
-      a {
-        display: block;
-        border: 2px solid $blue;
-        font: $bold 1.5rem/1.5rem $regular;
-        padding: 8px 15px;
-        text-decoration: none;
-        &:hover {
-          background: $blue;
-          color: $white;
-        }
-      }
-    }
-  }
-  h2.wp-block-heading.margin {
-    margin-bottom: 20px;
-    @media (min-width: $breakpoint-tablet) {
-      margin-bottom: 40px;
-    }
-  }
   figure {
     &.aligncenter {
       font: $bold 1.8rem/2.8rem $regular;
@@ -252,11 +224,11 @@ section {
     font-style: italic;
   }
   a {
-    color: $blue;
+    color: $bgreen90;
     text-decoration: underline;
-    text-decoration-color: $blue;
+    text-decoration-color: $bgreen90;
     &:hover {
-      color: $green;
+      color: $bgreen90;
       text-decoration: none;
     }
   }

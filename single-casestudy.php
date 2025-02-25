@@ -46,16 +46,16 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-<section class="casestudy content">
-  <div class="container">
-
+<section class="casestudy old content">
 <?php if ( have_rows( 'content_sections' ) ): ?>
   <?php while ( have_rows( 'content_sections' ) ) : the_row(); ?>
     <?php if ( get_row_layout() == 'copy_w_header' ) : ?>
       <section class="copy-block">
-        <div class="content">
-          <h3><?php the_sub_field( 'header' ); ?></h3>
-          <?php the_sub_field( 'copy' ); ?>
+        <div class="container">
+          <div class="content">
+            <h3><?php the_sub_field( 'header' ); ?></h3>
+            <?php the_sub_field( 'copy' ); ?>
+          </div>
         </div>
       </section>
     <?php elseif ( get_row_layout() == 'images' ) : ?>
@@ -64,8 +64,10 @@ while ( have_posts() ) : the_post(); ?>
           <?php if ( get_row_layout() == 'fw_image' ) : ?>
             <?php if ( get_sub_field( 'hide_for_mobile' ) == 1 ) { ?>
               <section class="image-block mobile-hide">
+                <div class="container">
           <?php	} else { ?>
            <section class="image-block">
+             <div class="container">
           <?php	} ?>
               <div class="content">
                 <?php $mobile_image = get_sub_field( 'mobile_image' ); ?>
@@ -90,9 +92,11 @@ while ( have_posts() ) : the_post(); ?>
               </div>
             <?php } ?>
             </div>
+             </div>
             </section>
           <?php elseif ( get_row_layout() == 'fw_website_image' ) : ?>
             <section class="web-image-block">
+              <div class="container">
               <div class="content">
               <?php $image = get_sub_field( 'image' ); ?>
               <?php if ( $image ) { ?>
@@ -110,9 +114,11 @@ while ( have_posts() ) : the_post(); ?>
               <?php the_sub_field( 'caption' ); ?>
             </div>
             </div>
+              </div>
           </section>
           <?php elseif ( get_row_layout() == 'three_images' ) : ?>
             <section class="three-images">
+              <div class="container">
               <div class="content">
               <?php $images_images = get_sub_field( 'images' ); ?>
               <?php if ( $images_images ) :  ?>
@@ -129,9 +135,11 @@ while ( have_posts() ) : the_post(); ?>
                   <?php the_sub_field( 'caption' ); ?>
                 </div>
               <?php } ?>
+              </div>
             </section>
 
             <section class="three-images-mobile">
+              <div class="container">
               <div class="content">
               <!-- Slider main container -->
               <div class="swiper">
@@ -160,10 +168,13 @@ while ( have_posts() ) : the_post(); ?>
                 <?php the_sub_field( 'caption' ); ?>
               </div>
             <?php } ?>
+              </div>
             </section>
           <?php elseif ( get_row_layout() == 'large_image_with_quote_block' ) : ?>
+            <div class="container">
             <section class="image-quote" <?php if ( get_sub_field( 'image' ) ) { ?>
             style="background-image: url('<?php the_sub_field( 'image' ); ?>');"<?php } ?>>
+            
               <?php if ( have_rows( 'quote' ) ) : ?>
                 <div class="quote-row">
                 <?php while ( have_rows( 'quote' ) ) : the_row(); ?>
@@ -177,8 +188,11 @@ while ( have_posts() ) : the_post(); ?>
                 </div>
               <?php endif; ?>
             </section>
-
+            </div>
+            
+            
             <section class="image-quote-mobile">
+              <div class="container">
                 <div class="mobile-image">
                   <?php $mobile_image = get_sub_field( 'mobile_image' ); ?>
                   <?php if ( $mobile_image ) { ?>
@@ -197,7 +211,8 @@ while ( have_posts() ) : the_post(); ?>
                 <?php endwhile; ?>
                 </div>
               <?php endif; ?>
-            </section>
+            </div>
+          </section>
           <?php endif; ?>
         <?php endwhile; ?>
       <?php else: ?>
@@ -205,6 +220,7 @@ while ( have_posts() ) : the_post(); ?>
       <?php endif; ?>
     <?php elseif ( get_row_layout() == 'quote' ) : ?>
     <section class="quote-block">
+      <div class="container">
       <div class="content">
         <div class="copy">
           <?php the_sub_field( 'copy' ); ?>
@@ -219,6 +235,7 @@ while ( have_posts() ) : the_post(); ?>
         </div>
         <?php endwhile; ?>
       <?php endif; ?>
+      </div>
       </section>
     <?php endif; ?>
   <?php endwhile; ?>
