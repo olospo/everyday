@@ -97,6 +97,12 @@ section.casestudy.content {
   @media (min-width: $breakpoint-tablet) {
     padding: $padding 0;
   }
+}
+
+
+// Old Template CSS
+
+section.casestudy.content {
   .image {
     &.mobile-hide {
       display: none;
@@ -109,6 +115,148 @@ section.casestudy.content {
       @media (min-width: $breakpoint-tablet) {
         display: none;
       }
+    }
+  }
+  .web-image-block {
+    padding-right: 0;
+    padding-left: 0;
+    margin: 0 auto;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    .content {
+      width: calc(100% - 1.25rem);
+      margin-right: .625rem;
+      margin-left: .625rem;
+      margin-top: 56px;
+      position: relative;
+    }
+    .mobile-image {
+      bottom: -40px;
+      right: -40px;
+      position: absolute;
+    }
+  }
+  .image-block {
+    .caption {
+      font-size: 1.6rem;
+      line-height: 2.0rem;
+      text-align: center;
+    }
+  }
+  .copy-block {
+    padding-right: 0;
+    padding-left: 0;
+    max-width: 78.25rem;
+    margin: 0 auto;
+    margin-top: 0px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    margin-top: 64px;
+  }
+  .image-quote {
+    height: 850px;
+    background-position: right -30px top 150px;
+    background-size: auto;
+    margin-top: 88px;
+    width: 100%;
+    background-repeat: no-repeat;
+    .quote-row {
+      padding-right: 0;
+      padding-left: 0;
+      max-width: 78.25rem;
+      margin: 0 auto;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+      .quote-container {
+        position: relative;
+        width: calc(66.66667% - 1.25rem);
+        margin-right: .625rem;
+        margin-left: .625rem;
+        padding-left: 60px;
+        padding-right: 80px;
+        min-height: 250px;
+        .quote {
+          height: 100%;
+          width: 100%;
+          background-color: #b8e7dd;
+        }
+      }
+    }
+  }
+  .three-images {
+    padding-right: 0;
+    padding-left: 0;
+    margin: 0 auto;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    display: none;
+    @media (min-width: $breakpoint-tablet) {
+      display: block;
+    }
+    .content {
+      flex-direction: row;
+      width: calc(100% - 5rem);
+      margin-right: 2.5rem;
+      margin-left: 2.5rem;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      margin-top: 56px;
+      .image {
+        width: 33%;
+        img {
+          display: inline-block;
+          vertical-align: middle;
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+  .three-images-mobile {
+    display: block;
+    @media (min-width: $breakpoint-tablet) {
+      display: none;
     }
   }
 }
