@@ -97,4 +97,18 @@ section.casestudy.content {
   @media (min-width: $breakpoint-tablet) {
     padding: $padding 0;
   }
+  .image {
+    &.mobile-hide {
+      display: none;
+      @media (min-width: $breakpoint-tablet) {
+        display: block;
+      }
+    }
+    &.mobile-show {
+      display: block;
+      @media (min-width: $breakpoint-tablet) {
+        display: none;
+      }
+    }
+  }
 }
