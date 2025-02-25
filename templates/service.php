@@ -15,6 +15,7 @@ get_header(); while ( have_posts() ) : the_post(); ?>
     <div class="eight columns">
       <h2>What we can do for you</h2>
       <p>Launching a new product is an exciting and chaotic journey. Our services simplify the process through design, rapid prototyping, and iterative testing so you can bring ideas to market confidently. We collaborate closely with you to evaluate product ideas, validate concepts, and design excellent experiences - launching products customers want.</p>
+    </div>
   </div>
 </section>
 

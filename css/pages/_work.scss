@@ -1,14 +1,5 @@
-// News
+// Work
 
-
-body.single-casestudy {
-  header {
-    background: $darkblue;
-  }
-  section.hero.single {
-    background: $darkblue;
-  }
-}
 section.archive {
   padding: $padding 0;
   background: $cream;
@@ -55,5 +46,55 @@ article.work {
   &:nth-child(2n+1) {
     margin-left: 0;
     clear: left;
+  }
+}
+
+// Single Case Study
+body.single-casestudy {
+  header {
+    background: $darkblue;
+  }
+  section.hero.single {
+    background: $darkblue;
+  }
+}
+
+section.casestudy.intro {
+  padding: $padding-half 0;
+  background: $cream;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
+  h2 {
+    font: $bold 4.0rem/4.8rem $heading;
+    margin-bottom: 20px;
+    @media (min-width: $breakpoint-desktop) {
+      font: $bold 4.8rem/5.8rem $heading;
+    }
+  }
+  p {
+    font: $normal 2.4rem/3.4rem $regular;
+  }
+  aside {
+    background: $suntan;
+    border-left: 2px solid $bgreen80;
+    padding: 20px 30px;
+    ul {
+      margin: 0 0 20px 0;
+      li {
+        font: $normal 2.0rem/3.0rem $regular;
+      }
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+section.casestudy.content {
+  padding: $padding-half 0;
+  background: $suntan;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
   }
 }
