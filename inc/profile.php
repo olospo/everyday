@@ -8,7 +8,11 @@ setup_postdata($post); ?>
   </div>
   <div class="content nine columns">
     <h3><?php the_title(); ?></h3>
-    <?php the_content(); ?>
+    <p><?php echo get_field('job_title'); ?></p>
+    <div class="profile-content">
+      <?php the_content(); ?>
+    </div>
+    <a class="learn-more">Learn More</a>
   </div>
 </article>
 <?php wp_reset_postdata(); ?>

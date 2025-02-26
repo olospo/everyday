@@ -1,6 +1,22 @@
 <?php /* Template Name: About */
   
+// Heading
+$headingTitle = get_field('heading_title');
+$headingImg = get_field('heading_image');
+// Office
+$officePhoto = get_field('office_photo');
+$officeCaption = get_field('office_photo_caption');
+// What
+$whatTitle = get_field('what_title');
+$whatContent = get_field('what_content');
+// Who
 $teamHeading = get_field('heading');
+// How
+$howTitle = get_field('how_title');
+$howContent = get_field('how_content');
+// Why
+$whyTitle = get_field('why_title');
+$whyContent = get_field('why_content');
 
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
@@ -8,10 +24,10 @@ get_header(); ?>
 <section class="about hero">
   <div class="container">
     <div class="content seven columns">
-      <h1>Since 2012, we’ve helped big and small teams design products that impact people’s lives.</h1>
+      <h1><?php echo $headingTitle; ?></h1>
     </div>
     <div class="cutoff twelve columns">
-      <img src="<?php bloginfo('template_directory'); ?>/img/everyday-cut.svg">
+      <img src="<?php echo $headingImg; ?>" alt="Everyday" />
     </div>
   </div>  
 </section>
@@ -19,8 +35,10 @@ get_header(); ?>
 <section class="about office">
   <div class="container">
     <div class="twelve columns">
-      <img src="<?php bloginfo('template_directory'); ?>/img/office.jpg" alt="Everyday Office">
-      <span>Our office in Atlanta</span>
+      <img src="<?php echo esc_url($officePhoto['url']); ?>" alt="<?php echo esc_attr($officePhoto['alt']); ?>" />
+      <?php if( $officeCaption ): ?>
+        <span><?php echo $officeCaption; ?></span>
+      <?php endif; ?>
     </div>
   </div>
 </section>
@@ -28,8 +46,8 @@ get_header(); ?>
 <section class="about what">
   <div class="container">
     <div class="ten columns offset-by-one">
-    <h2>What we do</h2>
-    <p>We’re based in Atlanta, but we partner with clients across the globe.  We work with product teams to help them learn about their customers, create concepts, test and refine those concepts, then deliver final designs.</p>
+    <h2><?php echo $whatTitle; ?></h2>
+    <?php echo $whatContent; ?>
     </div>
   </div>
 </section>
@@ -61,17 +79,12 @@ get_header(); ?>
   <div class="container">
     <div class="statement one-half column">
       <div class="content">
-        <p>How Everyday is different.</p>
+        <p><?php echo $howTitle; ?></p>
       </div>
     </div>
     <div class="reasons one-half column">
       <div class="content">
-        <h3>Founder-led teams</h3>
-        <p>At Everyday, you work directly with experienced designers our co-founders lead dedicated, senior-level teams to ensure project success.</p>
-        <h3>Collaborative innovation</h3>
-        <p>We bring fresh perspectives, you bring deep product knowledge—together, we create solutions.</p>
-        <h3>Quick wins, Real results</h3>
-        <p>We pinpoint your highest-impact opportunities and help you make design changes that drive immediate value.</p>
+        <?php echo $howContent; ?>
       </div>
     </div>
   </div>
@@ -80,8 +93,8 @@ get_header(); ?>
 <section class="about why">
   <div class="container">
     <div class="content twelve columns">
-      <h3>Our why</h3>
-      <p>We believe the best ideas emerge when diverse minds come together, challenge each other, and listen generously. We are driven by curiosity and a desire to make digital products that matter.</p>
+      <h3><?php echo $whyTitle; ?></h3>
+      <?php echo $whyContent; ?>
     </div>
   </div>
 </section>

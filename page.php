@@ -1,5 +1,4 @@
 <?php /* Page */
-$sub = get_field('sub_title');
 
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
