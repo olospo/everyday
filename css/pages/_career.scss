@@ -5,6 +5,11 @@ section.archive {
   background: $cream;
   .careers_listing {
     display: flex;
+    .no-roles {
+      h2 {
+        font: $bold 3.2rem/4.2rem $heading;
+      }
+    }
   }
 }
 
