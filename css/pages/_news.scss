@@ -60,6 +60,9 @@ body.single-post {
       margin: 20px 0;
     }
     aside.ux-insights {
+      position: -webkit-sticky; /* for older Safari support */
+      position: sticky;
+      top: 40px; /* Adjust this value as needed for your layout */
       background: $blue url('../img/ux-insights-bg.png') bottom center no-repeat;
       background-size: 100% 180px;
       padding: 20px 20px 200px 20px;
