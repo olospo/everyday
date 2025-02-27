@@ -1,11 +1,12 @@
 <?php
 function custom_nav_active_class( $classes, $item ) {
     // Check if we are on a single Case Study, the Case Study archive,
-    // a single Career, or the Career archive.
-    if ( is_singular( 'casestudy' ) || is_post_type_archive( 'casestudy' ) || is_singular( 'career' ) || is_post_type_archive( 'career' ) ) {
+    // filtering by specialty, a single Career, or the Career archive,
+    // or viewing an industry taxonomy archive.
+    if ( is_singular( 'casestudy' ) || is_post_type_archive( 'casestudy' ) || is_tax( 'specialty' ) || is_singular( 'career' ) || is_post_type_archive( 'career' ) || is_tax( 'industry' ) ) {
 
-        // For the Case Study CPT.
-        if ( is_singular( 'casestudy' ) || is_post_type_archive( 'casestudy' ) ) {
+        // For Case Study CPT and specialty taxonomy archives.
+        if ( is_singular( 'casestudy' ) || is_post_type_archive( 'casestudy' ) || is_tax( 'specialty' ) ) {
             $casestudy_archive_url = get_post_type_archive_link( 'casestudy' );
             if ( isset( $item->url ) && $casestudy_archive_url && $item->url == $casestudy_archive_url ) {
                 $classes[] = 'current-menu-item';
@@ -20,12 +21,12 @@ function custom_nav_active_class( $classes, $item ) {
             }
         }
         
-        // For the Industry taxonomy or industry archive.
-        if ( is_singular( 'industry' ) || is_post_type_archive( 'industry' ) ) {
-            // Page with ID 29 is the parent for industry
+        // For the Industry taxonomy archive.
+        if ( is_tax( 'industry' ) ) {
+            // Page with ID 29 is the parent for industry.
             $what_we_do_page_id = 29;
             if ( isset( $item->url ) && $what_we_do_page_id && $item->url == get_permalink( $what_we_do_page_id ) ) {
-                $classes[] = 'current-menu-item'; // Mark 'What We Do' as active
+                $classes[] = 'current-menu-item';
             }
         }
 
@@ -34,7 +35,6 @@ function custom_nav_active_class( $classes, $item ) {
         if ( $blog_page_id ) {
             $blog_page_url = get_permalink( $blog_page_id );
             if ( isset( $item->url ) && $blog_page_url && $item->url == $blog_page_url ) {
-                // Remove WordPress's default active classes.
                 $classes = array_diff( $classes, array( 'current-menu-item', 'current_page_item', 'current_page_parent', 'current_page_ancestor' ) );
             }
         }
@@ -42,6 +42,7 @@ function custom_nav_active_class( $classes, $item ) {
     return $classes;
 }
 add_filter( 'nav_menu_css_class', 'custom_nav_active_class', 10, 2 );
+
 
 
 
