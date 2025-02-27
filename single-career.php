@@ -11,15 +11,13 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-<section class="post news">
-  <div class="container flex">
-    <div class="content eight columns">
+<section class="post">
+  <div class="container">
+    <div class="content seven columns">
       <h2><?php the_title(); ?></h2>
       <?php the_content(); ?>
     </div>
-    <aside class="four columns">
-      
-    </aside>
+    <aside class="bg five columns"></aside>
   </div>
 </section>
 

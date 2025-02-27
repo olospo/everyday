@@ -9,6 +9,9 @@ section.archive {
       h2 {
         font: $bold 3.2rem/4.2rem $heading;
       }
+      p {
+        
+      }
     }
   }
 }
@@ -67,5 +70,43 @@ article.career {
     margin-left: 0;
     clear: left;
   }
-  
+}
+section.post {
+  .container {
+    display: flex;
+    position: relative;
+  }
+  .content {
+    h2 {
+      font: $bold 4.0rem/4.8rem $heading;
+      margin-bottom: 20px;
+      @media (min-width: $breakpoint-tablet) {
+        font: $bold 5.6rem/5.6rem $heading;
+      }
+    }
+    h3 {
+      font: $bold 3.2rem/4.2rem $heading;
+      margin-bottom: 20px;
+    }
+    p, ul li, ol li {
+      font: $normal 2.4rem/3.4rem $regular;
+    }
+  }
+  .bg {
+    // height: 100%;
+    max-height: 780px;
+    background: #18584a;
+    position: relative;
+    &::after {
+      content: '';
+      background: url(../img/repeating_pattern.svg) center 0px repeat-y;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      // opacity: 0; /* Start with the background image invisible */
+      transition: opacity 1s ease-in-out; /* Fade-in effect */
+    }
+  }
 }
