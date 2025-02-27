@@ -21,7 +21,7 @@ get_header(); ?>
     <!-- Container for featured insight -->
     <div class="container">
       <div class="news_listing twelve columns">
-        <article class="insight twelve columns">
+        <article class="insight large twelve columns">
           <div class="six columns">
             <a href="<?php the_permalink(); ?>">
               <div class="zoom">

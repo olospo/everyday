@@ -277,4 +277,16 @@ section.home.work {
 section.home.insights {
   background: $suntan;
   padding: $padding 0;
+  article.insight {
+    &.large {
+      display: flex;
+      flex-wrap: wrap;
+      .zoom {
+        height: 100%;
+      }
+      .image {
+        height: 100%;
+      }
+    }
+  }
 }

@@ -1,4 +1,6 @@
 <?php /* News Archive */
+
+
 get_header(); ?>
 
 <section class="hero single">
@@ -19,15 +21,37 @@ get_header(); ?>
   </div>
   <div class="container">
     <div class="twelve columns">
-      <div class="news_listing">
-      <?php if ( have_posts() ) : while (have_posts()) : the_post();  ?>
-        <?php get_template_part('inc/work'); ?>
-      <?php endwhile; ?>
+      <div class="work-listing">
+      <?php 
+        // Base query args.
+        $args = array(
+          'post_type'      => 'casestudy',
+          'posts_per_page' => -1,
+          'orderby'        => 'menu_order',
+          'order'          => 'ASC'
+        );
+        
+        // If filtering by specialty taxonomy, add a tax_query.
+        if ( is_tax('specialty') ) {
+          $current_term = get_queried_object();
+          $args['tax_query'] = array(
+            array(
+              'taxonomy' => 'specialty',
+              'field'    => 'term_id',
+              'terms'    => $current_term->term_id,
+            ),
+          );
+        }
+        
+        $the_query = new WP_Query( $args );
+        if ( $the_query->have_posts() ) :
+          while ( $the_query->have_posts() ) : $the_query->the_post(); 
+            get_template_part('inc/work');
+          endwhile;
+        endif;
+        wp_reset_postdata();
+      ?>
       </div>
-      <div class="twelve columns">
-        <?php numeric_posts_nav(); ?>
-      </div>
-      <?php else : endif; wp_reset_query(); ?>
     </div>
   </div>
 </section>

@@ -1,0 +1,129 @@
+{
+    "key": "group_67c0a19a774f6",
+    "title": "Testimonials",
+    "fields": [
+        {
+            "key": "field_67c0a1b2c86f4",
+            "label": "Author Name",
+            "name": "author_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67c0a19ac86f3",
+            "label": "Job Title",
+            "name": "job_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67c0a1c9c86f5",
+            "label": "Linked Case Study",
+            "name": "case_study",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "post_type": [
+                "casestudy"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "elements": [
+                "featured_image"
+            ],
+            "bidirectional": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_67c0d928246f6",
+            "label": "Linked Industry",
+            "name": "linked_industry",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "taxonomy": "industry",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 1,
+            "return_format": "id",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "testimonial"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1740691827
+}

@@ -161,13 +161,26 @@ section.archive {
       }
     }
   }
+  .news_listing {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 article.insight {
   margin-bottom: 20px;
   border: 1px solid #D6D6D6;
   background: $suntan;
-  
+  &.large {
+    display: flex;
+    flex-wrap: wrap;
+    .zoom {
+      height: 100%;
+    }
+    .image {
+      height: 100%;
+    }
+  }
   .zoom {
     position: relative;
     overflow: hidden;

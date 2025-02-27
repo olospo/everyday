@@ -19,7 +19,7 @@ function custom_post_type() {
     'label'               => __( 'Case Studies', 'text_domain' ),
     'description'         => __( 'Everyday Case Studies', 'text_domain' ),
     'labels'              => $labels,
-    'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom fields', 'excerpt' ),
+    'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom fields', 'excerpt', 'page-attributes' ),
     'hierarchical'        => false,
     'public'              => true,
     'show_ui'             => true,
@@ -89,7 +89,7 @@ function custom_post_type() {
     'label'               => __( 'Careers', 'text_domain' ),
     'description'         => __( 'Everyday Careers', 'text_domain' ),
     'labels'              => $labels,
-    'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom fields', 'excerpt' ),
+    'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom fields', 'excerpt', 'page-attributes' ),
     'hierarchical'        => false,
     'public'              => true,
     'show_ui'             => true,
@@ -104,7 +104,46 @@ function custom_post_type() {
     'publicly_queryable'  => true,
     'capability_type'     => 'post',
   );
-  register_post_type( 'career', $args );  
+  register_post_type( 'career', $args );
+  
+  $labels = array(
+    'name'               => 'Testimonials',
+    'singular_name'      => 'Testimonial',
+    'add_new'            => 'Add New',
+    'add_new_item'       => 'Add New Testimonial',
+    'edit_item'          => 'Edit Testimonial',
+    'new_item'           => 'New Testimonial',
+    'all_items'          => 'All Testimonials',
+    'view_item'          => 'View Testimonial',
+    'search_items'       => 'Search Testimonials',
+    'not_found'          => 'No testimonials found',
+    'not_found_in_trash' => 'No testimonials found in Trash',
+    'menu_name'          => 'Testimonials'
+  );
+  
+  $args = array(
+    'labels'             => $labels,
+    'rewrite'            => array( 'slug' => 'testimonials' ),
+    'supports'           => array( 'title', 'editor', 'thumbnail' ),
+    'hierarchical'        => false,
+    'public'              => true,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'show_in_nav_menus'   => true,
+    'show_in_admin_bar'   => true,
+    'menu_position'      => 23,
+    'menu_icon'          => 'dashicons-format-quote',
+    'can_export'          => true,
+    'has_archive'         => false,
+    'exclude_from_search' => true,
+    'publicly_queryable'  => false,
+    
+    
+    'show_in_rest'       => true, // if you're using the block editor.
+  );
+  
+  register_post_type( 'testimonial', $args );
+  
 }
 add_action( 'init', 'custom_post_type' );
 
@@ -136,12 +175,11 @@ function custom_taxonomy() {
 add_action( 'init', 'custom_taxonomy' );
 
 function hide_industry_taxonomy_description_field() {
-    echo '<style>
-        .taxonomy-industry .term-description-wrap, .taxonomy-industry .term-parent-wrap {
-            display: none !important;
-        }
-        
-    </style>';
+  echo '<style>
+    .taxonomy-industry .term-description-wrap, .taxonomy-industry .term-parent-wrap {
+      display: none !important;
+    }
+  </style>';
 }
 add_action('admin_head', 'hide_industry_taxonomy_description_field');
 
@@ -161,7 +199,6 @@ function add_taxonomy_columns( $columns ) {
     return $new_columns;
 }
 add_filter( 'manage_edit-casestudy_columns', 'add_taxonomy_columns' );
-
 
 function populate_taxonomy_columns( $column, $post_id ) {
     switch ( $column ) {
@@ -208,3 +245,56 @@ function my_show_all_casestudies( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'my_show_all_casestudies' );
+
+// Add custom columns to the Testimonials CPT in the admin listing.
+function add_testimonial_columns( $columns ) {
+    $new_columns = array();
+    $new_columns['cb']            = $columns['cb'];
+    $new_columns['title']         = __( 'Title', 'your-textdomain' );
+    $new_columns['author_name']   = __( 'Author Name', 'your-textdomain' );
+    $new_columns['job_title']     = __( 'Job Title', 'your-textdomain' );
+    $new_columns['case_study']    = __( 'Case Study', 'your-textdomain' );
+    $new_columns['date']          = $columns['date'];
+    return $new_columns;
+}
+add_filter( 'manage_testimonial_posts_columns', 'add_testimonial_columns' );
+
+
+// Populate the custom columns with ACF field values.
+function custom_testimonial_column( $column, $post_id ) {
+    switch ( $column ) {
+        case 'quote':
+            $quote = get_field( 'quote', $post_id );
+            if ( $quote ) {
+                // Limit the quote to 15 words for display purposes.
+                echo wp_trim_words( $quote, 15, '...' );
+            }
+            break;
+
+        case 'author_name':
+            $author_name = get_field( 'author_name', $post_id );
+            echo $author_name ? esc_html( $author_name ) : '';
+            break;
+
+        case 'job_title':
+            $job_title = get_field( 'job_title', $post_id );
+            echo $job_title ? esc_html( $job_title ) : '';
+            break;
+
+        case 'case_study':
+            // Retrieve the relationship field value.
+            $case_studies = get_field( 'case_study', $post_id );
+            if ( $case_studies ) {
+                $titles = array();
+                // Loop through each linked Case Study.
+                foreach ( $case_studies as $case_study ) {
+                    // Ensure we get the title. The relationship field returns a WP_Post object.
+                    $titles[] = get_the_title( $case_study->ID );
+                }
+                // Display as a comma-separated list.
+                echo implode( ', ', $titles );
+            }
+            break;
+    }
+}
+add_action( 'manage_testimonial_posts_custom_column', 'custom_testimonial_column', 10, 2 );

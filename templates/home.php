@@ -188,7 +188,7 @@ get_header(); ?>
       'post_status' => 'publish',
     ); query_posts($args); ?>
       <?php if ( have_posts() ) : while (have_posts()) : the_post(); ?>
-      <article class="insight twelve columns">
+      <article class="insight large twelve columns">
         <div class="six columns">
           <a href="<?php the_permalink(); ?>">
             <div class="zoom">

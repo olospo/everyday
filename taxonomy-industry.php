@@ -26,6 +26,45 @@ get_header(); ?>
   </div>
 </section>
 
+<?php 
+// Get the current industry term object.
+$current_term = get_queried_object();
+
+$args = array(
+    'post_type'      => 'testimonial',
+    'posts_per_page' => -1, // Show all testimonials.
+    'tax_query'      => array(
+      array(
+        'taxonomy' => 'industry',
+        'field'    => 'term_id',
+        'terms'    => $current_term->term_id,
+      ),
+    ),
+);
+
+$testimonial_query = new WP_Query( $args );
+if ( $testimonial_query->have_posts() ) : ?>
+  <section class="services reputation">
+    <div class="container">
+      <h2>Our reputation is driven by results</h2>
+      <div class="testimonial twelve columns">
+        <div class="slider">
+          <?php while ( $testimonial_query->have_posts() ) : $testimonial_query->the_post(); ?>
+            <div class="slide quote">
+              <blockquote>
+                <p><?php the_content(); ?></p>
+                <cite><?php the_title(); ?></cite><br />
+                <span><?php the_field('author_title'); ?></span>
+              </blockquote>
+            </div>
+          <?php endwhile; ?>
+        </div>
+      </div>
+    </div>
+  </section>
+<?php endif;
+wp_reset_postdata(); ?>
+
 <section class="services reputation">
   <div class="container">
     <h2>Our reputation is driven by results</h2>

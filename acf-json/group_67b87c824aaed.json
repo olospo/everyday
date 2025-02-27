@@ -74,6 +74,34 @@
             "bidirectional_target": []
         },
         {
+            "key": "field_67c0d8c498321",
+            "label": "Testimonials",
+            "name": "testimonials",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Choose which Testimonials to display. Nothing displays if left blank.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "post_type": [
+                "testimonial"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 1,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
+        },
+        {
             "key": "field_67b8803c04db9",
             "label": "Case Studies",
             "name": "case_studies",
@@ -122,5 +150,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1740146748
+    "modified": 1740691947
 }
