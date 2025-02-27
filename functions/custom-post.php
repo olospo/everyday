@@ -183,8 +183,6 @@ function populate_taxonomy_columns( $column, $post_id ) {
 }
 add_action( 'manage_casestudy_posts_custom_column', 'populate_taxonomy_columns', 10, 2 );
 
-
-
 // CPT Menu Item: Adds 'current_page_parent' class to menu items based on post type.
 add_filter('nav_menu_css_class', 'current_type_nav_class', 10, 2);
 function current_type_nav_class($classes, $item) {
@@ -202,3 +200,11 @@ function tg_include_custom_post_types_in_search_results($query) {
   }
 }
 add_action('pre_get_posts', 'tg_include_custom_post_types_in_search_results');
+
+// Show all posts of Case Studies archive
+function my_show_all_casestudies( $query ) {
+    if ( ! is_admin() && $query->is_main_query() && ( is_post_type_archive( 'casestudy' ) || is_tax( 'specialty' ) ) ) {
+        $query->set( 'posts_per_page', -1 );
+    }
+}
+add_action( 'pre_get_posts', 'my_show_all_casestudies' );
