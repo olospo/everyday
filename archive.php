@@ -22,16 +22,15 @@ get_header(); ?>
   <div class="container">
     <div class="twelve columns">
       <div class="work-listing">
-      <?php 
-        // Base query args.
+        <?php 
+        // Query for Case Studies.
         $args = array(
           'post_type'      => 'casestudy',
           'posts_per_page' => -1,
           'orderby'        => 'menu_order',
           'order'          => 'ASC'
         );
-        
-        // If filtering by specialty taxonomy, add a tax_query.
+        // If filtering by specialty taxonomy, add tax_query.
         if ( is_tax('specialty') ) {
           $current_term = get_queried_object();
           $args['tax_query'] = array(
@@ -42,15 +41,38 @@ get_header(); ?>
             ),
           );
         }
-        
-        $the_query = new WP_Query( $args );
-        if ( $the_query->have_posts() ) :
-          while ( $the_query->have_posts() ) : $the_query->the_post(); 
-            get_template_part('inc/work');
+        $case_study_query = new WP_Query( $args );
+
+        // Query for Testimonials.
+        $testimonial_args = array(
+          'post_type'      => 'testimonial',
+          'posts_per_page' => -1,
+          'orderby'        => 'rand', // Random order (change if needed)
+        );
+        $testimonial_query = new WP_Query( $testimonial_args );
+        $testimonials = $testimonial_query->posts;
+        $testimonial_count = count( $testimonials );
+        $testimonial_index = 0;
+
+        // Loop through the Case Studies.
+        $counter = 0;
+        if ( $case_study_query->have_posts() ) :
+          while ( $case_study_query->have_posts() ) : $case_study_query->the_post();
+            $counter++;
+            get_template_part('inc/work'); // Output the Case Study template
+
+            // After every second Case Study, output a Testimonial.
+            if ( $counter % 2 == 0 && $testimonial_count > 0 ) {
+              $testimonial_post = $testimonials[ $testimonial_index % $testimonial_count ];
+              setup_postdata( $testimonial_post );
+              get_template_part('inc/work_quote');
+              wp_reset_postdata();
+              $testimonial_index++;
+            }
           endwhile;
         endif;
         wp_reset_postdata();
-      ?>
+        ?>
       </div>
     </div>
   </div>

@@ -46,6 +46,42 @@ article.work {
         }
       }
     }
+    p {
+      font: $normal 2.4rem/3.4rem $regular;
+    }
+  }
+  &:nth-child(2n+1) {
+    margin-left: 0;
+    clear: left;
+  }
+}
+
+article.work_quote {
+  margin-bottom: 4%;
+  background: $cream;
+  @media (min-width: $breakpoint-tablet) {
+    border: 1px solid #575549;
+  }
+  .content {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 4%;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 4% 8%;
+    }
+    blockquote {
+      p {
+        font: $bold 2.4rem/3.2rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 3.2rem/4.2rem $heading;
+        }
+      }
+      &::before {
+        font-size: 14rem;
+        top: 40px;
+      }
+    }
   }
   &:nth-child(2n+1) {
     margin-left: 0;

@@ -112,6 +112,10 @@ section.service.insights {
   }
 }
 
+section.services.reputation + section.service.insights {
+  padding: $padding 0;
+}
+
 section.service.offering {
   padding: $padding 0;
   background: $green;

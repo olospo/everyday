@@ -31,18 +31,29 @@ get_header(); ?>
 $current_term = get_queried_object();
 
 $args = array(
-    'post_type'      => 'testimonial',
-    'posts_per_page' => -1, // Show all testimonials.
-    'tax_query'      => array(
-      array(
-        'taxonomy' => 'industry',
-        'field'    => 'term_id',
-        'terms'    => $current_term->term_id,
-      ),
-    ),
+  'post_type'      => 'testimonial',
+  'posts_per_page' => -1, // Show all testimonials.
+  'meta_query'     => array(
+    array(
+      'key'     => 'linked_industry', 
+      'value'   => '"' . $current_term->term_id . '"', // Match serialized array values
+      'compare' => 'LIKE'
+    )
+  )
 );
 
 $testimonial_query = new WP_Query( $args );
+
+// If no testimonials are found, use 2 random testimonials as a fallback.
+if ( ! $testimonial_query->have_posts() ) {
+  $fallback_args = array(
+    'post_type'      => 'testimonial',
+    'posts_per_page' => 2,
+    'orderby'        => 'rand'
+  );
+  $testimonial_query = new WP_Query( $fallback_args );
+}
+
 if ( $testimonial_query->have_posts() ) : ?>
   <section class="services reputation">
     <div class="container">
@@ -63,45 +74,9 @@ if ( $testimonial_query->have_posts() ) : ?>
     </div>
   </section>
 <?php endif;
-wp_reset_postdata(); ?>
+wp_reset_postdata();
+?>
 
-<section class="services reputation">
-  <div class="container">
-    <h2>Our reputation is driven by results</h2>
-    <div class="testimonial twelve columns">
-      <div class="slider">
-        <div class="slide quote">
-          <blockquote>
-            <p>Working with Everyday Industries has been a game changer for Alloy Health. From absorbing and analyzing our complex user flow, to navigating our upgrade needs, Everyday has been a delight to work with and brought meaningful change and value to our entire user experience.</p>
-            <cite>Anne Fulenwider</cite><br />
-            <span>Co-founder at Alloy Health</span>
-          </blockquote>
-        </div>
-        <div class="slide quote">
-          <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <cite>Anne Fulenwider</cite><br />
-            <span>Co-founder at Alloy Health</span>
-          </blockquote>
-        </div>
-        <div class="slide quote">
-          <blockquote>
-            <p>Working with Everyday Industries has been a game changer for Alloy Health. From absorbing and analyzing our complex user flow, to navigating our upgrade needs, Everyday has been a delight to work with and brought meaningful change and value to our entire user experience.</p>
-            <cite>Tom Brooks</cite><br />
-            <span>Founder at Olospo</span>
-          </blockquote>
-        </div>
-        <div class="slide quote">
-          <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <cite>Anne Fulenwider</cite><br />
-            <span>Co-founder at Alloy Health</span>
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </div>  
-</section>
 
 <?php if ($selected_case_studies) : ?>
 <section class="service products">
@@ -179,7 +154,7 @@ wp_reset_postdata(); ?>
       if ( $insight_query->have_posts() ) :
         while ( $insight_query->have_posts() ) : $insight_query->the_post();
     ?>
-          <article class="insight twelve columns">
+          <article class="insight large twelve columns">
             <div class="six columns">
               <a href="<?php the_permalink(); ?>">
                 <div class="zoom">
