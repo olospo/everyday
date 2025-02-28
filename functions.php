@@ -25,6 +25,9 @@ require_once 'functions/upload-svg.php';
 // Auto Update: Disable automatic update email notifications
 require_once 'functions/auto-update.php';
 
+// ACF Modifications: Changes to how ACF works
+require_once 'functions/acf-changes.php';
+
 /**
 * Optional Theme Functions
 */

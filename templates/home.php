@@ -1,8 +1,17 @@
 <?php /* Template Name: Home */
+  
+// Testimonials 
+$testimonial_title = get_field('testimonial_title');
+$testimonials = get_field('testimonials');
+// Work
+$work_title = get_field('work_title');
+$work_group = get_field('work');
+$work_button = $work_group['button_text'];
 
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
+<!-- Header -->
 <section class="home hero">
   <div class="container">
     <div class="content six columns">
@@ -22,6 +31,7 @@ get_header(); ?>
   </div>  
 </section>
 
+<!-- Logos -->
 <section class="home carousel-container">
   <div class="carousel">
     <div class="carousel-track">
@@ -73,6 +83,7 @@ get_header(); ?>
   </div>
 </section>
 
+<!-- Services -->
 <section class="home services">
   <div class="container">
     <div class="five columns">
@@ -102,82 +113,93 @@ get_header(); ?>
   </div>  
 </section>
 
+<!-- Testimonials -->
 <section class="home reputation">
   <div class="container">
-    <h2>Our reputation is driven by results</h2>
+    <h2><?php echo $testimonial_title; ?></h2>
+    <?php if ( $testimonials ) { if ( ! is_array( $testimonials ) ) { $testimonials = array( $testimonials ); } ?>
     <div class="slider testimonial twelve columns">
+      <?php foreach ( $testimonials as $post ) : if ( is_numeric( $post ) ) { $post = get_post( $post ); } setup_postdata( $post ); ?>
       <div class="slide">
         <div class="image one-half column">
-          <div class="content"><img src="<?php bloginfo('template_directory'); ?>/img/alloy.svg" /></div>
+          <div class="content">
+          <?php // Get the related Case Study(s) from the testimonial.
+          $related_case_studies = get_field('case_study', $post->ID);
+          $case_study = false;
+          if ( $related_case_studies ) {
+            if ( is_array( $related_case_studies ) ) {
+              $case_study = reset( $related_case_studies );
+            } else {
+              $case_study = $related_case_studies;
+            }
+          }
+          if ( $case_study ) {
+            // Get the 'logo' image field from the related Case Study.
+            $logo = get_field('logo', $case_study->ID);
+              if ( $logo ) {
+                  echo '<img src="' . esc_url( $logo['url'] ) . '" alt="' . esc_attr( $logo['alt'] ) . '" />';
+              } 
+          } ?>
+          </div>
         </div>
         <div class="quote one-half column">
-          <blockquote>
-            <p>Working with Everyday Industries has been a game changer for Alloy Health. From absorbing and analyzing our complex user flow, to navigating our upgrade needs, Everyday has been a delight to work with and brought meaningful change and value to our entire user experience.</p>
-            <cite>Anne Fulenwider</cite><br />
-            <span>Co-founder at Alloy Health</span>
-          </blockquote>
+          <?php get_template_part('inc/quote'); ?>
         </div>
       </div>
-      <div class="slide">
-        <div class="image one-half column">
-          <div class="content"><img src="<?php bloginfo('template_directory'); ?>/img/ninja.svg" /></div>
-        </div>
-        <div class="quote one-half column">
-          <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <cite>Irure Reprehenderit</cite><br />
-            <span>Founder at Ninja</span>
-          </blockquote>
-        </div>
-      </div>
+      <?php endforeach; wp_reset_postdata();?>
     </div>
+    <?php } ?>
   </div>  
 </section>
 
+<!-- Work -->
 <section class="home work">
   <div class="container">
-    <h2>Dive into our work</h2>
-    <?php
-    $args = array(
-      'post_type' => 'casestudy',
-      'posts_per_page' => 5,
-      'post_status' => 'publish',
-    );
-    $casestudies = new WP_Query($args);
-    ?>
-    <div class="work-wrapper twelve columns">
-      <div class="work-list six columns">
-        <?php if ($casestudies->have_posts()) : $counter = 0; ?>
-          <?php while ($casestudies->have_posts()) : $casestudies->the_post(); $counter++; ?>
-            <article class="work-item <?php echo $counter === 1 ? 'active' : ''; ?>" data-image="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>" data-link="<?php the_permalink(); ?>">
-              <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-              <p><?php echo get_field('short_description'); ?></p>
-              <?php
-              $industries = get_the_terms(get_the_ID(), 'industry');
-              if ($industries && !is_wp_error($industries)) {
-                  foreach ($industries as $industry) {
-                      echo '<span class="cat"><a href="' . esc_url(get_term_link($industry->term_id, 'industry')) . '">' . esc_html($industry->name) . '</a></span>';
-                  }
+    <h2><?php echo $work_title; ?></h2>
+    <?php if ( $work_group && isset( $work_group['selected_work'] ) ) {
+      $selected_work = $work_group['selected_work'];
+      // If only one post is selected, ensure it's an array.
+      if ( ! is_array( $selected_work ) ) {
+        $selected_work = array( $selected_work );
+      }
+      if ( ! empty( $selected_work ) ) : ?>
+      <div class="work-wrapper twelve columns">
+        <div class="work-list six columns">
+          <?php 
+          $counter = 0;
+          // Loop through the selected case studies.
+          foreach ( $selected_work as $post ) : 
+            setup_postdata( $post );
+            $counter++;
+          ?>
+          <article class="work-item <?php echo ( $counter === 1 ? 'active' : '' ); ?>" data-image="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' ); ?>" data-link="<?php the_permalink(); ?>">
+            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+            <p><?php echo get_field( 'short_description' ); ?></p>
+            <?php $industries = get_the_terms( get_the_ID(), 'industry' );
+              if ( $industries && ! is_wp_error( $industries ) ) {
+                foreach ( $industries as $industry ) {
+                  echo '<span class="cat"><a href="' . esc_url( get_term_link( $industry->term_id, 'industry' ) ) . '">' . esc_html( $industry->name ) . '</a></span>';
               }
-              ?>
-            </article>
-          <?php endwhile; ?>
-        <?php else : ?>
-          <p>No case studies found.</p>
-        <?php endif; wp_reset_postdata(); ?>
+            } ?>
+          </article>
+          <?php endforeach; wp_reset_postdata(); ?>
+        </div>
+        <div class="work-image six columns">
+          <?php $first = reset( $selected_work ); setup_postdata( $first ); ?>
+          <a href="<?php echo get_permalink( $first->ID ); ?>">
+            <img src="<?php echo get_the_post_thumbnail_url( $first->ID, 'full' ); ?>" alt="Default Image" id="displayed-image">
+          </a>
+          <?php wp_reset_postdata(); ?>
+        </div>
       </div>
-      <div class="work-image six columns">
-      <?php if ($casestudies->have_posts()) : $casestudies->rewind_posts(); $casestudies->the_post(); ?>
-        <a href="<?php the_permalink(); ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>" alt="Default Image" id="displayed-image"></a>
-        <?php endif; ?>
-      </div>
-    </div>
+    <?php endif; } ?> 
     <div class="all-wrapper twelve columns">
-      <a href="<?php echo get_site_url(); ?>/casestudy/" class="button accent">View all work</a>
+      <a href="<?php echo get_site_url(); ?>/casestudy/" class="button accent"><?php echo $work_button; ?></a>
     </div>
   </div>  
 </section>
 
+<!-- Insights -->
 <section class="home insights">
   <div class="container">
     <h2>UX and product design insights</h2>
