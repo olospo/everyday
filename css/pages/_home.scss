@@ -161,6 +161,11 @@ section.home.reputation {
             max-width: 400px;
           }
         }
+        svg {
+          path, g {
+            fill: $cream;
+          }
+        }
       }
     }
     .quote {
@@ -229,7 +234,6 @@ section.home.work {
       cursor: pointer;
       padding: 20px 0 20px 0;
       border-bottom: 1px solid #3F3D31;
-  
       h3 {
         transition: all ease-out 0.1s;
         color: $green;
@@ -254,10 +258,8 @@ section.home.work {
       span.cat {
         margin: 10px 0 0 0;
         a {
-          
           border: none;
         }
-        
       }
       &.active {
         h3 {
