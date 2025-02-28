@@ -77,6 +77,18 @@ article.work_quote {
           font: $bold 3.2rem/4.2rem $heading;
         }
       }
+      cite {
+        font: $bold 2.0rem/2.4rem $regular;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 2.4rem/3.2rem $regular;
+        }
+      }
+      span {
+        font: $normal 2.0rem/2.4rem $regular;
+        @media (min-width: $breakpoint-tablet) {
+          font: $normal 2.4rem/3.2rem $regular;
+        }
+      }
       &::before {
         font-size: 14rem;
         top: 40px;
