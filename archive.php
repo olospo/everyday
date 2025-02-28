@@ -61,11 +61,13 @@ get_header(); ?>
             $counter++;
             get_template_part('inc/work'); // Output the Case Study template
 
-            // After every second Case Study, output a Testimonial.
+            // After every third Case Study, output a Testimonial.
             if ( $counter % 2 == 0 && $testimonial_count > 0 ) {
+              // Pick a testimonial (rotate through the array if necessary)
               $testimonial_post = $testimonials[ $testimonial_index % $testimonial_count ];
               setup_postdata( $testimonial_post );
-              get_template_part('inc/work_quote');
+              // Output the testimonial template; create inc/testimonial.php accordingly.
+              get_template_part('inc/work_quote', null, array('testimonial' => $testimonial_post));
               wp_reset_postdata();
               $testimonial_index++;
             }
