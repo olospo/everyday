@@ -30,8 +30,11 @@ article.work {
   .content {
     box-sizing: border-box;
     width: 100%;
-    padding: 4%;
     margin: 0;
+    padding: 15px;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 4%;
+    }
     h3 {
       color: $green;
       font: $bold 3.2rem/4.2rem $heading;
