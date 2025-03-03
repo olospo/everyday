@@ -31,11 +31,8 @@ article.work {
     margin: 0;
     h3 {
       color: $green;
-      font: $bold 2.0rem/3.0rem $heading;
+      font: $bold 3.2rem/4.2rem $heading;
       @media (min-width: $breakpoint-tablet) {
-        font: $bold 3.2rem/4.2rem $heading;
-      }
-      @media (min-width: $breakpoint-laptop) {
         font: $bold 4.0rem/4.8rem $heading;
       }
       a {
@@ -47,7 +44,10 @@ article.work {
       }
     }
     p {
-      font: $normal 2.4rem/3.4rem $regular;
+      font: $normal 2.0rem/2.8rem $regular;
+      @media (min-width: $breakpoint-tablet) {
+        font: $normal 2.4rem/3.4rem $regular;
+      }
     }
   }
   &:nth-child(2n+1) {
