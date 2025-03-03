@@ -38,24 +38,25 @@ get_header(); ?>
       <?php if( have_rows('logo_carousel') ): ?>
         <?php while( have_rows('logo_carousel') ): the_row();
           $logo_image = get_sub_field('logo_image');
+          $logo_alt = isset($logo_image['alt']) ? $logo_image['alt'] : ''; // Get alt text
         ?>
         <div class="carousel-item">
-          <img width="auto" height="auto" src="<?php echo esc_url($logo_image); ?>" alt="" />
+          <img width="auto" height="auto" src="<?php echo esc_url($logo_image['url']); ?>" alt="<?php echo esc_attr($logo_alt); ?>" />
         </div>
         <?php endwhile; ?>
         <!-- Duplicate the logos to create the loop effect -->
         <?php while( have_rows('logo_carousel') ): the_row();
           $logo_image = get_sub_field('logo_image');
+          $logo_alt = isset($logo_image['alt']) ? $logo_image['alt'] : ''; // Get alt text
         ?>
         <div class="carousel-item">
-          <img width="auto" height="auto" src="<?php echo esc_url($logo_image); ?>" alt="" />
+          <img width="auto" height="auto" src="<?php echo esc_url($logo_image['url']); ?>" alt="<?php echo esc_attr($logo_alt); ?>" />
         </div>
         <?php endwhile; ?>
       <?php endif; ?>
     </div>
   </div>
 </section>
-
 
 <!-- Services -->
 <section class="home services">
