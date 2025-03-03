@@ -61,12 +61,15 @@ footer {
     }
     form.newsletter-form {
       input[type="email"] {
-        width: 315px;
+        width: 260px;
         font: $normal 2.0rem/2.4rem $regular;
         padding: 15px;
         border: none;
         @include border-radius(5px 0 0 5px);
         border: 1px solid $white;
+        @media (min-width: $breakpoint-tablet) {
+          width: 315px;
+        }
         &:focus {
           @include border-radius(5px 0 0 5px);
           border: 1px solid $orange;

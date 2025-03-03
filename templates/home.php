@@ -4,8 +4,8 @@
 $testimonial_title = get_field('testimonial_title');
 $testimonials = get_field('testimonials');
 // Work
-$work_title = get_field('work_title');
 $work_group = get_field('work');
+$work_title = get_field('work_title');
 $work_button = $work_group['button_text'];
 
 get_header(); ?>
@@ -160,9 +160,16 @@ get_header(); ?>
           <?php endforeach; wp_reset_postdata(); ?>
         </div>
         <div class="work-image six columns">
-          <?php $first = reset( $selected_work ); setup_postdata( $first ); ?>
+          <?php 
+          $first = reset( $selected_work ); 
+          setup_postdata( $first );
+          // Get the thumbnail ID
+          $thumbnail_id = get_post_thumbnail_id( $first->ID );
+          // Get the alt text from the image metadata
+          $alt_text = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
+          ?>
           <a href="<?php echo get_permalink( $first->ID ); ?>">
-            <img src="<?php echo get_the_post_thumbnail_url( $first->ID, 'full' ); ?>" alt="Default Image" id="displayed-image">
+            <img src="<?php echo get_the_post_thumbnail_url( $first->ID, 'full' ); ?>" alt="<?php echo esc_attr( $alt_text ); ?>" id="displayed-image">
           </a>
           <?php wp_reset_postdata(); ?>
         </div>
@@ -173,6 +180,7 @@ get_header(); ?>
     </div>
   </div>  
 </section>
+
 
 <!-- Insights -->
 <section class="home insights">

@@ -182,6 +182,28 @@
             "selected": 0
         },
         {
+            "key": "field_67c19b61a9f33",
+            "label": "Work Title",
+            "name": "work_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_67c19b3ea9f32",
             "label": "Work",
             "name": "work",
@@ -198,28 +220,6 @@
             "relevanssi_exclude": 0,
             "layout": "block",
             "sub_fields": [
-                {
-                    "key": "field_67c19b61a9f33",
-                    "label": "Work Title",
-                    "name": "work_title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "relevanssi_exclude": 0,
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
                 {
                     "key": "field_67c199dd43963",
                     "label": "Work",
@@ -293,5 +293,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741012461
+    "modified": 1741013639
 }
