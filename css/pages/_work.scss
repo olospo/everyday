@@ -10,9 +10,12 @@ section.archive {
 }
 
 article.work {
-  margin-bottom: 4%;
-  border: 1px solid #D6D6D6;
   background: $suntan;
+  margin-bottom: 30px;
+  @media (min-width: $breakpoint-tablet) {
+    margin-bottom: 4%;
+    border: 1px solid #D6D6D6;
+  }
   .zoom {
     position: relative;
     overflow: hidden;
@@ -44,7 +47,7 @@ article.work {
       }
     }
     p {
-      font: $normal 2.0rem/2.8rem $regular;
+      font: $normal 1.8rem/2.4rem $regular;
       @media (min-width: $breakpoint-tablet) {
         font: $normal 2.4rem/3.4rem $regular;
       }
