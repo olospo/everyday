@@ -6,24 +6,22 @@ footer {
   color: $white;
   background: $green;
   text-align: left;
-  padding: 20px 0px;
-  @media (min-width: $breakpoint-tablet) {
-    padding: 40px 0px;
-  }
+  padding: 40px 0px;
   .logo {
     svg {
       max-height: 120px;
-      margin-bottom: 30px;
       @media (min-width: $breakpoint-tablet) {
         max-height: 160px;
-        margin-bottom: 0px;
       }
       path, polygon {
         fill: $bgreen80;
       }
     }
     p {
-      font: $bold 3.2rem/4.2rem $heading;
+      font: $bold 2.4rem/3.2rem $heading;
+      @media (min-width: $breakpoint-tablet) {
+        font: $bold 3.2rem/4.2rem $heading;
+      }
     }
     a.contact {
       color: $bgreen80;
@@ -49,8 +47,8 @@ footer {
   }
   .newsletter {
     background: url('../img/squiggle.png') top left repeat-x;
-    margin: 20px 0 20px 0;
-    padding-top: 20px;
+    margin: 30px 0 20px 0;
+    padding-top: 40px;
     @media (min-width: $breakpoint-tablet) {
       margin: 20px 0 40px 0;
       padding-top: 60px;
@@ -123,7 +121,7 @@ footer {
     background: url('../img/squiggle.png') top left repeat-x;
     text-align: left;
     margin: 20px 0 0 0;
-    padding-top: 20px;
+    padding-top: 40px;
     @media (min-width: $breakpoint-tablet) {
       margin: 50px 0 0 0;
       padding-top: 50px;
