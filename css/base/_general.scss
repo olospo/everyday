@@ -395,7 +395,10 @@ section.hero {
   }
   &.single {
     background: $green;
-    padding: $padding 0;
+    padding: $padding-half 0;
+    @media (min-width: $breakpoint-tablet) {
+      padding: $padding 0;
+    }
   }
 }
 
