@@ -209,3 +209,22 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  var primaryAside = document.querySelector('.ux-insights.primary');
+  var secondaryAside = document.querySelector('.ux-insights.secondary');
+
+  window.addEventListener('scroll', function() {
+    // Trigger point: half the document's height
+    var triggerPoint = document.body.scrollHeight / 2;
+    var scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollPos > triggerPoint) {
+      primaryAside.style.display = "none";
+      secondaryAside.style.display = "block";
+    } else {
+      primaryAside.style.display = "block";
+      secondaryAside.style.display = "none";
+    }
+  });
+});

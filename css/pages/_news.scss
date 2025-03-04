@@ -113,6 +113,13 @@ body.single-post {
           }
         }
       }
+      &.secondary {
+        background: $blue url('../img/star.svg') bottom 40px right 80px no-repeat;
+        padding: 20px 20px 200px 20px;
+        @media (min-width: $breakpoint-laptop) {
+          padding: 40px 40px 140px 40px;
+        }
+      }
     }
   }
 }
