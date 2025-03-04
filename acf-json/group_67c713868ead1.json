@@ -699,7 +699,7 @@
             "allow_in_bindings": 0,
             "rows": 4,
             "placeholder": "",
-            "new_lines": ""
+            "new_lines": "wpautop"
         },
         {
             "key": "field_67c726e5bb304",
@@ -760,5 +760,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741106155
+    "modified": 1741108125
 }

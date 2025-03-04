@@ -137,9 +137,17 @@ get_header(); while ( have_posts() ) : the_post(); ?>
 <section class="services specialties">
   <div class="container">
     <div class="six columns">
-      <h2>Specialties</h2>
-      <p>Leverage our deep expertise in UX, product design, and strategy to align teams and make digital products customers love.</p>
-      <a href="<?php echo get_site_url(); ?>/casestudy/" class="casestudy button accent">See our work</a>
+      <h2><?php echo get_field('specialities_title'); ?></h2>
+      <?php echo get_field('specialities_content'); ?>
+      <?php $specialities_button = get_field('specialities_button'); 
+      // Check if the link exists
+      if( $specialities_button ): 
+        $button_url = esc_url( $specialities_button['url'] );
+        $button_title = esc_html( $specialities_button['title'] );
+        $button_target = $specialities_button['target'] ? ' target="_blank"' : '';
+      ?>
+      <a href="<?php echo $button_url; ?>" class="casestudy button accent"<?php echo $button_target; ?>><?php echo $button_title; ?></a>
+      <?php endif; ?>
     </div>
     <div class="twelve columns">
       <ul>
