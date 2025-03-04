@@ -14,7 +14,7 @@
     }
     ?>
     <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-    <?php the_excerpt(); ?>
+    <?php // the_excerpt(); ?>
     <span class="date"><?php the_time("F j, Y"); ?></span>
   </div>
 </article>

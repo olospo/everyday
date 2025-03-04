@@ -16,5 +16,3 @@ setup_postdata($post); ?>
   </div>
 </article>
 <?php wp_reset_postdata(); ?>
-
-<img src="">

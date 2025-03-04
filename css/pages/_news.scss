@@ -230,14 +230,39 @@ article.insight {
       padding: 4%;
     }
   }
+  &.cta {
+    padding: 40px 40px 200px 40px;
+    background: $blue url('../img/insight_cta.svg') left 40px bottom 30px no-repeat;
+    background-size: contain;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 60px;
+      background: $blue url('../img/insight_cta.svg') left 60px bottom 40px no-repeat;
+    }
+    .content {
+      padding: 0;
+    }
+    h3 {
+      color: $white;
+      margin-bottom: 40px;
+      font: $bold 4.8rem/5.6rem $heading;
+      @media (min-width: $breakpoint-tablet) {
+        font: $bold 5.6rem/5.6rem $heading;
+      }
+    }
+  }
 }
 
 section.insight-cta {
   margin-top: 20px;
   margin-bottom: 40px;
-  background: $blue url('../img/newsletter_bg.png') right center no-repeat;
-  padding: $padding;
   color: $white;
+  padding: $padding-half 0;
+  background: $blue url('../img/newsletter_bg.png') left bottom no-repeat;
+  background-size: 100%;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding;
+    background: $blue url('../img/newsletter_bg.png') right center no-repeat;
+  }
   h2 {
     color: $white;
     font: $bold 5.6rem/5.6rem $heading;
@@ -249,6 +274,10 @@ section.insight-cta {
   }
   form.newsletter-form {
     max-width: 400px;
+    margin-bottom: 260px;
+    @media (min-width: $breakpoint-tablet) {
+      margin-bottom: 0;
+    }
     input[type="email"] {
       font: $normal 2.0rem/2.4rem $regular;
       padding: 15px;

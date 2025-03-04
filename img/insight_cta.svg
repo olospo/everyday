@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="749px" height="223px" viewBox="0 0 749 223" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>insight_cta</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="insight_cta" transform="translate(0.700843, 0.176025)" fill-rule="nonzero">
+            <rect id="Rectangle" fill="#F55E22" x="97.333357" y="6.1e-05" width="650" height="95.6505"></rect>
+            <rect id="Rectangle" fill="#B8E7DD" x="97.333357" y="125.679975" width="650" height="96.7627"></rect>
+            <path d="M97.333357,0 C43.577557,0 -2.13162821e-14,49.795575 -2.13162821e-14,111.220975 C-2.13162821e-14,172.646975 43.577657,222.442975 97.333357,222.442975 L97.333357,0 Z" id="Path" fill="#E7C1FC"></path>
+        </g>
+    </g>
+</svg>

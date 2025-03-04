@@ -54,9 +54,14 @@ get_header(); ?>
     <div class="container">
       <div class="news_listing twelve columns">
         <?php 
+          $counter = 0;
           // Loop through the remaining posts
           while ( have_posts() ) : the_post();
+            $counter++;
             get_template_part('inc/article');
+            if ( $counter == 3 ) {
+              get_template_part('inc/insight_cta');
+            }
           endwhile;
         ?>
       </div>
