@@ -28,6 +28,10 @@ section.service.approach {
     font: $bold 5.6rem/5.6rem $heading;
     margin-bottom: 40px;
     z-index: 2;
+    font: $bold 4.0rem/4.8rem $heading;
+    @media (min-width: $breakpoint-tablet) {
+      font: $bold 5.6rem/5.6rem $heading;
+    }
     &::after {
       content: "";
       position: absolute;
@@ -40,8 +44,10 @@ section.service.approach {
     }
   }
   .container {
-    display: flex;
-    position: relative;
+    @media (min-width: $breakpoint-tablet) {
+      display: flex;
+      position: relative;
+    }
   }
   .content {
     position: relative;

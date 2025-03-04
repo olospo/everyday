@@ -1,132 +1,134 @@
 <?php /* Template Name: Services */
+  
+// Heading 
+$header_title = get_field('header_title');
+// Services 
+$service = get_field('service');
+// Capabilities
+$capabilities_title = get_field('capabilities_title');
+// Testimonials
+$testimonial_title = get_field('testimonial_title');
+$testimonials = get_field('testimonials');
+
 get_header(); while ( have_posts() ) : the_post(); ?>
 
 <section class="services hero">
   <div class="container">
     <div class="content eight columns">
-      <h1>We transform products into experiences customers love.</h1>
+      <h1><?php echo $header_title; ?></h1>
     </div>
   </div>  
 </section>
 
 <section class="services offering">
   <div class="container">
-    <div class="service twelve columns">
-      <div class="image six columns" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/new-product.png');"></div>
-      <div class="content six columns">
-        <h2><a href="<?php echo get_site_url(); ?>/what-we-do/customer-research-services/">New product design</a></h2>
-        <p>Turn ideas into beautifully designed products users love. From initial concept through to final implementation, we design experiences that solve real user needs and drive business growth.
-        </p>
-      </div>
-    </div>
-    <div class="service twelve columns">
-      <div class="image six columns" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/product-redesigns.png');"></div>
-      <div class="content six columns">
-        <h2><a href="<?php echo get_site_url(); ?>/what-we-do/product-evaluations/">Product Redesigns</a><h2>
-        <p>Transform your existing product into an exceptional experience. Whether modernizing your interface or completely reimagining your product, we help you design products that drive results.</p>
-      </div>
-    </div>
-    <div class="service twelve columns">
-      <div class="image six columns" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/ux-eval.png');"></div>
-      <div class="content six columns">
-        <h2><a href="<?php echo get_site_url(); ?>/what-we-do/user-experience-design-services/">UX evaluations</a><h2>
-        <p>Get expert insight into your product experience. Our comprehensive evaluation identifies opportunities to improve usability, engagement, and conversion through design.</p>
-      </div>
-    </div>
+    <?php if( have_rows('service') ): ?>
+      <?php while( have_rows('service') ): the_row(); 
+        $service_image = get_sub_field('service_image');
+        $service_title = get_sub_field('service_title');
+        $service_description = get_sub_field('service_description');
+        $page_link = get_sub_field('page_link');
+        if( $service_image ): $image_url = $service_image['url']; ?>
+        <div class="service twelve columns">
+          <div class="six columns">
+            <a href="<?php echo esc_url($page_link['url']); ?>">
+              <div class="zoom">
+                <div class="image" style="background: url('<?php echo esc_url($image_url); ?>') center center no-repeat; background-size: cover;"></div>
+              </div>
+            </a>
+          </div>
+          <div class="content six columns">
+          <?php if( $service_title ): ?>
+            <h2><a href="<?php echo esc_url($page_link['url']); ?>"><?php echo esc_html($service_title); ?></a></h2>
+          <?php endif; ?>
+          <?php if( $service_description ): ?>
+            <p><?php echo esc_html($service_description); ?></p>
+          <?php endif; ?>
+          </div>
+        </div>
+        <?php endif; ?>
+      <?php endwhile; ?>
+    <?php endif; ?>
   </div>
 </section>
 
 <section class="services capabilities">
   <div class="container">
-    <h2>Capabilities</h2>
+    <h2><?php echo $capabilities_title; ?></h2>
     <div class="row">
-      <div class="ux one-third column">
-        <h3 class="toggle">UX</h3>
-        <ul class="collapsed">
-          <li>Information architecture</li>
-          <li>Competitive analysis</li>
-          <li>Concept design</li>
-          <li>Concept testing</li>
-          <li>Usability testing</li>
-        </ul>
-      </div>
-      <div class="product one-third column">
-        <h3 class="toggle">Product design</h3>
-        <ul class="collapsed">
-          <li>Prototyping</li>
-          <li>Hi fidelity design</li>
-          <li>Design systems</li>
-          <li>Micro animations</li>
-          <li>Documentation</li>
-        </ul>
-      </div>
-      <div class="strategy one-third column">
-        <h3 class="toggle">Design strategy</h3>
-        <ul class="collapsed">
-          <li>Workshops</li>
-          <li>Experience principles</li>
-          <li>Journey mapping</li>
-          <li>Experience mapping</li>
-          <li>UX audits</li>
-        </ul>
-      </div>
+      <?php if( have_rows('list_one') ): ?>
+        <?php while( have_rows('list_one') ): the_row(); ?>
+          <div class="ux one-third column">
+            <h3 class="toggle"><?php the_sub_field('heading'); ?></h3>
+            <ul class="collapsed">
+              <?php if( have_rows('list') ): ?>
+                <?php while( have_rows('list') ): the_row(); ?>
+                  <li><?php the_sub_field('list_item'); ?></li>
+                <?php endwhile; ?>
+              <?php endif; ?>
+            </ul>
+          </div>
+        <?php endwhile; ?>
+      <?php endif; ?>
+      <?php if( have_rows('list_two') ): ?>
+        <?php while( have_rows('list_two') ): the_row(); ?>
+          <div class="product one-third column">
+            <h3 class="toggle"><?php the_sub_field('heading'); ?></h3>
+            <ul class="collapsed">
+              <?php if( have_rows('list') ): ?>
+                <?php while( have_rows('list') ): the_row(); ?>
+                  <li><?php the_sub_field('list_item'); ?></li>
+                <?php endwhile; ?>
+              <?php endif; ?>
+            </ul>
+          </div>
+        <?php endwhile; ?>
+      <?php endif; ?>
+      <?php if( have_rows('list_three') ): ?>
+        <?php while( have_rows('list_three') ): the_row(); ?>
+          <div class="strategy one-third column">
+            <h3 class="toggle"><?php the_sub_field('heading'); ?></h3>
+            <ul class="collapsed">
+              <?php if( have_rows('list') ): ?>
+                <?php while( have_rows('list') ): the_row(); ?>
+                  <li><?php the_sub_field('list_item'); ?></li>
+                <?php endwhile; ?>
+              <?php endif; ?>
+            </ul>
+          </div>
+        <?php endwhile; ?>
+      <?php endif; ?>
     </div>
   </div>
 </section>
 
 <section class="services reputation">
   <div class="container">
-    <h2>Our reputation is driven by results</h2>
-    <div class="testimonial twelve columns">
-      <div class="slider">
-        <div class="slide quote">
-          <blockquote>
-            <p>Working with Everyday Industries has been a game changer for Alloy Health. From absorbing and analyzing our complex user flow, to navigating our upgrade needs, Everyday has been a delight to work with and brought meaningful change and value to our entire user experience.</p>
-            <cite>Anne Fulenwider</cite><br />
-            <span>Co-founder at Alloy Health</span>
-          </blockquote>
-        </div>
-        <div class="slide quote">
-          <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <cite>Anne Fulenwider</cite><br />
-            <span>Co-founder at Alloy Health</span>
-          </blockquote>
-        </div>
-        <div class="slide quote">
-          <blockquote>
-            <p>Working with Everyday Industries has been a game changer for Alloy Health. From absorbing and analyzing our complex user flow, to navigating our upgrade needs, Everyday has been a delight to work with and brought meaningful change and value to our entire user experience.</p>
-            <cite>Tom Brooks</cite><br />
-            <span>Founder at Olospo</span>
-          </blockquote>
-        </div>
-        <div class="slide quote">
-          <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <cite>Anne Fulenwider</cite><br />
-            <span>Co-founder at Alloy Health</span>
-          </blockquote>
-        </div>
+  <h2><?php echo $testimonial_title; ?></h2>
+  <?php if ( $testimonials ) { if ( ! is_array( $testimonials ) ) { $testimonials = array( $testimonials ); } ?>
+  <div class="slider testimonial twelve columns">
+    <?php foreach ( $testimonials as $post ) : if ( is_numeric( $post ) ) { $post = get_post( $post ); } setup_postdata( $post ); ?>
+    <div class="slide">
+      <div class="slide quote">
+        <?php get_template_part('inc/quote'); ?>
       </div>
     </div>
-  </div>  
+    <?php endforeach; wp_reset_postdata();?>
+  </div>
+  <?php } ?>
+  </div>
 </section>
 
 <section class="services reasons">
   <div class="container">
     <div class="statement one-half column">
       <div class="content">
-        <p>For over a decade we’ve helped big and small teams design products that impact people’s lives.</p>
+        <p><?php echo get_field('what_we_do_title'); ?></p>
       </div>
     </div>
     <div class="reasons one-half column">
       <div class="content">
-        <h3>Founder-led teams</h3>
-        <p>At Everyday, you work directly with experienced designers our co-founders lead dedicated, senior-level teams to ensure project success.</p>
-        <h3>Collaborative innovation</h3>
-        <p>We bring fresh perspectives, you bring deep product knowledge—together, we create solutions.</p>
-        <h3>Quick wins, Real results</h3>
-        <p>We pinpoint your highest-impact opportunities and help you make design changes that drive immediate value.</p>
+        <?php echo get_field('what_we_do_content'); ?>
       </div>
     </div>
   </div>
@@ -220,5 +222,4 @@ get_header(); while ( have_posts() ) : the_post(); ?>
 <?php get_template_part('inc/collaborate'); ?>
 
 <?php endwhile; // end of the loop. ?>
-
 <?php get_footer(); ?>

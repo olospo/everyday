@@ -24,16 +24,22 @@ section.services.offering {
     background: $suntan;
     @media (min-width: $breakpoint-tablet) {
       display: flex;
-      align-items: stretch;
+      flex-wrap: wrap;
+    }
+    .zoom {
+      height: 100%;
+      position: relative;
+      overflow: hidden;
     }
     .image {
-      min-height: 240px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      @media (min-width: $breakpoint-tablet) {
-        min-height: 360px;
-        width: 50%;
+      height: 100%;
+      transition: transform 1s ease;
+      min-height: 320px;
+      @media (min-width: $breakpoint-laptop) {
+        min-height: 400px;
+      }
+      &:hover {
+        transform: scale(1.1); 
       }
     }
     .content {
@@ -42,7 +48,7 @@ section.services.offering {
       flex-direction: column;
       justify-content: center;
       @media (min-width: $breakpoint-tablet) {
-        width: 50%;
+        width: 48%;
         padding: 2% 4% 2% 0;
       }
       h2 {
@@ -57,6 +63,12 @@ section.services.offering {
           &:hover {
             color: $bgreen;
           }
+        }
+      }
+      p {
+        font: $normal 2.0rem/2.8rem $regular;
+        @media (min-width: $breakpoint-laptop) {
+          font: $normal 2.4rem/3.6rem $regular;
         }
       }
     }
