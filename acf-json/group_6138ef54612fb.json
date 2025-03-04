@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_67c5bd1fc756e",
-            "label": "Header",
+            "label": "Header Section",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -152,8 +152,86 @@
             ]
         },
         {
+            "key": "field_67c6e21cbcdb2",
+            "label": "Focus Section",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_67c6e24abcdb3",
+            "label": "Focus Title",
+            "name": "focus_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67c6e258bcdb4",
+            "label": "Focus Button",
+            "name": "focus_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_67c6e266bcdb5",
+            "label": "Our Focus",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "message": "Our Focus links are automatically pulled in. These can be managed under Case Studies > Industries within WordPress",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_67c5bd24c756f",
-            "label": "Testimonials",
+            "label": "Testimonial Section",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -222,7 +300,7 @@
         },
         {
             "key": "field_67c5bd31c7570",
-            "label": "Work",
+            "label": "Work Section",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -351,5 +429,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741080871
+    "modified": 1741087417
 }

@@ -3,6 +3,9 @@
 $header_title = get_field('header_title');
 $header_button_one = get_field('header_button');
 $header_button_two = get_field('header_button_two');
+// Focus 
+$focus_title = get_field('focus_title');
+$focus_button = get_field('focus_button');
 // Testimonials 
 $testimonial_title = get_field('testimonial_title');
 $testimonials = get_field('testimonials');
@@ -26,8 +29,6 @@ get_header(); ?>
       ?>
         <a href="<?php echo $button_url; ?>" class="button accent service"><?php echo $button_title; ?></a>
       <?php endif; ?>
-      
-      <!-- Check if the second button data exists and display it -->
       <?php if ($header_button_two) :
         $button_two_url = esc_url($header_button_two['url']);
         $button_two_title = esc_html($header_button_two['title']);
@@ -79,8 +80,14 @@ get_header(); ?>
 <section class="home services">
   <div class="container">
     <div class="five columns">
-      <h2>Our expertise is in UX design for customer-focused products.</h2>
-      <a href="<?php echo get_site_url(); ?>/casestudy/" class="button accent">See our work</a>
+      <h2><?php echo $focus_title; ?></h2>
+      <?php // Check if the first button data exists and display it
+      if ($focus_button) :
+        $button_url = esc_url($focus_button['url']);
+        $button_title = esc_html($focus_button['title']);
+      ?>
+        <a href="<?php echo $button_url; ?>" class="button accent service"><?php echo $button_title; ?></a>
+      <?php endif; ?>
     </div>
     <div class="focus four columns offset-by-three">
       <h3>Our Focus</h3>
@@ -197,7 +204,6 @@ get_header(); ?>
     </div>
   </div>  
 </section>
-
 
 <!-- Insights -->
 <section class="home insights">
