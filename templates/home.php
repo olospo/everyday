@@ -1,5 +1,8 @@
 <?php /* Template Name: Home */
-  
+// Home
+$header_title = get_field('header_title');
+$header_button_one = get_field('header_button');
+$header_button_two = get_field('header_button_two');
 // Testimonials 
 $testimonial_title = get_field('testimonial_title');
 $testimonials = get_field('testimonials');
@@ -15,8 +18,22 @@ get_header(); ?>
 <section class="home hero">
   <div class="container">
     <div class="content six columns">
-      <h1>Digital product design that transforms how people live, work, and connect.</h1>
-      <a href="<?php echo get_site_url(); ?>/what-we-do/" class="button accent service">View our services</a> <a href="<?php echo get_site_url(); ?>/casestudy/" class="button accent work">See our work</a>
+      <h1><?php echo $header_title; ?></h1>
+      <?php // Check if the first button data exists and display it
+      if ($header_button_one) :
+        $button_url = esc_url($header_button_one['url']);
+        $button_title = esc_html($header_button_one['title']);
+      ?>
+        <a href="<?php echo $button_url; ?>" class="button accent service"><?php echo $button_title; ?></a>
+      <?php endif; ?>
+      
+      <!-- Check if the second button data exists and display it -->
+      <?php if ($header_button_two) :
+        $button_two_url = esc_url($header_button_two['url']);
+        $button_two_title = esc_html($header_button_two['title']);
+      ?>
+        <a href="<?php echo $button_two_url; ?>" class="button accent work"><?php echo $button_two_title; ?></a>
+      <?php endif; ?>
     </div>
     <div class="sunrise">
       <svg width="839px" height="502px" viewBox="0 0 839 502" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
