@@ -11,7 +11,7 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-<section class="post">
+<section class="post career">
   <div class="container">
     <div class="content seven columns">
       <h2><?php the_title(); ?></h2>

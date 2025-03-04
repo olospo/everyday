@@ -1,10 +1,15 @@
 // News
 
-section.archive {
-  padding: $padding 0;
+section.archive.career {
   background: $cream;
+  padding: $padding-half 0;
+  @media (min-width: $breakpoint-laptop) {
+    padding: $padding 0 $padding-half 0;
+  }
   .careers_listing {
-    display: flex;
+    @media (min-width: $breakpoint-laptop) {
+      display: flex;
+    }
     .no-roles {
       h2 {
         font: $bold 3.2rem/4.2rem $heading;
@@ -23,8 +28,12 @@ article.career {
   &.cta {
     background: $bgreen;
     .content {
-      @include vertical-align();
-      padding: 80px;
+      
+      padding: 30px;
+      @media (min-width: $breakpoint-laptop) {
+        padding: 80px;
+        @include vertical-align();
+      }
       h3 {
         font: $bold 3.2rem/4.2rem $heading;
         @media (min-width: $breakpoint-laptop) {
@@ -71,10 +80,12 @@ article.career {
     clear: left;
   }
 }
-section.post {
+section.post.career {
   .container {
-    display: flex;
-    position: relative;
+    @media (min-width: $breakpoint-tablet) {
+      display: flex;
+      position: relative;
+    }
   }
   .content {
     h2 {
@@ -93,20 +104,22 @@ section.post {
     }
   }
   .bg {
-    // height: 100%;
-    max-height: 780px;
-    background: #18584a;
-    position: relative;
-    &::after {
-      content: '';
-      background: url(../img/repeating_pattern.svg) center 0px repeat-y;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      // opacity: 0; /* Start with the background image invisible */
-      transition: opacity 1s ease-in-out; /* Fade-in effect */
+    @media (min-width: $breakpoint-tablet) {
+      // height: 100%;
+      max-height: 780px;
+      background: #18584a;
+      position: relative;
+      &::after {
+        content: '';
+        background: url(../img/repeating_pattern.svg) center 0px repeat-y;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0; /* Start with the background image invisible */
+        transition: opacity 1s ease-in-out; /* Fade-in effect */
+      }
     }
   }
 }

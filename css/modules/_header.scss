@@ -142,7 +142,7 @@ header {
     height: 30px;
     width: 30px;
     transform: rotate(0deg);
-    transition: .5s ease-in-out;
+    transition: .3s ease-in-out;
     position: absolute;
     top: 30px;
     right: 20px;
@@ -160,7 +160,7 @@ header {
       opacity: 1;
       left: 0;
       transform: rotate(0deg);
-      transition: .5s ease-in-out;
+      transition: .3s ease-in-out;
       &:nth-child(1) {top: 0px;}
       &:nth-child(2) { top: 10px; background: $cream;}
     }
@@ -191,22 +191,24 @@ nav.mobile {
       text-align: left;
       display: block;
       &.current_page_item a, &.current-menu-item a, &.current-page-ancestor a, &.current-post-ancestor a, &.current-menu-parent a, &.current-category-ancestor a, &.current_page_parent a, &:hover a {
-        font: $normal 2.2rem/2.4rem $heading !important;
+        font: $normal 3.2rem/3.4rem $heading !important;
         color: $white;
         margin: 0px 0px;
         padding: 20px 0;
-        font-weight: bold;
+        display: inline-block;
+        background-image: url('../img/nav-hover.svg');
+        background-position: left bottom;
+        background-repeat: no-repeat;
       }
       a {
-        font: $normal 2.2rem/2.4rem $heading !important;
+        font: $normal 3.2rem/3.4rem $heading !important;
         @include transition(all 0.2s ease-out);
         line-height: 1.4rem;
-        display: block;
+        display: inline-block;
         color: $white;
         text-decoration: none;
         margin: 0px 0px;
         padding: 20px 0;
-        border-bottom: 1px solid $cream;
       }
       &.menu-item-has-children {
         position: relative;

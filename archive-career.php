@@ -9,7 +9,7 @@ get_header(); ?>
   </div>
 </section>
 
-<section class="archive">
+<section class="archive career">
   <div class="container">
     <div class="twelve columns">
       <div class="careers_listing">

@@ -514,6 +514,24 @@ section.archive {
   }
 }
 
+// Careers 
+section.post.career {
+  .content {
+    @include fade();
+  }
+  &.visible {
+    .content {
+      @include reset();
+    }
+    .bg {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+  
+}
+
 // Contact
 
 section.contact.form {
