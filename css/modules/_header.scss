@@ -1,6 +1,7 @@
 header {
   background: $green;
   .site-title {
+    display: inline-block;
     line-height: 0;
     color: $white;
     margin: 20px 0px;
@@ -190,7 +191,7 @@ nav.mobile {
     li {
       text-align: left;
       display: block;
-      &.current_page_item a, &.current-menu-item a, &.current-page-ancestor a, &.current-post-ancestor a, &.current-menu-parent a, &.current-category-ancestor a, &.current_page_parent a, &:hover a {
+      &.current_page_item a, &.current-menu-item a, &.current-page-ancestor a, &.current-post-ancestor a, &.current-menu-parent a, &.current-category-ancestor a, &.current_page_parent a {
         font: $normal 3.2rem/3.4rem $heading !important;
         color: $white;
         margin: 0px 0px;
