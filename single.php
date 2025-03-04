@@ -9,7 +9,7 @@ while ( have_posts() ) : the_post(); ?>
 </section>
 
 <section class="post news">
-  <div class="container flex">
+  <div class="container">
     <div class="content seven columns">
       <h1><?php the_title(); ?></h1>
       <?php
