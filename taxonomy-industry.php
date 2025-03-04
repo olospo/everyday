@@ -23,20 +23,37 @@ get_header(); ?>
     <div class="eight columns">
       <h2><?php echo $title; ?></h2>
       <?php echo $content; ?>
+    </div>
   </div>
 </section>
 
-<?php 
-// Get the current industry term object.
-$current_term = get_queried_object();
+<?php if( have_rows('client_logos', 'term_' . $term->term_id) ): ?>
+<section class="service client-logos">
+  <div class="container">
+    <h2><?php echo get_field('client_title', 'term_' . $term->term_id); ?></h2>
+    <div class="logos">
+    <?php while( have_rows('client_logos', 'term_' . $term->term_id) ): the_row();
+      $logo_image = get_sub_field('logo'); // Now an array with keys like 'url' and 'alt'
+      $logo_alt = !empty($logo_image['alt']) ? $logo_image['alt'] : 'Logo';
+    ?>
+    <div class="logo">
+      <img width="auto" height="auto" src="<?php echo esc_url($logo_image['url']); ?>" alt="<?php echo esc_attr($logo_alt); ?>" />
+    </div>
+    
+    <?php endwhile; ?>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
 
+<?php 
 $args = array(
   'post_type'      => 'testimonial',
   'posts_per_page' => -1, // Show all testimonials.
   'meta_query'     => array(
     array(
       'key'     => 'linked_industry', 
-      'value'   => '"' . $current_term->term_id . '"', // Match serialized array values
+      'value'   => '"' . $term->term_id . '"', // Match serialized array values
       'compare' => 'LIKE'
     )
   )

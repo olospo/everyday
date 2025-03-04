@@ -1,6 +1,7 @@
 <?php function theme_setup() {
   // Thumbnails
   add_theme_support( 'post-thumbnails' );
+  add_image_size( 'logo', 0, 80, false ); // Logo
   add_image_size( 'thumb', 150, 150, true ); // Normal thumbnail size
   add_image_size( 'large-thumb', 300, 300, true ); // Large thumbnail size 
   add_image_size( 'featured-img', 740, 420, true ); // Featured Image size 
