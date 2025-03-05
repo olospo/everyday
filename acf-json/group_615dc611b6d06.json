@@ -71,61 +71,6 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
-        },
-        {
-            "key": "field_646763bb39460",
-            "label": "Featured insight",
-            "name": "featured_insight",
-            "aria-label": "",
-            "type": "checkbox",
-            "instructions": "Tick to feature at the top of the insights page. Only one featured insight will be shown",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "relevanssi_exclude": 0,
-            "choices": {
-                "show": "Show"
-            },
-            "allow_custom": 0,
-            "default_value": [],
-            "layout": "vertical",
-            "toggle": 0,
-            "return_format": "value",
-            "save_custom": 0,
-            "custom_choice_button_text": "Add new choice"
-        },
-        {
-            "key": "field_6467641ab5876",
-            "label": "Featured insight intro",
-            "name": "featured_insight_intro",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "1-2 short sentences to appear on featured insight card",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_646763bb39460",
-                        "operator": "==",
-                        "value": "show"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "relevanssi_exclude": 0,
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         }
     ],
     "location": [
@@ -150,5 +95,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1739294755
+    "modified": 1741180575
 }

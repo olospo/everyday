@@ -68,8 +68,16 @@ body.single-post {
     span.cat {
       margin: 0;
     }
-    p.date {
+    p.details {
       margin: 20px 0;
+      span.author {
+        font: $normal 2.4rem/2.4rem $regular;
+        margin-right: 5px;
+      }
+      span.date {
+        margin-left: 5px;
+        font: $normal 2.4rem/2.4rem $regular;
+      }
     }
     aside.ux-insights {
       position: -webkit-sticky; /* for older Safari support */
@@ -198,6 +206,13 @@ article.insight {
     .image {
       height: 100%;
     }
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* centres children vertically */
+      padding: 4%;
+      margin-left: 0;
+    }
   }
   .zoom {
     position: relative;
@@ -232,7 +247,18 @@ article.insight {
         }
       }
     }
+    span.author {
+      color: #6C6A59;
+      font: $normal 1.8rem/1.8rem $regular;
+      margin-right: 5px;
+    }
+    span.date {
+      color: #6C6A59;
+      font: $normal 1.8rem/1.8rem $regular;
+      margin-left: 5px;
+    }
     p {
+      margin-bottom: 10px;
       display: none; 
       @media (min-width: $breakpoint-tablet) {
         display: block;
