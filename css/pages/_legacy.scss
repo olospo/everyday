@@ -216,4 +216,22 @@ section.casestudy.old.content {
       display: none;
     }
   }
+  .quote-block {
+    padding: $padding 0 0 0;
+    .copy {
+      background: $cream;
+      padding: $padding;
+      p {
+        font: $bold 3.6rem/4.2rem $heading;
+      }
+      .attribution {
+        .name {
+          font: $bold 2.4rem/3.2rem $regular;
+        }
+        .title {
+          font: $normal 2.4rem/3.2rem $regular;
+        }
+      }
+    }
+  }
 }
