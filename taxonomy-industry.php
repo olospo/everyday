@@ -179,6 +179,7 @@ wp_reset_postdata();
               </a>
             </div>
             <div class="content six columns">
+              <div class="align">
               <?php 
                 // Display primary category if available via Yoast SEO.
                 $primary_category_id = get_post_meta( get_the_ID(), '_yoast_wpseo_primary_category', true );
@@ -191,7 +192,8 @@ wp_reset_postdata();
               ?>
               <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
               <?php the_excerpt(); ?>
-              <span class="date"><?php the_time( "F j, Y" ); ?></span>
+              <span class="author"><?php echo get_field('authors'); ?></span> &#x25AA; <span class="date"><?php the_time("F j, Y"); ?></span>
+              </div>
             </div>
           </article>
     <?php
