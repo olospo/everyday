@@ -160,7 +160,6 @@ if ($selected_case_studies) : ?>
   </div>
 </section>
 
-
 <section class="service offering">
   <div class="container">
     <h2>How we can help</h2>
