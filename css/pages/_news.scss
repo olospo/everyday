@@ -62,8 +62,13 @@ body.single-post {
         font: $bold 3.2rem/4.0rem $heading;
       }
     }
-    p, ul, ol {
+    p {
       font: $normal 2.4rem/3.6rem $regular;
+    }
+    ul, ol {
+      li {
+        font: $normal 2.4rem/3.6rem $regular;
+      }
     }
     span.cat {
       margin: 0;
