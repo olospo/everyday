@@ -7,10 +7,19 @@ body.single-post {
     top: 0;
     width: 100%;
     z-index: 2;
+    &.open {
+      background: $green;
+    }
+  }
+  nav.mobile {
+    top: 74px;
   }
   &.admin-bar {
     header {
       top: 32px;
+    }
+    nav.mobile {
+      top: 106px;
     }
   }
   section.hero.casestudy {

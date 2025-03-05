@@ -94,7 +94,6 @@ if ( $testimonial_query->have_posts() ) : ?>
 wp_reset_postdata();
 ?>
 
-
 <?php if ($selected_case_studies) : ?>
 <section class="service products">
   <div class="container">

@@ -1,4 +1,51 @@
 
+section.service.hero {
+  background: $green;
+  .container {
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    height: 240px;
+    @media (min-width: $breakpoint-tablet) {
+      height: auto;
+      width: 90%;
+      margin: 0px auto;
+      padding: $padding 0;
+    }
+  }
+  .content {
+    @media (max-width: $breakpoint-tablet) {
+      display: none;
+    }
+  }
+  h1, p {
+    color: $cream;
+  }
+  p {
+    font: $bold 2.4rem/2.8rem $heading;
+    margin-bottom: 10px;
+  }
+}
+
+section.mobile.header {
+  padding: $padding-half 0 0 0;
+  @media (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+  .content {
+    padding-bottom: $padding-half;
+    border-bottom: 1px solid #3F3D31;
+    h1 {
+      font: $bold 4.0rem/4.8rem $heading;
+    }
+    p {
+      font: $bold 2.4rem/2.8rem $heading;
+      margin-bottom: 0;
+    }
+  }
+  
+}
+
 section.service.intro {
   padding: $padding-half 0;
   background: $cream;
@@ -6,7 +53,7 @@ section.service.intro {
     padding: $padding 0;
   }
   h2 {
-    font: $bold 4.0rem/4.8rem $heading;
+    font: $bold 3.2rem/4.2rem $heading;
     margin-bottom: 20px;
     @media (min-width: $breakpoint-desktop) {
       font: $bold 5.6rem/6.6rem $heading;
@@ -35,12 +82,18 @@ section.service.approach {
     &::after {
       content: "";
       position: absolute;
-      left: 320px;
-      top: 30px;
-      width: calc(100% - 320px);
+      
       height: 12px;
       background-image: url('../img/squiggle-green.svg');
       background-repeat: repeat-x;
+      width: calc(100% - 240px);
+      left: 240px;
+      top: 20px;
+      @media (min-width: $breakpoint-tablet) {
+        width: calc(100% - 320px);
+        left: 320px;
+        top: 30px;
+      }
     }
   }
   .container {
@@ -163,16 +216,22 @@ section.service.offering {
     background: $suntan;
     @media (min-width: $breakpoint-tablet) {
       display: flex;
-      align-items: stretch;
+      flex-wrap: wrap;
+    }
+    .zoom {
+      height: 100%;
+      position: relative;
+      overflow: hidden;
     }
     .image {
-      min-height: 240px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      @media (min-width: $breakpoint-tablet) {
-        min-height: 360px;
-        width: 50%;
+      height: 100%;
+      transition: transform 1s ease;
+      min-height: 320px;
+      @media (min-width: $breakpoint-laptop) {
+        min-height: 400px;
+      }
+      &:hover {
+        transform: scale(1.1); 
       }
     }
     .content {
@@ -181,12 +240,13 @@ section.service.offering {
       flex-direction: column;
       justify-content: center;
       @media (min-width: $breakpoint-tablet) {
-        width: 50%;
+        width: 48%;
         padding: 2% 4% 2% 0;
       }
-      h3 {
+      h2 {
         color: $green;
         font: $bold 3.2rem/4.2rem $heading;
+        margin-bottom: 10px;
         @media (min-width: $breakpoint-laptop) {
           font: $bold 4.0rem/4.8rem $heading;
         }
@@ -196,6 +256,12 @@ section.service.offering {
           &:hover {
             color: $bgreen;
           }
+        }
+      }
+      p {
+        font: $normal 2.0rem/3.6rem $regular;
+        @media (min-width: $breakpoint-laptop) {
+          font: $normal 2.4rem/3.6rem $regular;
         }
       }
     }
