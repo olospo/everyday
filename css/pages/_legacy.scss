@@ -2,11 +2,7 @@
 // Old Template CSS
 
 section.casestudy.old.content {
-  // padding: $padding-half 0;
-  background: $suntan;
-  @media (min-width: $breakpoint-tablet) {
-    // padding: $padding 0;
-  }
+  background: $cream;
   .image {
     &.mobile-hide {
       display: none;
@@ -50,11 +46,29 @@ section.casestudy.old.content {
     }
   }
   .image-block {
-    .caption {
-      font-size: 1.6rem;
-      line-height: 2.0rem;
-      text-align: center;
+    padding: $padding-half 0;
+    img {
+      margin: 0px auto;
     }
+    .caption {
+      
+      text-align: center;
+      
+      margin: 0px auto;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      @media (min-width: $breakpoint-tablet) {
+        font-size: 2.0rem;
+        line-height: 2.4rem;
+        max-width: 50%;
+      }
+    }
+    &:first-child {
+      background: $suntan;
+    }
+  }
+  .image-block + .image-block {
+    padding: 0 0 $padding-half 0;
   }
   .copy-block {
     padding-right: 0;
@@ -74,7 +88,7 @@ section.casestudy.old.content {
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
     align-items: flex-start;
-    margin-top: 64px;
+    margin-top: 30px;
     .content {
       h3 {
         font: $bold 3.2rem/4.2rem $heading;
@@ -219,17 +233,24 @@ section.casestudy.old.content {
   .quote-block {
     padding: $padding 0 0 0;
     .copy {
-      background: $cream;
-      padding: $padding;
-      p {
-        font: $bold 3.6rem/4.2rem $heading;
+      background: $suntan;
+      padding: $padding-half;
+      @media (min-width: $breakpoint-tablet) {
+        padding: 120px;
       }
-      .attribution {
-        .name {
-          font: $bold 2.4rem/3.2rem $regular;
+      p {
+        font: $bold 3.2rem/4.2rem $heading;
+      }
+      cite {
+        color: #3F3D31;
+        font: $bold 2.0rem/3.0rem $regular;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 2.4rem/3.4rem $regular;
         }
-        .title {
-          font: $normal 2.4rem/3.2rem $regular;
+      }
+      blockquote {
+        &::before {
+          top: 40px;
         }
       }
     }

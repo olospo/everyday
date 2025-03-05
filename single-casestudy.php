@@ -20,20 +20,13 @@ while ( have_posts() ) : the_post(); ?>
     <?php if ( have_rows( 'project_overview' ) ) : ?>
       <?php while ( have_rows( 'project_overview' ) ) : the_row(); ?>
         <aside class="four columns">
-        <h3>Project Date</h3>
-        <ul>
-          <li><?php the_sub_field( 'project_date' ); ?></li>
-        </ul>
-        <?php if ( have_rows( 'what_we_did' ) ) : ?>
-        <h3>What We Did</h3>
           <ul>
+            <li><?php the_sub_field( 'project_date' ); ?></li>
+        <?php if ( have_rows( 'what_we_did' ) ) : ?>
           <?php while ( have_rows( 'what_we_did' ) ) : the_row(); ?>
             <li><?php the_sub_field( 'service' ); ?></li>
           <?php endwhile; ?>
-          </ul>
         <?php else : endif; ?>
-        <h3>Project Type</h3>
-          <ul>
           <?php if ( have_rows( 'project_type' ) ) : ?>
             <?php while ( have_rows( 'project_type' ) ) : the_row(); ?>
               <li><?php the_sub_field( 'type' ); ?></li>
@@ -80,7 +73,6 @@ while ( have_posts() ) : the_post(); ?>
                 <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
               </div>
             <?php } else { ?>
-
               <div class="image">
                 <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
               </div>
@@ -137,7 +129,6 @@ while ( have_posts() ) : the_post(); ?>
               <?php } ?>
               </div>
             </section>
-
             <section class="three-images-mobile">
               <div class="container">
               <div class="content">
@@ -159,7 +150,6 @@ while ( have_posts() ) : the_post(); ?>
                 </div>
                 <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>
-
               </div>
             </div>
             <?php $caption = get_sub_field( 'caption' ); ?>
@@ -189,8 +179,6 @@ while ( have_posts() ) : the_post(); ?>
               <?php endif; ?>
             </section>
             </div>
-            
-            
             <section class="image-quote-mobile">
               <div class="container">
                 <div class="mobile-image">
@@ -223,15 +211,15 @@ while ( have_posts() ) : the_post(); ?>
       <div class="container">
       <div class="content">
         <div class="copy">
+          <blockquote>
           <?php the_sub_field( 'copy' ); ?>
           <?php if ( have_rows( 'atrribution' ) ) : ?>
           <?php while ( have_rows( 'atrribution' ) ) : the_row(); ?>
-          <div class="attribution">
-            <div class="name">
-              <?php the_sub_field( 'name' ); ?>
-              <div class="title"><?php the_sub_field( 'title' ); ?></div>
+          <cite><?php the_sub_field( 'name' ); ?></cite><br />
+          <span><?php the_sub_field( 'title' ); ?></span>
             </div>
           </div>
+          </blockquote>
         </div>
         <?php endwhile; ?>
       <?php endif; ?>
