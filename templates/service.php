@@ -84,7 +84,7 @@ if ($selected_case_studies) : ?>
   <div class="container">
     <h2>Products we’ve helped launch</h2>
     <div class="twelve columns">
-      <div class="news_listing">
+      <div class="work-listing">
       <?php 
         // Loop through the selected posts (if multiple are selected)
         foreach ($selected_case_studies as $post) :
@@ -93,9 +93,6 @@ if ($selected_case_studies) : ?>
         endforeach;
         wp_reset_postdata();
       ?>
-      </div>
-      <div class="twelve columns">
-        <?php numeric_posts_nav(); ?>
       </div>
     </div>
   </div>

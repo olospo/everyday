@@ -4,7 +4,7 @@
 
 @mixin fade() {
   opacity: 0;
-  transition: opacity linear 1s;
+  transition: opacity linear 1.2s;
 }
 
 @mixin drop() {
@@ -53,12 +53,12 @@
 
 header {
   .logo {
-    @include fade();
+    // @include fade();
   }
   &.visible {
     .logo {
-      @include reset();
-      transition-delay: 0.2s;
+      // @include reset();
+      // transition-delay: 0.2s;
     }
   }
 }
@@ -329,6 +329,17 @@ section.services.industries {
   }
 }
 
+section.service.hero {
+  .container {
+    @include fade();
+  }
+  &.visible {
+    .container {
+      @include reset();
+    }
+  }
+}
+
 section.service.intro {
   h2, p {
     @include fade();
@@ -367,6 +378,66 @@ section.service.approach {
       &::after {
         opacity: 1;
       }
+    }
+  }
+}
+
+section.service.products, section.service.insights {
+  h2 {
+    @include fade();
+  }
+  &.visible {
+    h2 {
+      @include reset();
+    }
+  }
+  article {
+    @include fade();
+    &.visible {
+      @include reset();
+    }
+  }
+}
+
+section.service.offering {
+  h2, .service {
+    @include fade();
+  }
+  &.visible {
+    h2, .service {
+      @include reset();
+    }
+  }
+}
+section.post.news {
+  .content, aside {
+    @include fade();
+  }
+  &.visible {
+    .content {
+      @include reset();
+    }
+    aside {
+      @include reset();
+      transition-delay: 0.5s;
+    }
+  }
+}
+
+section.service.client-logos {
+  h2 {
+    @include fade();
+  }
+  .logos .logo {
+    @include fade();
+  }
+  &.visible {
+    h2 {
+      @include reset();
+    }
+    .logos .logo {
+      @include reset();
+      @include delay-children();
     }
   }
 }
