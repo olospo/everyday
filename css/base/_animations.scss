@@ -50,17 +50,18 @@
   &:nth-child(13)  {transition-delay: 2.4s;}
   &:nth-child(14)  {transition-delay: 2.6s;}
 }
-
+@media (max-width: $breakpoint-tablet) {
 header {
   .logo {
-    // @include fade();
+    @include fade();
   }
   &.visible {
     .logo {
-      // @include reset();
-      // transition-delay: 0.2s;
+      @include reset();
+      transition-delay: 0.2s;
     }
   }
+}
 }
 
 // General 
