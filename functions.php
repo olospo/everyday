@@ -41,6 +41,9 @@ require_once 'functions/custom-admin.php';
 // Dashboard Widget: Custom to widget to explain who to contact for support.
 require_once 'functions/dashboard.php';
 
+// Disable Gutenberg Block editor 
+require_once 'functions/gutenberg.php';
+
 // Custom Navigation: Manages customisations to navigation menus.
 require_once 'functions/custom-nav.php';    
  
