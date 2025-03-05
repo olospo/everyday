@@ -13,7 +13,7 @@
     <div class="newsletter twelve columns">
       <h5>Get our newsletter</h5>
       <form action="#" method="POST" class="newsletter-form">
-        <input type="email" name="email" placeholder="Your email address here" required><button type="submit"></button>
+        <input type="email" name="email" placeholder="Your email address here" required><button type="submit" aria-label="submit"></button>
         <p class="privacy-text">By signing up, you agree to our <a href="#">Privacy Policy</a>*.</p>
       </form>
     </div>

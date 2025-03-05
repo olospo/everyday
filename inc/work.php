@@ -1,5 +1,5 @@
 <article class="work six columns">
-  <a href="<?php the_permalink(); ?>">
+  <a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>">
     <div class="zoom">
     <div class="image" style="background: url('<?php the_post_thumbnail_url( 'featured-img' ); ?>') center center no-repeat; background-size: cover;"></div>
     </div>
