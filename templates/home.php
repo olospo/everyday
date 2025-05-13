@@ -96,8 +96,7 @@ get_header(); ?>
         $specialties = get_terms( array(
           'taxonomy'   => 'industry',
           'hide_empty' => true,
-          'orderby'    => 'term_id',
-          'order'      => 'DESC'
+          'orderby' => 'term_order',
         ) );
         
         if ( ! empty( $specialties ) && ! is_wp_error( $specialties ) ) {
@@ -136,7 +135,7 @@ get_header(); ?>
             // Get the 'logo' image field from the related Case Study.
             $logo = get_field('logo', $case_study->ID);
               if ( $logo ) {
-                  echo '<img src="' . esc_url( $logo['url'] ) . '" alt="' . esc_attr( $logo['alt'] ) . '" />';
+                echo '<a href="' . get_permalink( $case_study->ID ) . '"><img src="' . esc_url( $logo['url'] ) . '" alt="' . esc_attr( $logo['alt'] ) . '" /></a>';
               } 
           } ?>
           </div>
@@ -225,6 +224,7 @@ get_header(); ?>
           </a>
         </div>
         <div class="content six columns">
+          
           <div class="align">
           <?php 
             $primary_category_id = get_post_meta( get_the_ID(), '_yoast_wpseo_primary_category', true );

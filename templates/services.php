@@ -180,7 +180,8 @@ get_header(); while ( have_posts() ) : the_post(); ?>
       // Get all the industries (terms from the 'industry' taxonomy)
       $industries = get_terms(array(
         'taxonomy' => 'industry',
-        'hide_empty' => false, // Set to true if you only want industries that have case studies
+        'hide_empty' => false,
+        'orderby' => 'term_order',
       ));
 
       if ($industries && !is_wp_error($industries)) {

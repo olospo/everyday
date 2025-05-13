@@ -16,13 +16,17 @@ section.services.hero {
 }
 
 section.services.offering {
-  padding: $padding 0;
+  padding: $padding-half 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: 80px 0;
+  }
   .service {
     min-height: 360px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     border: 1px solid #D6D6D6;
     background: $suntan;
     @media (min-width: $breakpoint-tablet) {
+      margin-bottom: 40px;
       display: flex;
       flex-wrap: wrap;
     }
@@ -238,8 +242,9 @@ section.services.reputation {
 }
 
 section.services.reasons {
+  padding: $padding 0;
   @media (min-width: $breakpoint-tablet) {
-    padding: $padding 0;
+    padding: 80px 0;
   }
   .container {
     width: 100%;
@@ -322,18 +327,24 @@ section.services.reasons {
     li {
       padding: 0;
       margin: 0;
-      text-align: center;
       list-style: none;
-      &:first-child {
-        text-align: left;
-      }
-      &:last-child {
-        text-align: right;
+      text-align: left;
+      @media (min-width: $breakpoint-laptop) {
+        text-align: center;
+        &:first-child {
+          text-align: left;
+        }
+        &:last-child {
+          text-align: right;
+        }
       }
       a {
         font: $bold 4.0rem/4.8rem $heading;
         color: $cream;
-        text-decoration-color: $cream;
+        text-decoration: none;
+        &:hover {
+          color: $bgreen80;
+        }
       }
       &::marker {
         font-size: 0;
@@ -371,9 +382,10 @@ section.services.reasons {
     padding: 20px 0;
     border-bottom: 1px solid $green;
     h3 {
-      font: $bold 4.0rem/4.8rem $heading;
+      
       margin-bottom: 10px;
       a {
+        font: $bold 4.0rem/4.8rem $heading;
         color: $green;
         text-decoration: none;
         &:hover {
@@ -383,9 +395,11 @@ section.services.reasons {
       }
     }
     a {
+      font: $normal 2.0rem/3.2rem $regular;
       color: $green;
-      text-decoration-color: $green;
+      text-decoration: none;
       &:hover {
+        color: $bgreen80;
         text-decoration: none;
       }
     }

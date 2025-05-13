@@ -6,14 +6,14 @@ section.home.hero {
   background-size: cover;
   position: relative;
   @media (min-width: $breakpoint-tablet) {
-    padding: $padding 0;
+    padding: 110px 0 110px 0;
   }
   h1 {
     color: $cream;
   }
   .sunrise {
     right: 0;
-    bottom: -90px;
+    bottom: -120px;
     position: absolute;
     display: none;
     @media (min-width: $breakpoint-laptop) {
@@ -116,10 +116,13 @@ section.home.services {
         list-style: none;
         a {
           color: $bgreen;
-          text-decoration-color: $bgreen;
-          font: $bold 2.4rem/2.8rem $heading;
+          text-decoration: none;
+          font: $bold 2.4rem/3.8rem $heading;
           @media (min-width: $breakpoint-tablet) {
             font: $bold 3.2rem/4.2rem $heading;
+          }
+          &:hover {
+            text-decoration: underline;
           }
         }
       }
@@ -129,7 +132,7 @@ section.home.services {
     @media (max-width: $breakpoint-tablet) {
       position: absolute;
       bottom: 0;
-      max-width: 100%;
+      width: 100%;
       box-sizing: border-box;
     }
   }
@@ -267,13 +270,17 @@ section.home.work {
             border-left: 10px solid $bgreen;
           }
         }
-        
-        // background: $suntan;
       }
     }
   }
   .all-wrapper {
     margin: 40px 0 0 0;
+    a.button {
+      @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
   }
 }
 

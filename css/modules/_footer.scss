@@ -3,7 +3,7 @@ footer {
   font: $normal 1.6rem/3.0rem $regular;
   position: relative;
   overflow-wrap: break-word;
-  color: $white;
+  color: $suntan;
   background: $green;
   text-align: left;
   padding: 40px 0px;
@@ -26,19 +26,19 @@ footer {
     a.contact {
       color: $bgreen80;
       font: $bold 3.2rem/3.2rem $heading;
-      text-decoration-color: $bgreen80;
+      text-decoration: none;
       @media (min-width: $breakpoint-tablet) {
         position: absolute;
         top: 0;
         right: 20px;
       }
       &:hover {
-        text-decoration: none;
+        text-decoration: underline;
       }
     }
   }
   a {
-    color: $white;
+    color: $suntan;
     text-decoration-color: $white;
     &:hover {
       color: $bgreen80;
@@ -93,9 +93,14 @@ footer {
       .privacy-text {
         margin: 20px 0 0 0;
         font: $normal 1.6rem/2.0rem $regular;
-        color: $white;
+        color: $suntan;
         a {
-          color: $white;
+          color: $suntan;
+          text-decoration: none;
+          &:hover {
+            color: $bgreen80;
+            text-decoration-color: $bgreen80;
+          }
         }
       }
     }
@@ -113,6 +118,7 @@ footer {
         margin: 15px 0;
         a {
           font: $normal 2.4rem/3.4rem $regular;
+          text-decoration: none;
         }
       }
     }
