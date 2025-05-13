@@ -209,9 +209,20 @@ section.home.reputation {
       }
     }
     .slick-dots {
-      bottom: -40px;
+      line-height: 0;
+      bottom: -50px;
+      @include border-radius(10px);
+      background: $suntan;
+      margin: 0;
+      padding: 10px 10px 7px 10px;
+      width: auto;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
       li {
-        border: 2px solid $suntan;
+        display: inline-block;
+        border: 2px solid $bgreen;
         background: transparent;
         &.slick-active {
           background: $bgreen;

@@ -187,21 +187,22 @@
   list-style: none;
   text-align: center;
 }
+
 .slick-dots li {
   @include border-radius(50%);
   position: relative;
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   margin: 0 3px;
   padding: 0;
   background: $white;
   cursor: pointer;
   &.slick-active {
-    background: $blue;
+    background: $green;
   }
   &:hover {
-    background: $blue;
+    background: $green;
   }
 }
 .slick-dots li button {
@@ -213,10 +214,6 @@
   background: transparent;
   width: 5px;
   height: 5px;
-  @media (min-width: $breakpoint-tablet) {
-    width: 15px;
-    height: 15px;
-  }
 }
 .slick-dots li button:hover, .slick-dots li button:focus {
   outline: none;
