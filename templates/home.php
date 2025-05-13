@@ -90,6 +90,7 @@ get_header(); ?>
       <?php endif; ?>
     </div>
     <div class="focus four columns offset-by-three">
+      <img src="<?php bloginfo('template_directory'); ?>/img/bolt-mobile.png" class="bolt-mobile" />
       <h3>Our Focus</h3>
       <ul>
         <?php

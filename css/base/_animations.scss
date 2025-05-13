@@ -112,7 +112,7 @@ section.home.carousel-container {
 }
 
 section.home.services {
-  h2, h3, a {
+  h2, h3, a, img {
     @include fade();
   }
   ul {
@@ -121,7 +121,7 @@ section.home.services {
     }
   }
   &.visible {
-    h2, h3, a {
+    h2, h3, a, img {
       @include reset();
     }
     ul {
