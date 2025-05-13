@@ -163,17 +163,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 jQuery(document).ready(function($) {
   $('.learn-more').on('click', function() {
-    var $content = $(this).siblings('.profile-content');
-    $content.slideToggle(300); // Slide toggle for a smooth transition
-    
-    // Optionally, change the button text after toggling
-    if ($(this).text() === 'Learn More') {
-      $(this).text('View less');
-    } else {
-      $(this).text('Learn more');
-    }
+    var $this = $(this);
+    var $content = $this.siblings('.profile-content');
+
+    $content.slideToggle(300, function() {
+      // Toggle an active class based on content visibility
+      if ($content.is(':visible')) {
+        $this.text('View Less');
+      } else {
+        $this.text('Learn More');
+      }
+    });
   });
 });
+
 
 document.querySelectorAll('h3.toggle').forEach(function(header) {
   header.addEventListener('click', function() {
