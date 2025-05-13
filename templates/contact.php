@@ -6,7 +6,7 @@ get_header(); ?>
 <section class="contact hero single">
   <div class="container">
     <div class="content ten columns">
-      <h1><?php the_title(); ?></h1>
+      <h1>Let's connect</h1>
     </div>
   </div>  
 </section>

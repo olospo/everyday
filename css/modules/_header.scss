@@ -52,8 +52,9 @@ header {
         &:hover {
           cursor: pointer;
         }
+        
         &.current_page_item a, &.current-menu-item a, &.current-page-ancestor a, &.current-post-ancestor a, &.current-menu-parent a, &.current-category-ancestor a, &.current_page_parent a, &:hover a {
-          color: $cream;
+          color: $bgreen80;
           padding: 8px 9px 20px 9px;
           margin: 20px 5px;
           position: relative;
@@ -68,11 +69,12 @@ header {
           font: $normal 2.4rem/3.2rem $regular;
           line-height:1em;
           display: block;
-          color: $white;
+          color: $cream;
           text-decoration: none;
           padding: 8px 9px 20px 9px;
           margin: 20px 5px;
           &::after {
+            display: none;
             content: "";
             position: absolute;
             bottom: 0;
@@ -93,58 +95,52 @@ header {
           }
         }
         &.menu-item-has-children, &.page_item_has_children {
-          a {
-            background: url('../img/menu_arrow.svg') right center no-repeat;
-            padding-right: 20px;
-            &:hover {
-              background: url('../img/menu_arrow_hover.svg') right center no-repeat;
-            }
-            // Active state (current page item, current menu item, etc.)
-            &.current_page_item,
-            &.current-menu-item,
-            &.current-page-ancestor,
-            &.current-post-ancestor,
-            &.current-menu-parent,
-            &.current-category-ancestor,
-            &.current_page_parent {
-              background: url('../img/menu_arrow_hover.svg') right center no-repeat;
-            }
-          }
           ul {
             border: 0;
             text-align: left;
+            padding: 10px 20px;
             li {
               box-sizing: border-box;
-              padding: 5px 0px;
-              // display: block;
+              padding: 12px 0px;
+              display: block;
               a {
                 cursor: pointer;
                 letter-spacing: 0px;
                 text-transform: none;
-                font: $normal 1.4rem/3.0rem $regular;
-                color: $black;
+                color: $cream;
                 margin: 0;
                 border-bottom: 2px solid transparent;
                 background: none !important;
-              }
-              &:after { 
-                width: 0px;
+                &::after {
+                  display: none;
+                }
               }
               &:hover a, &.current-menu-item a, &.current_page_item a {
-                color: $cream;
+                color: $bgreen80;
               }
-              &.menu-item-has-children, &.page_item_has_children {
-                a {
-                  background: url('../img/menu_arrow.svg') right center no-repeat;
-                  padding-right: 20px;
-                }
-                a:hover > ul {
-                    position: relative;
-                }
+              &:last-child {
+                padding: 15px 0 0 0;
               }
+            }
+            
+          }
+          &.menu-item-107 {
+            ul {
+              border-left: 1px solid #FAA237;
+            }
+          }
+          &.menu-item-7737 {
+            ul {
+              border-left: 1px solid #E7C1FC;
+            }
+          }
+          &.menu-item-1408 {
+            ul {
+              border-left: 1px solid #B8E7DD;
             }
           }
         }
+        
       }
     }
   }
@@ -299,19 +295,17 @@ nav.mobile {
   transition: opacity linear 0.5s, visibility linear 0.5s;
 }
 
-nav.primary ul ul {
+nav.menu ul ul {
   position: absolute;
   z-index: 9999;
-  background: $white-bg;
   margin: 0;
   letter-spacing: 0px;
   @include invisible();
   opacity: 0;
   visibility: hidden;
-  top: 102px;
-  right: 0;
-  width: 200px;
-  padding: 10px 20px;
+  top: 80px;
+  left: 0;
+  width: 300px;
   text-align: left;
   li {
     display: block;
@@ -322,7 +316,7 @@ nav.primary ul ul {
   }
 }
 
-nav.primary ul li:hover > ul {
+nav.menu ul li:hover > ul {
   @include visible();
   opacity: 1;
   visibility: visible;
