@@ -96,6 +96,7 @@ header {
         }
         &.menu-item-has-children, &.page_item_has_children {
           ul {
+            background: $green;
             border: 0;
             text-align: left;
             padding: 10px 20px;
