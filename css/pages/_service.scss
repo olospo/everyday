@@ -8,7 +8,7 @@ section.service.hero {
     height: 240px;
     background-size: cover !important;
     @media (min-width: $breakpoint-tablet) {
-      background-size: contain !important;
+      background-size: initial !important;
       height: auto;
       width: 90%;
       margin: 0px auto;
