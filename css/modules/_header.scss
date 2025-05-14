@@ -86,14 +86,15 @@ header {
             background-repeat: no-repeat;
             opacity: 0;
           }
-          &:hover {
+          
+        }
+        &.menu-item-has-children, &.page_item_has_children {
+          a:hover {
             &::after {
-              // animation: wiggle 2s forwards;
+              display: none;
             }
             
           }
-        }
-        &.menu-item-has-children, &.page_item_has_children {
           ul {
             background: $green;
             border: 0;
@@ -286,13 +287,13 @@ nav.mobile {
 @mixin invisible() {
   visibility: hidden;
   opacity: 0;
-  transition: opacity linear 0.5s, visibility linear 0.5s;
+  transition: opacity linear 0.2s, visibility linear 0.2s;
 }
 
 @mixin visible() {
   visibility: visible;
   opacity: 1;
-  transition: opacity linear 0.5s, visibility linear 0.5s;
+  transition: opacity linear 0.2s, visibility linear 0.2s;
 }
 
 nav.menu ul ul {
