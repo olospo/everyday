@@ -79,7 +79,7 @@ get_header(); ?>
 <!-- Services -->
 <section class="home services">
   <div class="container">
-    <div class="five columns">
+    <div class="content five columns">
       <h2><?php echo $focus_title; ?></h2>
       <?php // Check if the first button data exists and display it
       if ($focus_button) :
@@ -109,6 +109,15 @@ get_header(); ?>
         }
         ?>
       </ul>
+      <div class="mobile-focus">
+        <?php // Check if the first button data exists and display it
+        if ($focus_button) :
+          $button_url = esc_url($focus_button['url']);
+          $button_title = esc_html($focus_button['title']);
+        ?>
+          <a href="<?php echo $button_url; ?>" class="button accent service"><?php echo $button_title; ?></a>
+        <?php endif; ?>
+      </div>
   </div>  
 </section>
 

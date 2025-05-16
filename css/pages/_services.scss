@@ -307,6 +307,25 @@ section.services.reasons {
     color: $cream;
     font: $normal 2.4rem/3.4rem $regular;
   }
+  .content {
+    a.button {
+      display: none;
+      @media (min-width: $breakpoint-tablet) {
+        display: inline-block; 
+      }
+    }
+  }
+  .list {
+    .mobile-button {
+      a.button{
+        width: 100%;
+        box-sizing: border-box;
+        @media (min-width: $breakpoint-laptop) {
+          display: none;
+        }
+      }
+    }
+  }
   a.casestudy {
     @media (max-width: $breakpoint-tablet) {
       position: absolute;

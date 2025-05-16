@@ -136,7 +136,7 @@ get_header(); while ( have_posts() ) : the_post(); ?>
 
 <section class="services specialties">
   <div class="container">
-    <div class="six columns">
+    <div class="content six columns">
       <h2><?php echo get_field('specialities_title'); ?></h2>
       <?php echo get_field('specialities_content'); ?>
       <?php $specialities_button = get_field('specialities_button'); 
@@ -149,7 +149,7 @@ get_header(); while ( have_posts() ) : the_post(); ?>
       <a href="<?php echo $button_url; ?>" class="casestudy button accent"<?php echo $button_target; ?>><?php echo $button_title; ?></a>
       <?php endif; ?>
     </div>
-    <div class="twelve columns">
+    <div class="list twelve columns">
       <ul>
         <?php
         $specialties = get_terms( array(
@@ -168,6 +168,17 @@ get_header(); while ( have_posts() ) : the_post(); ?>
         }
         ?>
       </ul>
+      <div class="mobile-button">
+      <?php $specialities_button = get_field('specialities_button'); 
+      // Check if the link exists
+      if( $specialities_button ): 
+        $button_url = esc_url( $specialities_button['url'] );
+        $button_title = esc_html( $specialities_button['title'] );
+        $button_target = $specialities_button['target'] ? ' target="_blank"' : '';
+      ?>
+      <a href="<?php echo $button_url; ?>" class="casestudy button accent"<?php echo $button_target; ?>><?php echo $button_title; ?></a>
+      <?php endif; ?>
+      </div>
     </div>
   </div>
 </section>
