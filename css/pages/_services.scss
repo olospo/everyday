@@ -310,6 +310,7 @@ section.services.reasons {
     @media (max-width: $breakpoint-tablet) {
       position: absolute;
       width: 100%;
+      box-sizing: border-box;
       bottom: 0;
     }
     &:hover {
