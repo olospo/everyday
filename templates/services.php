@@ -175,7 +175,7 @@ get_header(); while ( have_posts() ) : the_post(); ?>
 <section class="services industries">
   <div class="container">
     <div class="twelve columns">
-      <h2>Industries</h2>
+      <h4>Industries</h4>
       <?php
       // Get all the industries (terms from the 'industry' taxonomy)
       $industries = get_terms(array(
@@ -188,7 +188,7 @@ get_header(); while ( have_posts() ) : the_post(); ?>
         foreach ($industries as $industry) {
           // Display the Industry name as a link
           echo '<div class="industry">';
-          echo '<h3><a href="' . esc_url(get_term_link($industry)) . '">' . esc_html($industry->name) . '</a></h3>';
+          echo '<h5><a href="' . esc_url(get_term_link($industry)) . '">' . esc_html($industry->name) . '</a></h5>';
 
           // Get the case studies assigned to this industry
           $args = array(

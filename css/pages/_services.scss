@@ -142,8 +142,9 @@ section.services.capabilities {
         margin: 0 0 0 15px;
         list-style-position: inside;
         list-style-type: square;
-        font: $normal 2.4rem/3.6rem $regular;
+        font: $normal 2.0rem/3.2rem $regular;
         @media (min-width: $breakpoint-tablet) {
+          font: $normal 2.4rem/3.6rem $regular;
           margin: 0 0 0 15px;
         }
       }
@@ -242,7 +243,7 @@ section.services.reputation {
 }
 
 section.services.reasons {
-  padding: $padding 0;
+  padding: 0;
   @media (min-width: $breakpoint-tablet) {
     padding: 80px 0;
   }
@@ -276,7 +277,7 @@ section.services.reasons {
   .reasons {
     background: $suntan;
     color: $green;
-    padding: 30px;
+    padding: 30px 30px 60px 30px;
     @media (min-width: $breakpoint-tablet) {
       padding: 60px;
     }
@@ -306,16 +307,17 @@ section.services.reasons {
     font: $normal 2.4rem/3.4rem $regular;
   }
   a.casestudy {
-    @media (min-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-tablet) {
       position: absolute;
-      top: 0;
-      right: 20px;
+      width: 100%;
+      bottom: 0;
     }
     &:hover {
       text-decoration: none;
     }
   }
   ul {
+    margin: 0 0 80px 0;
     list-style: none;
     @media (min-width: $breakpoint-laptop) {
       display: grid;
@@ -330,6 +332,7 @@ section.services.reasons {
       list-style: none;
       text-align: left;
       @media (min-width: $breakpoint-laptop) {
+        margin: 0;
         text-align: center;
         &:first-child {
           text-align: left;
@@ -339,9 +342,12 @@ section.services.reasons {
         }
       }
       a {
-        font: $bold 4.0rem/4.8rem $heading;
         color: $cream;
         text-decoration: none;
+        font: $bold 3.2rem/4.2rem $heading;
+        @media (min-width: $breakpoint-laptop) {
+          font: $bold 4.0rem/4.8rem $heading;
+        }
         &:hover {
           color: $bgreen80;
         }
@@ -370,7 +376,7 @@ section.services.reasons {
 
 .services.industries {
   padding: $padding 0;
-  h2 {
+  h4 {
     font: $bold 4.0rem/4.8rem $heading;
     margin-bottom: 20px;
     @media (min-width: $breakpoint-desktop) {
@@ -381,13 +387,16 @@ section.services.reasons {
   .industry {
     padding: 20px 0;
     border-bottom: 1px solid $green;
-    h3 {
+    h5 {
       
       margin-bottom: 10px;
       a {
-        font: $bold 4.0rem/4.8rem $heading;
         color: $green;
         text-decoration: none;
+        font: $bold 3.2rem/4.2rem $heading;
+        @media (min-width: $breakpoint-laptop) {
+          font: $bold 4.0rem/4.8rem $heading;
+        }
         &:hover {
           text-decoration: underline;
           text-decoration-color: $green;
