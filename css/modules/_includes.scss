@@ -306,4 +306,10 @@ section.cta {
       margin: 40px 0;
     }
   }
+  a.button {
+    width: 100%;
+    @media (min-width: $breakpoint-tablet) {
+      width: auto;
+    }
+  }
 }

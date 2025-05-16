@@ -199,9 +199,12 @@ section.archive {
 }
 
 article.insight {
-  margin-bottom: 4%;
   border: 1px solid #D6D6D6;
   background: $suntan;
+  margin-bottom: 24px;
+  @media (min-width: $breakpoint-laptop) {
+    margin-bottom: 4%;
+  }
   &.large {
     display: flex;
     flex-wrap: wrap;

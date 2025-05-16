@@ -86,6 +86,7 @@ section.home.services {
     padding: 80px 0;
   }
   .focus {
+    position: relative;
     img.bolt-mobile {
       display: block;
       margin: 20px auto;
@@ -309,6 +310,12 @@ section.home.insights {
   @media (min-width: $breakpoint-tablet) {
     padding: $padding 0;
   }
+  h2 {
+    font: $bold 4.0rem/4.8rem $heading;
+    @media (max-width: $breakpoint-tablet) {
+      font: $bold 5.6rem/5.6rem $heading;
+    }
+  }
   article.insight {
     &.large {
       display: flex;
@@ -325,6 +332,12 @@ section.home.insights {
         justify-content: center; /* centres children vertically */
         padding: 4%;
         margin-left: 0;
+        .meta {
+          display: none;
+          @media (min-width: $breakpoint-tablet) {
+            display: block;
+          }
+        }
         span.author {
           color: #6C6A59;
           font: $normal 1.8rem/1.8rem $regular;
