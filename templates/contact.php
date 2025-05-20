@@ -16,7 +16,8 @@ get_header(); ?>
     <div class="content one-half column">
       <h2>How can we help?</h2>
       <p>We’d love to learn more and discover what we can design together.</p>
-      <form action="#" method="POST" class="contact-form">
+      <?php echo do_shortcode('[gravityform id="5" title="true"]'); ?>
+      <!-- <form action="#" method="POST" class="contact-form">
         <label>Your name</label>
         <input type="text" name="name" required>
         <label>Email</label>
@@ -28,7 +29,7 @@ get_header(); ?>
         <label>How can we work together?</label>
         <textarea name="message" required></textarea>
         <button type="submit">Submit</button>
-      </form>
+      </form> -->
     </div>
     <div class="bg one-half column"></div>
   </div>
