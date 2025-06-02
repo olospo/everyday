@@ -4,7 +4,7 @@ section.contact.form {
   display: flex;
   padding: 0;
   @media (min-width: $breakpoint-tablet) {
-    padding: $padding 0;
+    padding: 110px 0;
   }
   .content {
     box-sizing: border-box;
@@ -69,8 +69,8 @@ section.contact.form {
       }
     }
     button, input.gform_button {
-      @include border-radius(15px);
-      padding: 10px;
+      @include border-radius(30px);
+      padding: 14px 20px 10px 20px;
       width: 100%;
       display: block;
       font: $normal 2.0rem/2.4rem $regular;
