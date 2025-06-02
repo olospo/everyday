@@ -182,14 +182,13 @@ section.services.reputation + section.service.insights {
 }
 
 section.service.client-logos {
-
   background: $suntan;
   padding: $padding-half 0;
   @media (min-width: $breakpoint-desktop) {
     padding: $padding 0;
   }
   h2 {
-    font: $bold 4.0rem/4.8rem $heading;
+    font: $bold 3.2rem/4.2rem $heading;
     margin-bottom: 20px;
     @media (min-width: $breakpoint-desktop) {
       font: $bold 5.6rem/6.6rem $heading;

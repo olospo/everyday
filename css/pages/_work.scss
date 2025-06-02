@@ -21,8 +21,11 @@ article.work {
     overflow: hidden;
   }
   .image {
-    min-height: 320px;
     transition: transform 1s ease;
+    min-height: 220px;
+    @media (min-width: $breakpoint-tablet) {
+      min-height: 320px;
+    }
     &:hover {
       transform: scale(1.1); 
     }
