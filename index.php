@@ -18,67 +18,63 @@ get_header(); ?>
     </div>
   </div>
   <?php if ( have_posts() ) : the_post(); ?>
-    <!-- Container for featured insight -->
-    <div class="container">
-      <div class="news_listing twelve columns">
-        <article class="insight large twelve columns">
-          <div class="six columns">
-            <a href="<?php the_permalink(); ?>">
-              <div class="zoom">
-                <div class="image" style="background: url('<?php the_post_thumbnail_url( 'featured-img' ); ?>') center center no-repeat; background-size: cover;"></div>
-              </div>
-            </a>
-          </div>
-          <div class="content six columns">
-            <div class="align">
-            <?php 
-              $primary_category_id = get_post_meta( get_the_ID(), '_yoast_wpseo_primary_category', true );
-              if ( $primary_category_id ) {
-                $primary_category = get_term( $primary_category_id, 'category' );
-                if ( $primary_category && ! is_wp_error( $primary_category ) ) {
-                  echo '<span class="cat"><a href="' . esc_url( get_category_link( $primary_category->term_id ) ) . '">' . esc_html( $primary_category->name ) . '</a></span>';
-                }
+      <!-- FIRST featured article (the_post() above pulls the very first post) -->
+      <div class="container">
+        <div class="news_listing twelve columns">
+          <?php get_template_part('inc/article_large'); ?>
+        </div>
+      </div>
+  
+      <!-- Newsletter CTA (full‐width) -->
+      <?php get_template_part('inc/newsletter_cta'); ?>
+  
+      <!-- Container for the rest of the posts + pagination -->
+      <div class="container">
+        <div class="news_listing twelve columns">
+          <?php 
+            // $post_index starts at 0 for the first post in this loop
+            $post_index = 0;
+  
+            // Loop over everything after the first post
+            while ( have_posts() ) : the_post();
+              $post_index++;
+  
+              // 1) After exactly 3 normal posts, show the insight CTA.
+              if ( $post_index === 3 ) {
+                // Render the 3rd normal article
+                get_template_part('inc/article');
+  
+                // Then inject the insight CTA
+                get_template_part('inc/insight_cta');
+  
+              // 2) Immediately after that CTA (i.e. on the 4th iteration), render a featured.
+              //    Then, every time 4 normal articles have appeared since the last featured, render another featured.
+              } elseif ( $post_index > 3 && ( ($post_index - 4) % 5 === 0 ) ) {
+                // e.g. $post_index = 4 ⇒ (4 - 4) % 5 = 0  ⇒ featured
+                //      $post_index = 9 ⇒ (9 - 4) % 5 = 0  ⇒ featured
+                get_template_part('inc/article_large');
+  
+              // 3) All other cases: render a normal article
+              } else {
+                get_template_part('inc/article');
               }
-            ?>
-            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-            <?php the_excerpt(); ?>
-            <div class="meta"><span class="author"><?php echo get_field('authors'); ?></span> &#x25AA; <span class="date"><?php the_time("F j, Y"); ?></span></div>
-            </div>
-          </div>
-        </article>
+  
+            endwhile;
+          ?>
+        </div>
+  
+        <div class="twelve columns">
+          <?php numeric_posts_nav(); ?>
+        </div>
       </div>
-    </div>
-
-    <!-- Newsletter CTA placed outside any container for full-width display -->
-    <?php get_template_part('inc/newsletter_cta'); ?>
-
-    <!-- Container for the remaining posts and pagination -->
-    <div class="container">
-      <div class="news_listing twelve columns">
-        <?php 
-          $counter = 0;
-          // Loop through the remaining posts
-          while ( have_posts() ) : the_post();
-            $counter++;
-            get_template_part('inc/article');
-            if ( $counter == 3 ) {
-              get_template_part('inc/insight_cta');
-            }
-          endwhile;
-        ?>
-      </div>
-      <div class="twelve columns">
-        <?php numeric_posts_nav(); ?>
-      </div>
-    </div>
-
-    <?php wp_reset_query(); ?>
-
+  
+      <?php wp_reset_query(); ?>
   <?php else : ?>
-    <div class="container">
-      <!-- No posts found -->
-    </div>
+      <div class="container">
+        <!-- No posts found -->
+      </div>
   <?php endif; ?>
+
 </section>
 
 <?php get_footer();  ?>
