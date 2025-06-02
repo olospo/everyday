@@ -162,7 +162,6 @@ get_header(); while ( have_posts() ) : the_post(); ?>
         if ( ! empty( $specialties ) && ! is_wp_error( $specialties ) ) {
           foreach ( $specialties as $specialty ) {
             $specialty_link = get_term_link( $specialty );
-            // Echo each <li> without any space or newline
             echo '<li><a href="' . esc_url( $specialty_link ) . '">' . esc_html( $specialty->name ) . '</a></li>';
           }
         }

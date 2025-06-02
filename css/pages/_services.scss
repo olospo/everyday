@@ -304,7 +304,7 @@ section.services.reasons {
     margin-bottom: 20px;
     @media (min-width: $breakpoint-desktop) {
       font: $bold 5.6rem/6.6rem $heading;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
   }
   p {
@@ -315,7 +315,10 @@ section.services.reasons {
     a.button {
       display: none;
       @media (min-width: $breakpoint-tablet) {
-        display: inline-block; 
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
       }
     }
   }
@@ -346,18 +349,19 @@ section.services.reasons {
     list-style: none;
     @media (min-width: $breakpoint-laptop) {
       display: grid;
-      grid-template-columns: repeat(4, minmax(120px, auto));
-      gap: 20px;
-      padding: 0;
-      margin: $padding 0 0 0;
-    }
-    li {
+      grid-template-columns: 240px 1fr 1fr 1fr;
+      gap: 0px;
       padding: 0;
       margin: 0;
+    }
+    li {
+      margin: 0;
+      padding: 5px 0;
       list-style: none;
       text-align: left;
       @media (min-width: $breakpoint-laptop) {
         margin: 0;
+        padding: 50px 0;
         text-align: center;
         &:first-child {
           text-align: left;
@@ -384,15 +388,15 @@ section.services.reasons {
       &:not(:first-child):before {
         display: none;
         @media (min-width: $breakpoint-laptop) {
-          background: $bgreen;
+          background: url('../img/list-squiggle.svg') center center no-repeat;
           display: block;
           content: "";
           position: absolute;
-          left: 0;
+          left: -7px;
           top: 50%;
           transform: translateY(-50%);
-          width: 1px;
-          height: 50%;
+          width: 15px;
+          height: 100%;
         }
       }
     }
