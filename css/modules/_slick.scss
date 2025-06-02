@@ -114,13 +114,15 @@
 .slick-prev {
   background: $white url('../img/slider-left-arrow.svg') center center no-repeat;
   &:hover {
-    background: $suntan url('../img/slider-left-arrow.svg') center center no-repeat;
+    background: $green url('../img/slider-left-arrow.svg') center center no-repeat;
+    border: 1px solid $bgreen;
   }
 }
 .slick-next {
   background: $white url('../img/slider-right-arrow.svg') center center no-repeat;
   &:hover {
-    background: $suntan url('../img/slider-right-arrow.svg') center center no-repeat;
+    background: $green url('../img/slider-right-arrow.svg') center center no-repeat;
+    border: 1px solid $bgreen;
   }
 }
 .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
