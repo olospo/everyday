@@ -70,7 +70,9 @@
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_6137bba72c2da",
@@ -95,11 +97,11 @@
             "new_lines": ""
         },
         {
-            "key": "field_6137bc0b2c2df",
-            "label": "Project Overview",
-            "name": "project_overview",
+            "key": "field_6137bc002c2de",
+            "label": "Project Date",
+            "name": "project_date",
             "aria-label": "",
-            "type": "group",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -108,117 +110,11 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_6137bbc82c2db",
-                    "label": "What We Did",
-                    "name": "what_we_did",
-                    "aria-label": "",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "row",
-                    "button_label": "Add Service",
-                    "sub_fields": [
-                        {
-                            "key": "field_6137bbda2c2dc",
-                            "label": "Service",
-                            "name": "service",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": "",
-                            "parent_repeater": "field_6137bbc82c2db"
-                        }
-                    ],
-                    "rows_per_page": 20
-                },
-                {
-                    "key": "field_6137bbf82c2dd",
-                    "label": "Project Type",
-                    "name": "project_type",
-                    "aria-label": "",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "table",
-                    "button_label": "Add Project Type",
-                    "sub_fields": [
-                        {
-                            "key": "field_6153621ede003",
-                            "label": "Type",
-                            "name": "type",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": "",
-                            "parent_repeater": "field_6137bbf82c2dd"
-                        }
-                    ],
-                    "rows_per_page": 20
-                },
-                {
-                    "key": "field_6137bc002c2de",
-                    "label": "Project Date",
-                    "name": "project_date",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                }
-            ]
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_67c8625f2b812",
@@ -847,5 +743,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741186315
+    "modified": 1748876208
 }

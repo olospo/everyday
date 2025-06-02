@@ -17,25 +17,23 @@ while ( have_posts() ) : the_post(); ?>
       <h2><?php the_field( 'short_description' ); ?></h2>
       <?php the_field( 'project_intro' ); ?>
     </div>
-    <?php if ( have_rows( 'project_overview' ) ) : ?>
-      <?php while ( have_rows( 'project_overview' ) ) : the_row(); ?>
-        <aside class="four columns">
-          <ul>
-            <li><?php the_sub_field( 'project_date' ); ?></li>
-        <?php if ( have_rows( 'what_we_did' ) ) : ?>
-          <?php while ( have_rows( 'what_we_did' ) ) : the_row(); ?>
-            <li><?php the_sub_field( 'service' ); ?></li>
-          <?php endwhile; ?>
-        <?php else : endif; ?>
-          <?php if ( have_rows( 'project_type' ) ) : ?>
-            <?php while ( have_rows( 'project_type' ) ) : the_row(); ?>
-              <li><?php the_sub_field( 'type' ); ?></li>
-            <?php endwhile; ?>
-          <?php else : endif; ?>
-          </ul>
-        </aside>
-      <?php endwhile; ?>
-    <?php endif; ?>
+    <aside class="four columns">
+      <ul>
+        <li><?php echo get_field( 'project_date' ); ?></li>
+        <?php $industries = get_the_terms(get_the_ID(), 'industry');
+        if ($industries && !is_wp_error($industries)) {
+          foreach ($industries as $industry) {
+            echo '<li>' . esc_html($industry->name) . '</li>';
+          }
+        } ?>
+        <?php $types = get_the_terms(get_the_ID(), 'specialty');
+        if ($types && !is_wp_error($types)) {
+          foreach ($types as $type) {
+            echo '<li>' . esc_html($type->name) . '</li>';
+          }
+        } ?>
+      </ul>
+    </aside>
   </div>
 </section>
 
