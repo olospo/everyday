@@ -101,6 +101,14 @@ section.post.career {
     }
     p, ul li, ol li {
       font: $normal 2.4rem/3.4rem $regular;
+      @media (max-width: $breakpoint-tablet) {
+        margin-left: 10px;
+        padding-left: 5px;
+        &::marker {
+          font: $normal 2.2rem/3.4rem $regular;
+          
+        }
+      }
     }
   }
   .bg {
