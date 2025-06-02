@@ -199,7 +199,8 @@ section.service.client-logos {
   .logos {
     display: flex;
     flex-direction: row;
-    gap: 40px; /* Adjust the gap as needed */
+    gap: 40px;
+    align-items: center; 
   }
 }
 
