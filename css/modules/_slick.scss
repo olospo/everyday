@@ -111,6 +111,18 @@
   opacity: 1;
   background: $white;
 }
+.slick-prev {
+  background: $white url('../img/slider-left-arrow.svg') center center no-repeat;
+  &:hover {
+    background: $suntan url('../img/slider-left-arrow.svg') center center no-repeat;
+  }
+}
+.slick-next {
+  background: $white url('../img/slider-right-arrow.svg') center center no-repeat;
+  &:hover {
+    background: $suntan url('../img/slider-right-arrow.svg') center center no-repeat;
+  }
+}
 .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
   color: $blue;
   outline: none;
@@ -133,15 +145,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.slick-prev:hover, .slick-next:hover {
-  color: $bgreen;
-  background: $green;
-  border: 1px solid $bgreen;
-}
+
 
 .slick-prev:hover:before, .slick-next:hover:before {
   color: $bgreen;
-  background: $green;
 }
 
 
@@ -158,18 +165,18 @@
 }
 
 .slick-prev:before {
-  content: '<';
+  // content: '<';
 }
 [dir='rtl'] .slick-prev:before {
-  content: '>';
+  // content: '>';
 }
 
 
 .slick-next:before {
-  content: '>';
+  // content: '>';
 }
 [dir='rtl'] .slick-next:before {
-  content: '<';
+  // content: '<';
 }
 
 /* Dots */

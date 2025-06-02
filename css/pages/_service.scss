@@ -52,7 +52,7 @@ section.service.intro {
   padding: $padding-half 0;
   background: $cream;
   @media (min-width: $breakpoint-tablet) {
-    padding: $padding 0;
+    padding: 80px 0;
   }
   h2 {
     font: $bold 3.2rem/4.2rem $heading;
@@ -70,7 +70,7 @@ section.service.approach {
   background: $suntan;
   padding: $padding-half 0;
   @media (min-width: $breakpoint-tablet) {
-    padding: $padding 0;
+    padding: 80px 0;
   }
   h2 {
     position: relative;
@@ -204,8 +204,11 @@ section.service.client-logos {
 }
 
 section.service.offering {
-  padding: $padding 0;
   background: $green;
+  padding: $padding 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0 112px 0;
+  }
   h2 {
     color: $cream;
     font: $bold 4.0rem/4.8rem $heading;
