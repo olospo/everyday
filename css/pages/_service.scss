@@ -200,6 +200,18 @@ section.service.client-logos {
     flex-direction: row;
     gap: 40px;
     align-items: center; 
+    flex-wrap: wrap;
+    @media (max-width: $breakpoint-laptop) {
+      justify-content: center;
+    }
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @media (max-width: $breakpoint-laptop) {
+        flex: 0 0 calc(50% - 20px); 
+      }
+    }
   }
 }
 
