@@ -218,9 +218,11 @@ article.insight {
       display: flex;
       flex-direction: column;
       justify-content: center; /* centres children vertically */
-      padding: 4%;
+      padding: 24px;
       margin-left: 0;
-      
+      @media (min-width: $breakpoint-laptop) {
+        padding: 4%;
+      }
     }
     &.featured {
       .content {

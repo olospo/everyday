@@ -9,7 +9,7 @@ $( document ).ready(function() {
 });
 
 $(".services .slider").slick({
-  dots: false,
+  dots: true,
   arrows: true,
   infinite: true,
   speed: 400,
@@ -25,7 +25,7 @@ $(".services .slider").slick({
       settings: {
         dots: true,
         arrows: false,
-        slidesToShow: 1
+        slidesToShow: 1,
       }
     }
   ]
@@ -45,7 +45,7 @@ $(".home .slider").slick({
   cssEase: "linear",
   responsive: [
     {
-      breakpoint: 600,
+      breakpoint: 1024,
       settings: {
         dots: true,
         arrows: false,

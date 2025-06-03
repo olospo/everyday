@@ -183,7 +183,10 @@ section.services.reputation {
   background: $blue;
   background: $bgreen url('../img/reputation-service-bg.svg') top center repeat-x;
   background-size: auto auto;
-  padding: 80px 0;
+  padding: 40px 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: 80px 0;
+  }
   h2 {
     color: $cream;
     font: $bold 4.0rem/4.8rem $heading;
@@ -197,15 +200,16 @@ section.services.reputation {
     .quote {
       margin: 0;
       background: $cream;
-      padding: 40px;
+      padding: 24px 16px;
       @media (min-width: $breakpoint-tablet) {
+        padding: 40px;
         margin: 0 0 0 20px;
         height: 600px;
       }
       p {
-        font: $bold 2.0rem/3.0rem $heading;
+        font: $bold 2.4rem/3.2rem $heading;
         @media (min-width: $breakpoint-tablet) {
-          font: $bold 3.0rem/4.0rem $heading;
+          font: $bold 3.2rem/4.0rem $heading;
         }
       }
       cite {
@@ -228,11 +232,16 @@ section.services.reputation {
         }
       }
       blockquote {
+        margin: 0;
+        padding: 44px 0 0 0;
+        @media (min-width: $breakpoint-tablet) {
+          margin: 20px 0 0 0;
+        }
         &:before {
           font-size: 14rem;
           content: "“";    
           left: 0;
-          top: 40px;
+          top: 34px;
         }
       }
     }
