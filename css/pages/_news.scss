@@ -112,6 +112,8 @@ body.single-post {
           padding: 15px;
           border: none;
           border-radius: 4px 0 0 4px;
+          box-sizing: border-box;
+          width: 80%;
         }
         button {
           position: absolute;
@@ -343,6 +345,8 @@ section.insight-cta {
       padding: 15px;
       border: none;
       border-radius: 4px 0 0 4px;
+      box-sizing: border-box;
+      width: 90%;
     }
     button {
       position: absolute;
