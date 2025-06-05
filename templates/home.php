@@ -161,58 +161,102 @@ get_header(); ?>
 </section>
 
 <!-- Work -->
+<!-- Work -->
 <section class="home work">
   <div class="container">
     <h2><?php echo $work_title; ?></h2>
     <?php if ( $work_group && isset( $work_group['selected_work'] ) ) {
       $selected_work = $work_group['selected_work'];
+
       // If only one post is selected, ensure it's an array.
       if ( ! is_array( $selected_work ) ) {
         $selected_work = array( $selected_work );
       }
+
       if ( ! empty( $selected_work ) ) : ?>
       <div class="work-wrapper twelve columns">
         <div class="work-list six columns">
           <?php 
           $counter = 0;
+
           // Loop through the selected case studies.
           foreach ( $selected_work as $post ) : 
             setup_postdata( $post );
             $counter++;
+
+            // 1) Try to grab the 'homepage_image' ACF field (which returns an image array).
+            // 2) If that field is empty, fall back to the featured image (post thumbnail).
+            $custom = get_field( 'homepage_image', get_the_ID() );
+            if ( $custom ) {
+              // ACF image array structure: [ 'url' => ..., 'alt' => ..., etc. ]
+              $image_url = $custom['url'];
+            } else {
+              // Fallback to featured image URL
+              $image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+            }
           ?>
-          <article class="work-item <?php echo ( $counter === 1 ? 'active' : '' ); ?>" data-image="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' ); ?>" data-link="<?php the_permalink(); ?>">
+          <article class="work-item <?php echo ( $counter === 1 ? 'active' : '' ); ?>"
+                   data-image="<?php echo esc_url( $image_url ); ?>"
+                   data-link="<?php the_permalink(); ?>">
             <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             <p><?php echo get_field( 'short_description' ); ?></p>
-            <?php $industries = get_the_terms( get_the_ID(), 'industry' );
-              if ( $industries && ! is_wp_error( $industries ) ) {
-                foreach ( $industries as $industry ) {
-                  echo '<span class="cat"><a href="' . esc_url( get_term_link( $industry->term_id, 'industry' ) ) . '">' . esc_html( $industry->name ) . '</a></span>';
+
+            <?php 
+            $industries = get_the_terms( get_the_ID(), 'industry' );
+            if ( $industries && ! is_wp_error( $industries ) ) {
+              foreach ( $industries as $industry ) {
+                echo '<span class="cat"><a href="' 
+                     . esc_url( get_term_link( $industry->term_id, 'industry' ) ) 
+                     . '">' 
+                     . esc_html( $industry->name ) 
+                     . '</a></span>';
               }
-            } ?>
+            }
+            ?>
           </article>
-          <?php endforeach; wp_reset_postdata(); ?>
+          <?php 
+          endforeach; 
+          wp_reset_postdata(); 
+          ?>
         </div>
+
         <div class="work-image six columns">
           <?php 
-          $first = reset( $selected_work ); 
+          // Grab the very first post in the $selected_work array
+          $first = reset( $selected_work );
           setup_postdata( $first );
-          // Get the thumbnail ID
-          $thumbnail_id = get_post_thumbnail_id( $first->ID );
-          // Get the alt text from the image metadata
-          $alt_text = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
+
+          // Try homepage_image on the first post
+          $first_homepage = get_field( 'homepage_image', $first->ID );
+          if ( $first_homepage ) {
+            $display_url = $first_homepage['url'];
+            $alt_text    = $first_homepage['alt'];
+          } else {
+            // Fallback to featured image
+            $display_url = get_the_post_thumbnail_url( $first->ID, 'full' );
+            $thumbnail_id = get_post_thumbnail_id( $first->ID );
+            $alt_text = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
+          }
           ?>
           <a href="<?php echo get_permalink( $first->ID ); ?>">
-            <img src="<?php echo get_the_post_thumbnail_url( $first->ID, 'full' ); ?>" alt="<?php echo esc_attr( $alt_text ); ?>" id="displayed-image">
+            <img src="<?php echo esc_url( $display_url ); ?>"
+                 alt="<?php echo esc_attr( $alt_text ); ?>"
+                 id="displayed-image">
           </a>
           <?php wp_reset_postdata(); ?>
         </div>
       </div>
-    <?php endif; } ?> 
+    <?php endif; } ?>
+
     <div class="all-wrapper twelve columns">
-      <a href="<?php echo get_site_url(); ?>/casestudy/" class="button accent"><?php echo $work_button; ?></a>
+      <a href="<?php echo esc_url( get_site_url() . '/casestudy/' ); ?>" 
+         class="button accent">
+        <?php echo $work_button; ?>
+      </a>
     </div>
-  </div>  
+  </div>
 </section>
+
 
 <!-- Insights -->
 <section class="home insights">
