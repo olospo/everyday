@@ -206,9 +206,7 @@ section.service.client-logos {
     gap: 40px;
     align-items: center; 
     flex-wrap: wrap;
-    @media (max-width: $breakpoint-laptop) {
-      justify-content: center;
-    }
+    justify-content: center;
     .logo {
       display: flex;
       justify-content: center;
