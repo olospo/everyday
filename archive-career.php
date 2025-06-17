@@ -29,7 +29,7 @@ get_header(); ?>
         <?php else : ?>
         <div class="no-roles twelve columns">
          <h2>We don’t have any open roles now, but don’t let that stop you.</h2>
-         <p>We may not have any open positions right now, but we're always excited to connect with exceptional talent who share our vision. Send us a message to careers@everydayindustries.com.</p>
+         <p>We may not have any open positions right now, but we're always excited to connect with exceptional talent who share our vision. Send us a message to <a href="mailto:careers@everydayindustries.com">careers@everydayindustries.com</a>.</p>
         <img src="<?php bloginfo('template_directory'); ?>/img/careers-empty.png" alt="No open roles">
         </div>
         <?php endif; wp_reset_query(); ?>
