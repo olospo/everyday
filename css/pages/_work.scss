@@ -138,16 +138,40 @@ section.casestudy.intro {
   }
   aside {
     background: $suntan;
-    border-left: 2px solid $bgreen80;
+    border-left: 2px solid $bgreen70;
     padding: 20px 30px;
     ul {
-      
-      margin: 0 0 20px 0;
+      margin: 0;
       li {
         list-style: none;
         margin: 5px 0;
         padding: 0;
         font: $normal 2.0rem/3.0rem $regular;
+        a {
+          color: $bgreen70;
+          text-decoration: none;
+          
+          &::after {
+            content: '';
+            display: inline-block;
+            width: 24px; /* Adjust to your image size */
+            height: 24px;
+            margin-left: 6px;
+            margin-top: 5px;
+            margin-bottom: -5px;
+            background-image: url('../img/arrow_green.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            transition: margin linear 0.2s;
+          }
+          &:hover {
+            &::after {
+              transition: margin linear 0.2s;
+              margin-left: 16px;
+            }
+          }
+        }
       }
       &:last-child {
         margin: 0;

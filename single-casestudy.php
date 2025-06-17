@@ -19,7 +19,10 @@ while ( have_posts() ) : the_post(); ?>
     </div>
     <aside class="four columns">
       <ul>
-        <li><?php echo get_field( 'project_date' ); ?></li>
+        <?php $date = get_field( 'project_date' ); ?>
+        <?php if ( $date ) { ?>
+          <li><?php echo $date; ?></li>
+        <?php } ?>
         <?php $industries = get_the_terms(get_the_ID(), 'industry');
         if ($industries && !is_wp_error($industries)) {
           foreach ($industries as $industry) {
@@ -32,6 +35,12 @@ while ( have_posts() ) : the_post(); ?>
             echo '<li>' . esc_html($type->name) . '</li>';
           }
         } ?>
+        
+        <?php $link = get_field( 'site_url' ); ?>
+        <?php if ( $link ) { ?>
+          <li><a href="<?php echo $link; ?>">View Site</a></li>
+        <?php } ?>
+        
       </ul>
     </aside>
   </div>
