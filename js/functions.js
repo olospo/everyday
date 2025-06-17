@@ -31,8 +31,30 @@ $(".services .slider").slick({
   ]
 });
 
-
 $(".home .slider").slick({
+  dots: false,
+  arrows: true,
+  infinite: true,
+  speed: 400,
+  autoplaySpeed: 4000,
+  slidesToShow: 1,
+  slidesToScroll:1,
+  fade: true,
+  autoplay: false,
+  cssEase: "linear",
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        dots: true,
+        arrows: false,
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+
+$(".swiper-wrapper").slick({
   dots: false,
   arrows: true,
   infinite: true,

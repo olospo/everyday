@@ -200,9 +200,7 @@ section {
     }
   }
   h4 {
-    font: $bold 2rem/2.8rem $heading;
-    margin-bottom: 10px;
-    font-size: 2rem;
+    font: $bold 2.4rem/3.4rem $heading;
   }
   h5 {
     font: $bold 1.8rem/2.6rem $heading;
@@ -237,18 +235,18 @@ section {
   }
   ul {
     margin: 20px 0px 20px 20px;
-    font: $normal 1.6rem/2.4rem $regular;
+    font: $normal 2.0rem/2.8rem $regular;
     @media (min-width: $breakpoint-tablet) {
-      font: $normal 1.8rem/3.4rem $regular;
+      font: $normal 2.4rem/3.4rem $regular;
     }
     li {
       list-style: disc;
       list-style-position: outside;
       margin-left: 20px;
-      font: $normal 1.6rem/2.4rem $regular;
+      font: $normal 2.0rem/2.8rem $regular;
       padding-left: 10px;
       @media (min-width: $breakpoint-tablet) {
-        font: $normal 1.8rem/3.4rem $regular;
+        font: $normal 2.4rem/3.4rem $regular;
       }
     }
     ul {
@@ -257,15 +255,29 @@ section {
   }
   ol {
     margin: 20px 0px 20px 20px;
-    font: $normal 1.6rem/2.4rem $regular;
+    font: $normal 2.0rem/2.8rem $regular;
     @media (min-width: $breakpoint-tablet) {
-      font: $normal 1.8rem/3.4rem $regular;
+      font: $normal 2.4rem/3.4rem $regular;
     }
     li {
       list-style: decimal;
       list-style-position: outside;
       margin-left: 20px;
+      font: $normal 2.0rem/2.8rem $regular;
       padding-left: 10px;
+      @media (min-width: $breakpoint-tablet) {
+        font: $normal 2.4rem/3.4rem $regular;
+      }
+      h4 {
+        font: $bold 2.8rem/3.6rem $heading;
+        margin-bottom: 10px;
+      }
+      p {
+        margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 10px;
+        }
+      }
     }
   }
   figure.wp-block-table {
