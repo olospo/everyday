@@ -184,7 +184,7 @@ section.casestudy.old.content {
     }
   }
   .three-images {
-    padding: $padding-half 0 $padding 0;
+    padding: $padding 0 $padding 0;
     background: $blue;
     margin: $padding auto $padding auto;
     display: -webkit-flex;
@@ -204,7 +204,7 @@ section.casestudy.old.content {
       display: block;
     }
     &:first-child {
-      padding: 0 0 $padding 0;
+      margin: 0 auto $padding auto;
     }
     .content {
       flex-direction: row;
