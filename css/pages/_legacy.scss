@@ -50,6 +50,7 @@ section.casestudy.old.content {
       font-size: 1.6rem;
       line-height: 2.4rem;
       @media (min-width: $breakpoint-tablet) {
+        margin: 20px auto 0 auto;
         font-size: 2.0rem;
         line-height: 2.4rem;
         max-width: 50%;
