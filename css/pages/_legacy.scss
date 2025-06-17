@@ -203,6 +203,9 @@ section.casestudy.old.content {
     @media (min-width: $breakpoint-tablet) {
       display: block;
     }
+    &:first-child {
+      padding: 0 0 $padding 0;
+    }
     .content {
       flex-direction: row;
       width: calc(100% - 5rem);
