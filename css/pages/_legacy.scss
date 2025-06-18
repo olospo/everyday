@@ -249,6 +249,27 @@ section.casestudy.old.content {
     @media (min-width: $breakpoint-tablet) {
       display: none;
     }
+    .slick-dots {
+      line-height: 0;
+      bottom: -50px;
+      @include border-radius(10px);
+      background: $suntan;
+      margin: 0;
+      padding: 10px 10px 7px 10px;
+      width: auto;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      li {
+        display: inline-block;
+        border: 2px solid $bgreen;
+        background: transparent;
+        &.slick-active {
+          background: $bgreen;
+        }
+      }
+    }
   }
   .quote-block {
     padding: $padding 0 0 0;

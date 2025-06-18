@@ -158,8 +158,6 @@ while ( have_posts() ) : the_post(); ?>
                     <?php endforeach; ?>
                   <?php endif; ?>
                 </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
               </div>
             </div>
             <?php $caption = get_sub_field( 'caption' ); ?>
