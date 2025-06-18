@@ -98,7 +98,10 @@ section.casestudy.old.content {
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
     align-items: flex-start;
-    margin-top: 60px;
+    margin-top: 30px;
+    @media (min-width: $breakpoint-tablet) {
+      margin-top: 60px;
+    }
     .content {
       h3 {
         font: $bold 3.2rem/4.2rem $heading;
@@ -245,13 +248,19 @@ section.casestudy.old.content {
     }
   }
   .three-images-mobile {
+    margin-top: 30px;
     display: block;
     @media (min-width: $breakpoint-tablet) {
       display: none;
     }
+    .swiper-wrapper {
+      @media (max-width: $breakpoint-tablet) {
+        margin-bottom: 50px;
+      }
+    }
     .slick-dots {
       line-height: 0;
-      bottom: -50px;
+      bottom: -40px;
       @include border-radius(10px);
       background: $suntan;
       margin: 0;
