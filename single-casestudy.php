@@ -1,9 +1,12 @@
 <?php 
 get_header();
 
+$header_color = get_field('header_color');
+$style_attr = $header_color ? 'style="background-color:' . esc_attr($header_color) . ';"' : '';
+
 while ( have_posts() ) : the_post(); ?>
 
-<section class="hero single">
+<section class="hero single" <?php echo $style_attr; ?>>
   <div class="container">
     <div class="content ten columns">
       <h1><?php the_title(); ?></h1>

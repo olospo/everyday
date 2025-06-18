@@ -22,6 +22,26 @@
             "selected": 0
         },
         {
+            "key": "field_68527c5d59d15",
+            "label": "Header Color",
+            "name": "header_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "Case Study header color",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "#09063B",
+            "enable_opacity": 0,
+            "return_format": "string",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_614ce798d2e0a",
             "label": "Logo",
             "name": "logo",
@@ -31,32 +51,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_6841833bb7917",
-            "label": "Homepage Image",
-            "name": "homepage_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Image for use on the homepage \"Dive into our work\" section.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -74,32 +69,31 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_6137c6f72c2f9",
-            "label": "Project Type",
-            "name": "project_type",
+            "key": "field_6841833bb7917",
+            "label": "Homepage Image",
+            "name": "homepage_image",
             "aria-label": "",
-            "type": "select",
-            "instructions": "",
+            "type": "image",
+            "instructions": "Image for use on the homepage \"Dive into our work\" section.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "60",
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "app": "App",
-                "web": "Web"
-            },
-            "default_value": false,
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "relevanssi_exclude": 0,
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 1,
+            "preview_size": "medium"
         },
         {
             "key": "field_6137bba72c2da",
@@ -119,7 +113,7 @@
             "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 1,
-            "rows": 4,
+            "rows": 2,
             "placeholder": "",
             "new_lines": ""
         },
@@ -133,15 +127,17 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
+            "relevanssi_exclude": 0,
             "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_685184ba6603a",
@@ -153,7 +149,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -789,5 +785,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1750172902
+    "modified": 1750236376
 }

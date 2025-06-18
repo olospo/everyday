@@ -113,10 +113,33 @@ article.work_quote {
 // Single Case Study
 body.single-casestudy {
   header {
-    background: $darkblue;
+    background: 0 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    nav.menu {
+      ul {
+        li {
+          a {
+            color: $white;
+          }
+        }
+      }
+    }
   }
   section.hero.single {
     background: $darkblue;
+    padding-top: 110px;
+    @media (min-width: $breakpoint-tablet) {
+      padding-top: 155px;
+    }
+    
+  }
+  &.admin-bar {
+    header {
+      top: 32px;
+    }
   }
 }
 
