@@ -200,6 +200,19 @@ section.casestudy.intro {
         margin: 0;
       }
     }
+    &.details {
+      display: none;
+      @media (min-width: $breakpoint-tablet) {
+        display: block;
+      }
+    }
+    &.mobile-details {
+      display: block;
+      margin-bottom: 20px;
+      @media (min-width: $breakpoint-tablet) {
+        display: none;
+      }
+    }
   }
 }
 
