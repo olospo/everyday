@@ -47,7 +47,8 @@ get_header(); ?>
         $testimonial_args = array(
           'post_type'      => 'testimonial',
           'posts_per_page' => -1,
-          'orderby'        => 'rand', // Random order (change if needed)
+          'orderby'        => 'menu_order',
+          'order'          => 'DESC',
           'meta_query'     => array(
             array(
               'key'     => 'display_on_case_studies_page',
