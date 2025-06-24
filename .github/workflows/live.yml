@@ -16,4 +16,4 @@ jobs:
         WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
         WPE_ENV: everydayind
         SRC_PATH: "./"  # your theme is in root of repo
-        REMOTE_PATH: "sites/everydayind/wp-content/themes/everyday"
+        REMOTE_PATH: "/wp-content/themes/everyday"
