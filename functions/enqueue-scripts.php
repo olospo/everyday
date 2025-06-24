@@ -5,8 +5,6 @@ function theme_enqueue_assets() {
   // Enqueue main stylesheet
   wp_enqueue_style('main', get_stylesheet_directory_uri() . '/css/main.css', [], wp_get_theme()->get('Version'));
   
-  // Enqueue Adobe Typekit
-  wp_enqueue_style('adobe-typekit', 'https://use.typekit.net/rbe6vlk.css', [], null);
 
   // Deregister default jQuery (optional)
   wp_deregister_script('jquery');
@@ -20,6 +18,13 @@ function theme_enqueue_assets() {
 
   wp_enqueue_script('theme-functions', get_stylesheet_directory_uri() . '/js/functions.js', ['jquery'], wp_get_theme()->get('Version'), true);
 }
+
+add_action('wp_head', function () {
+    ?>
+    <link rel="preload" href="https://use.typekit.net/rbe6vlk.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://use.typekit.net/rbe6vlk.css"></noscript>
+    <?php
+});
 
 // Disable Emoji Loading: Prevents WordPress from including emoji scripts and styles.
 remove_action('wp_head', 'print_emoji_detection_script', 7);

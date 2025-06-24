@@ -90,7 +90,7 @@ get_header(); ?>
       <?php endif; ?>
     </div>
     <div class="focus four columns offset-by-three">
-      <img src="<?php bloginfo('template_directory'); ?>/img/bolt-mobile.png" class="bolt-mobile" />
+      <img src="<?php bloginfo('template_directory'); ?>/img/bolt-mobile.png" class="bolt-mobile" alt="Bolt" />
       <h3>Our Focus</h3>
       <ul>
         <?php
@@ -238,7 +238,7 @@ get_header(); ?>
             $alt_text = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
           }
           ?>
-          <a href="<?php echo get_permalink( $first->ID ); ?>">
+          <a href="<?php echo get_permalink( $first->ID ); ?>" title="<?php echo esc_attr( $alt_text ); ?>">
             <img src="<?php echo esc_url( $display_url ); ?>"
                  alt="<?php echo esc_attr( $alt_text ); ?>"
                  id="displayed-image">

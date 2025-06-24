@@ -1,11 +1,9 @@
 $( document ).ready(function() {
-  // Mobile Menu Toggle
   $(".mobile_menu").click(function() {
     $('nav.mobile').fadeToggle();
     $('header').toggleClass("open");
     $(this).toggleClass("open");
   });
-  
 });
 
 $(".services .slider").slick({
@@ -116,16 +114,13 @@ $(function(){
 // ------------------------------------------------------------
 
 var componentVisible = (function ($) {
-  
   var $components = $('section, footer, header, article, .service');
-
-  var componentsWaypoints = $components.waypoint({
-    handler: function() {
-      $(this.element).addClass("visible");
-    },
-    offset: '90%'
-  });
-
+    var componentsWaypoints = $components.waypoint({
+      handler: function() {
+        $(this.element).addClass("visible");
+      },
+      offset: '90%'
+    });
 })(jQuery);
 
 // Mobile Menu 
@@ -180,7 +175,6 @@ jQuery(document).ready(function($) {
     });
   });
 });
-
 
 document.querySelectorAll('h3.toggle').forEach(function(header) {
   header.addEventListener('click', function() {

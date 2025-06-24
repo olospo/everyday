@@ -15,7 +15,7 @@
     <nav class="menu eight columns">
       <?php wp_nav_menu( array( 'theme_location' => 'main', 'container'=> false, 'menu_class'=> false ) ); ?>
     </nav>
-    <button class="menu-toggle mobile_menu">
+    <button class="menu-toggle mobile_menu" aria-label="Mobile Menu">
       <span></span>
       <span></span>
     </button>
