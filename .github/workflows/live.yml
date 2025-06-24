@@ -14,6 +14,7 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
+          WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }} 
           server: ${{ secrets.WPENGINE_IP }}
           port: 21
           server-dir: wp-content/themes/everyday/
