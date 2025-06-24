@@ -136,45 +136,26 @@ $(".sub-toggle").click(function() {
   $(this).toggleClass("open");
 });
 
-// ------------------------------------------------------------
-// Accordian
-// ------------------------------------------------------------
-
-function accordion_ajax() {
-  var accItem = document.getElementsByClassName('accordionItem');
-  var accHD = document.getElementsByClassName('accordionItemHeading');
-  for (i = 0; i < accHD.length; i++) {
-      accHD[i].addEventListener('click', toggleItem, false);
-  }
-  function toggleItem() {
-      var itemClass = this.parentNode.className;
-      for (i = 0; i < accItem.length; i++) {
-        // accItem[i].className = 'accordionItem close';
-        this.parentNode.className = 'accordionItem close';
-      }
-      if (itemClass == 'accordionItem close') {
-        this.parentNode.className = 'accordionItem open';
-      }
-  }
-}
-accordion_ajax();
-
 document.addEventListener('DOMContentLoaded', function () {
     const workItems = document.querySelectorAll('.work-item');
     const displayedImage = document.getElementById('displayed-image');
 
+    // Preload all images
     workItems.forEach(item => {
-        // Hover functionality to update image and set active class
+        const imageUrl = item.getAttribute('data-image');
+        const img = new Image();
+        img.src = imageUrl;
+    });
+
+    workItems.forEach(item => {
         item.addEventListener('mouseenter', function () {
             const imageUrl = this.getAttribute('data-image');
             displayedImage.src = imageUrl;
 
-            // Update active class
             workItems.forEach(el => el.classList.remove('active'));
             this.classList.add('active');
         });
 
-        // Click functionality to navigate to the link
         item.addEventListener('click', function () {
             const link = this.getAttribute('data-link');
             if (link) {
