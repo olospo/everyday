@@ -1,4 +1,4 @@
-name: Deploying to Live
+name: Deploying to Staging
 
 on:
   push:
