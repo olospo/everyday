@@ -7,17 +7,12 @@ on:
 
 jobs:
   build:
-    name: Deploy Site
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with:
-          WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }} 
-          server: ${{ secrets.WPENGINE_IP }}
-          port: 21
-          server-dir: wp-content/themes/everyday/
-          username: ${{ secrets.WPENGINE_USERNAME }}
-          password: ${{ secrets.WPENGINE_PASSWORD }}
-          # Requires secrets to be added to the repo (Settings > Secrets)
+    - uses: actions/checkout@v4
+    - name: GitHub Action Deploy to WP Engine
+      uses: wpengine/github-action-wpe-site-deploy@v3
+      with:
+        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+        WPE_ENV: PRD_ENV
+        SRC_PATH: "wp-content/themes/everyday/"
