@@ -263,6 +263,9 @@ section.home.work {
         align-items: center; 
         justify-content: center;
       }
+      img {
+        max-height: 900px;
+      }
     }
     article {
       cursor: pointer;
