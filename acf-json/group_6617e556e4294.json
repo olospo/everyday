@@ -3,11 +3,11 @@
     "title": "Site Settings",
     "fields": [
         {
-            "key": "field_6617e557466f1",
-            "label": "Email",
-            "name": "email",
+            "key": "field_685d1835f2808",
+            "label": "Custom Scripts",
+            "name": "custom_scripts",
             "aria-label": "",
-            "type": "email",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,10 +16,13 @@
                 "class": "",
                 "id": ""
             },
+            "relevanssi_exclude": 1,
             "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 8,
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": ""
         },
         {
             "key": "field_67c1befd1e55d",
@@ -121,5 +124,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1740750640
+    "modified": 1750931550
 }

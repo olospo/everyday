@@ -4,6 +4,15 @@
 <head>
 <title><?php wp_title( '|', true, 'left' ); ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimal-ui" />
+<?php
+// Output ACF custom head scripts if available
+if( function_exists('get_field') ) {
+    $custom_scripts = get_field('custom_scripts', 'option');
+    if( $custom_scripts ) {
+        echo "\n<!-- Custom Head Scripts -->\n" . $custom_scripts . "\n<!-- End Custom Head Scripts -->\n";
+    }
+}
+?>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
