@@ -6,6 +6,50 @@ $( document ).ready(function() {
   });
 });
 
+// Logo Carousel
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel      = document.querySelector('.carousel');
+  const track         = carousel.querySelector('.carousel-track');
+  const originalItems = Array.from(track.children);
+
+  // 1) Measure the width of your ORIGINAL set of logos
+  const originalWidth = track.scrollWidth;
+
+  // 2) Clone until track is at least twice viewport-wide
+  const containerWidth = carousel.offsetWidth;
+  let idx = 0;
+  while (track.scrollWidth < containerWidth * 2) {
+    const clone = originalItems[idx % originalItems.length].cloneNode(true);
+    clone.classList.add('is-clone');
+    const img = clone.querySelector('img');
+    if (img) img.style.transitionDelay = '0s';
+    track.appendChild(clone);
+    idx++;
+  }
+
+  // 3) Compute duration so that scrolling `originalWidth` at constant speed
+  const speedPxPerSec = 50;                  // tweak this value!
+  const durationSec   = originalWidth / speedPxPerSec;
+
+  // 4) Inject CSS vars
+  track.style.setProperty('--scroll-width',    `${originalWidth}px`);
+  track.style.setProperty('--scroll-duration', `${durationSec}s`);
+
+  // 5) Stagger only the originals
+  originalItems.forEach((el, i) => {
+    const img = el.querySelector('img');
+    if (img) img.style.transitionDelay = `${i * 0.1}s`;
+  });
+
+  // 6) Force a reflow then add a class to start the animation
+  track.classList.add('is-prepared');
+  // reading offsetHeight forces a layout
+  /* eslint-disable no-unused-expressions */
+  track.offsetHeight;
+  /* eslint-enable no-unused-expressions */
+  track.classList.add('is-animating');
+});
+
 $(".services .slider").slick({
   dots: true,
   arrows: true,

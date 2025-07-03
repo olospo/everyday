@@ -57,14 +57,29 @@ section.home.carousel-container {
     white-space: nowrap;
     .carousel-track {
       display: inline-flex;
-      animation: scroll 40s linear infinite;
+      overflow: visible;
+      will-change: transform;
+      &.is-prepared.is-animating {
+        animation: scroll var(--scroll-duration) linear infinite;
+      }
       &:hover {
         animation-play-state: paused;
+      }
+      @keyframes scroll {
+        from { transform: translate3d(0,0,0); }
+        to   { transform: translate3d(calc(var(--scroll-width) * -1),0,0); }
+      }
+      
+      /* ensure clones never fade in with a delay */
+      .carousel-item.is-clone img {
+        transition-delay: 0s !important;
       }
       .carousel-item {
         display: inline-block;
         margin: 0 2rem;
         img {
+          backface-visibility: hidden;
+          transform: translateZ(0);
           transition: transform 0.3s ease;
           max-width: none;
         }

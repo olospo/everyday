@@ -53,25 +53,28 @@ get_header(); ?>
 <section class="home carousel-container">
   <div class="carousel">
     <div class="carousel-track">
-      <?php if( have_rows('logo_carousel') ): ?>
-        <?php while( have_rows('logo_carousel') ): the_row();
-          $logo_image = get_sub_field('logo_image');
-          $logo_alt = isset($logo_image['alt']) ? $logo_image['alt'] : ''; // Get alt text
-        ?>
-        <div class="carousel-item">
-          <img width="auto" height="auto" src="<?php echo esc_url($logo_image['url']); ?>" alt="<?php echo esc_attr($logo_alt); ?>" />
-        </div>
-        <?php endwhile; ?>
-        <!-- Duplicate the logos to create the loop effect -->
-        <?php while( have_rows('logo_carousel') ): the_row();
-          $logo_image = get_sub_field('logo_image');
-          $logo_alt = isset($logo_image['alt']) ? $logo_image['alt'] : ''; // Get alt text
-        ?>
-        <div class="carousel-item">
-          <img width="auto" height="auto" src="<?php echo esc_url($logo_image['url']); ?>" alt="<?php echo esc_attr($logo_alt); ?>" />
-        </div>
-        <?php endwhile; ?>
-      <?php endif; ?>
+      <?php
+      if ( have_rows('logo_carousel') ):
+        // collect all logos
+        $logos = [];
+        while ( have_rows('logo_carousel') ): the_row();
+          $logos[] = get_sub_field('logo_image');
+        endwhile;
+      
+        // repeat each logo-set 3 times
+        for ( $r = 0; $r < 3; $r++ ):
+          foreach ( $logos as $logo_image ):
+            $alt = !empty($logo_image['alt']) ? $logo_image['alt'] : '';
+            ?>
+            <div class="carousel-item">
+              <img src="<?php echo esc_url($logo_image['url']); ?>"
+                   alt="<?php echo esc_attr($alt); ?>" />
+            </div>
+            <?php
+          endforeach;
+        endfor;
+      endif;
+      ?>
     </div>
   </div>
 </section>
