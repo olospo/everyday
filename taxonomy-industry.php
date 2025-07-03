@@ -46,53 +46,39 @@ get_header(); ?>
 </section>
 <?php endif; ?>
 
-<?php 
-$args = array(
-  'post_type'      => 'testimonial',
-  'posts_per_page' => -1, // Show all testimonials.
-  'meta_query'     => array(
-    array(
-      'key'     => 'linked_industry', 
-      'value'   => '"' . $term->term_id . '"', // Match serialized array values
-      'compare' => 'LIKE'
-    )
-  )
-);
+<?php
+// Get the current Industry term
+$term = get_queried_object();
+if ( ! $term || ! isset( $term->term_id ) ) {
+  return; // bail if we’re not on an industry archive
+}
+$testimonials = get_field( 'testimonials', $term );
 
-$testimonial_query = new WP_Query( $args );
-
-// If no testimonials are found, use 2 random testimonials as a fallback.
-if ( ! $testimonial_query->have_posts() ) {
-  $fallback_args = array(
-    'post_type'      => 'testimonial',
-    'posts_per_page' => 2,
-    'orderby'        => 'rand'
-  );
-  $testimonial_query = new WP_Query( $fallback_args );
+if ( $testimonials && ! is_array( $testimonials ) ) {
+  $testimonials = array( $testimonials );
 }
 
-if ( $testimonial_query->have_posts() ) : ?>
+// Only proceed if there’s at least one selected testimonial
+if ( ! empty( $testimonials ) ) : ?>
   <section class="services reputation">
     <div class="container">
       <h2>Our reputation is driven by results</h2>
       <div class="testimonial twelve columns">
         <div class="slider">
-          <?php while ( $testimonial_query->have_posts() ) : $testimonial_query->the_post(); ?>
-            <div class="slide quote">
-              <blockquote>
-                <p><?php the_content(); ?></p>
-                <cite><?php the_title(); ?></cite><br />
-                <span><?php the_field('author_title'); ?></span>
-              </blockquote>
-            </div>
-          <?php endwhile; ?>
+          <?php foreach ( $testimonials as $post ) { setup_postdata( $post ); ?>
+          <div class="slide quote">
+            <?php get_template_part( 'inc/quote' ); ?>
+          </div>
+          <?php } wp_reset_postdata(); ?>
         </div>
       </div>
     </div>
   </section>
-<?php endif;
-wp_reset_postdata();
-?>
+<?php endif; ?>
+
+<div class="slide quote">
+  <?php get_template_part('inc/quote'); ?>
+</div>
 
 <?php if ($selected_case_studies) : ?>
 <section class="service products">
