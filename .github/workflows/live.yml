@@ -17,3 +17,4 @@ jobs:
         WPE_ENV: everydayind
         SRC_PATH: "./"  # your theme is in root of repo
         REMOTE_PATH: "/wp-content/themes/everyday"
+        CACHE_CLEAR: TRUE
