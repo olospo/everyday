@@ -164,7 +164,6 @@ get_header(); ?>
 </section>
 
 <!-- Work -->
-<!-- Work -->
 <section class="home work">
   <div class="container">
     <h2><?php echo $work_title; ?></h2>
@@ -241,10 +240,8 @@ get_header(); ?>
             $alt_text = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
           }
           ?>
-          <a href="<?php echo get_permalink( $first->ID ); ?>" title="<?php echo esc_attr( $alt_text ); ?>">
-            <img src="<?php echo esc_url( $display_url ); ?>"
-                 alt="<?php echo esc_attr( $alt_text ); ?>"
-                 id="displayed-image">
+          <a href="<?php echo esc_url( get_permalink( $first->ID ) ); ?>" title="<?php echo esc_attr( $alt_text ); ?>" id="displayed-image-link">
+            <img src="<?php echo esc_url( $display_url ); ?>" alt="<?php echo esc_attr( $alt_text ); ?>" id="displayed-image">
           </a>
           <?php wp_reset_postdata(); ?>
         </div>

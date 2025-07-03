@@ -175,9 +175,11 @@ $(".sub-toggle").click(function() {
   $(this).toggleClass("open");
 });
 
+// Home Work Showcase
 document.addEventListener('DOMContentLoaded', function () {
-    const workItems = document.querySelectorAll('.work-item');
+    const workItems      = document.querySelectorAll('.work-item');
     const displayedImage = document.getElementById('displayed-image');
+    const displayedLink  = document.getElementById('displayed-image-link');
 
     // Preload all images
     workItems.forEach(item => {
@@ -189,7 +191,12 @@ document.addEventListener('DOMContentLoaded', function () {
     workItems.forEach(item => {
         item.addEventListener('mouseenter', function () {
             const imageUrl = this.getAttribute('data-image');
-            displayedImage.src = imageUrl;
+            const linkURL  = this.getAttribute('data-link');
+
+            // swap the image
+            if (imageUrl)  displayedImage.src  = imageUrl;
+            // swap the wrapper’s href
+            if (linkURL)   displayedLink.href  = linkURL;
 
             workItems.forEach(el => el.classList.remove('active'));
             this.classList.add('active');
@@ -197,12 +204,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         item.addEventListener('click', function () {
             const link = this.getAttribute('data-link');
-            if (link) {
-                window.location.href = link;
-            }
+            if (link) window.location.href = link;
         });
     });
 });
+
 
 jQuery(document).ready(function($) {
   $('.learn-more').on('click', function() {
