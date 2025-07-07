@@ -156,7 +156,7 @@ get_header(); while ( have_posts() ) : the_post(); ?>
           'taxonomy'   => 'specialty',
           'hide_empty' => true,
           'orderby'    => 'term_id',
-          'order'      => 'DESC'
+          'order'      => 'ASC'
         ) );
         
         if ( ! empty( $specialties ) && ! is_wp_error( $specialties ) ) {
