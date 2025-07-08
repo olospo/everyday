@@ -127,6 +127,12 @@ section.casestudy.old.content {
       }
     }
   }
+  .copy-block +  .image-block {
+    margin-top: 30px;
+    @media (min-width: $breakpoint-tablet) {
+      margin-top: 60px;
+    }
+  }
   .image-quote {
     height: 850px;
     background-position: right -30px top 150px;
