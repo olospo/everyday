@@ -1,7 +1,7 @@
 
 // Old Template CSS
 
-section.casestudy.old.content {
+section.casestudy.content {
   background: $cream;
   .image {
     &.mobile-hide {
@@ -18,8 +18,7 @@ section.casestudy.old.content {
     }
   }
   .web-image-block {
-    padding-right: 0;
-    padding-left: 0;
+    padding: 30px 0;
     margin: 0 auto;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -61,12 +60,20 @@ section.casestudy.old.content {
       font-size: 1.6rem;
       line-height: 2.4rem;
       @media (min-width: $breakpoint-tablet) {
-        margin: 20px auto 0 auto;
+        margin: 20px auto 40px auto;
         font-size: 2.0rem;
         line-height: 2.4rem;
         max-width: 50%;
       }
     }
+    &.text-light {
+      .caption {
+        color: $cream;
+      }
+    }
+  }
+  .web-image-block + .web-image-block {
+    padding: 0 0 30px 0;
   }
   .image-block {
     padding: $padding 0;
@@ -76,7 +83,7 @@ section.casestudy.old.content {
     }
     .caption {
       text-align: center;
-      margin: 20px auto 0px auto;
+      margin: 20px auto 20px auto;
       font-size: 1.6rem;
       line-height: 2.4rem;
       @media (min-width: $breakpoint-tablet) {
@@ -85,9 +92,14 @@ section.casestudy.old.content {
         max-width: 50%;
       }
     }
+    &.text-light {
+      .caption {
+        color: $cream;
+      }
+    }
   }
-  .image-block + .image-block {
-    padding: 0 0 $padding-half 0;
+  .three-images + .web-image-block, .three-images-mobile + .web-image-block {
+    margin-top: -60px;
   }
   .copy-block {
     padding-right: 0;
@@ -175,6 +187,11 @@ section.casestudy.old.content {
             padding: 0 40px 40px 40px;
             color: $black;
           }
+          &.text-light {
+            p, .attribution {
+              color: $cream;
+            }
+          }
         }
       }
     }
@@ -204,9 +221,15 @@ section.casestudy.old.content {
         color: $black;
       }
       .attribution {
-        padding: 0 40px;
+        padding: 0 40px 40px 40px;
         color: $black;
       }
+      &.text-light {
+        p, .attribution {
+          color: $cream;
+        }
+      }
+      
     }
   }
   .three-images {
@@ -269,6 +292,11 @@ section.casestudy.old.content {
         max-width: 50%;
       }
     }
+    &.text-light {
+      .caption {
+        color: $cream;
+      }
+    }
   }
   .three-images-mobile {
     margin-top: 30px;
@@ -278,7 +306,7 @@ section.casestudy.old.content {
     }
     .swiper-wrapper {
       @media (max-width: $breakpoint-tablet) {
-        margin-bottom: 50px;
+        margin-bottom: 60px;
       }
     }
     .slick-dots {
@@ -300,6 +328,18 @@ section.casestudy.old.content {
         &.slick-active {
           background: $bgreen;
         }
+      }
+    }
+    .caption {
+      color: $black;
+      text-align: center;
+      margin: 20px auto;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+    &.text-light {
+      .caption {
+        color: $cream;
       }
     }
   }
