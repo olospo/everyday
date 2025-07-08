@@ -205,7 +205,9 @@ while ( have_posts() ) : the_post(); ?>
                   <div class="quote-container">
                     <div class="quote">
                       <p><?php the_sub_field( 'copy' ); ?></p>
+                      <?php if ( get_sub_field( 'atrribute' ) ) { ?>
                       <div class="attribution"><?php the_sub_field( 'atrribute' ); ?></div>
+                      <?php } ?>
                     </div>
                   </div>
                 <?php endwhile; ?>

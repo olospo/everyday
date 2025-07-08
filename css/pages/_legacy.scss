@@ -39,10 +39,21 @@ section.casestudy.old.content {
       margin-left: .625rem;
       position: relative;
     }
+    .image {
+      display: none;
+      @media (min-width: $breakpoint-tablet) {
+        display: block;
+      }
+    }
     .mobile-image {
-      bottom: -40px;
-      right: -40px;
-      position: absolute;
+      img {
+        margin: 0px auto;
+      }
+      @media (min-width: $breakpoint-tablet) {
+        bottom: -40px;
+        right: -40px;
+        position: absolute;
+      }
     }
     .caption {
       text-align: center;
@@ -149,12 +160,16 @@ section.casestudy.old.content {
         min-height: 250px;
         .quote {
           height: 100%;
-          background-color: $darkblue;
+          background-color: $suntan;
           p {
             font: $bold 3.6rem/4.2rem $heading;
             padding: 40px;
             margin-bottom: 0;
-            color: $cream;
+            color: $black;
+          }
+          .attribution {
+            padding: 0 40px 40px 40px;
+            color: $black;
           }
         }
       }
@@ -177,18 +192,22 @@ section.casestudy.old.content {
     }
     .quote {
       height: 100%;
-      background-color: $darkblue;
+      background-color: $suntan;
       p {
         font: $bold 3.6rem/4.2rem $heading;
         padding: 40px;
         margin-bottom: 0;
-        color: $cream;
+        color: $black;
+      }
+      .attribution {
+        padding: 0 40px;
+        color: $black;
       }
     }
   }
   .three-images {
     padding: $padding 0 $padding 0;
-    background: $blue;
+    background: $suntan;
     margin: $padding auto $padding auto;
     display: -webkit-flex;
     display: -ms-flexbox;
