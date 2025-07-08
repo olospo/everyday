@@ -54,7 +54,7 @@ header {
         }
         
         &.current_page_item a, &.current-menu-item a, &.current-page-ancestor a, &.current-post-ancestor a, &.current-menu-parent a, &.current-category-ancestor a, &.current_page_parent a, &:hover a {
-          color: $bgreen80;
+          color: $cream;
           padding: 8px 9px 20px 9px;
           margin: 20px 5px;
           position: relative;
@@ -117,7 +117,7 @@ header {
                 }
               }
               &:hover a, &.current-menu-item a, &.current_page_item a {
-                color: $bgreen80;
+                color: $cream;
               }
               &:last-child {
                 padding: 15px 0 0 0;
