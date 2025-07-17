@@ -254,7 +254,6 @@ function add_testimonial_columns( $columns ) {
     $new_columns['author_name']   = __( 'Author Name', 'your-textdomain' );
     $new_columns['job_title']     = __( 'Job Title', 'your-textdomain' );
     $new_columns['case_study']    = __( 'Case Study', 'your-textdomain' );
-    $new_columns['display_on_case_studies_page'] = __( 'Displays on Case Studies', 'your-textdomain' );  // Add this line
     $new_columns['date']          = $columns['date'];
     return $new_columns;
 }
