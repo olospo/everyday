@@ -11,6 +11,7 @@ get_header(); ?>
   </div>
 </section>
 
+
 <section class="archive">
   <div class="container">
     <div class="filters twelve columns">
@@ -19,96 +20,104 @@ get_header(); ?>
       </div>
     </div>
   </div>
+
   <div class="container">
     <div class="twelve columns">
       <div class="work-listing">
-        <?php 
-        // Query for Case Studies.
-        $args = array(
-          'post_type'      => 'casestudy',
-          'posts_per_page' => -1,
-          'orderby'        => 'menu_order',
-          'order'          => 'ASC'
-        );
-        // If filtering by specialty taxonomy, add tax_query.
+        <?php
+        // Are we on a specialty archive?
         if ( is_tax('specialty') ) {
-          $current_term = get_queried_object();
-          $args['tax_query'] = array(
-            array(
+          $term_id = get_queried_object_id();
+          // Query only Case Studies in this specialty
+          $case_q = new WP_Query(array(
+            'post_type'      => 'casestudy',
+            'posts_per_page' => -1,
+            'orderby'        => 'menu_order',
+            'order'          => 'ASC',
+            'tax_query'      => array(array(
               'taxonomy' => 'specialty',
               'field'    => 'term_id',
-              'terms'    => $current_term->term_id,
-            ),
-          );
-        }
-        $case_study_query = new WP_Query( $args );
+              'terms'    => $term_id,
+            )),
+          ));
 
-        // Query for Testimonials with display_on_case_studies_page set to true.
-        $testimonial_args = array(
-          'post_type'      => 'testimonial',
-          'posts_per_page' => -1,
-          'orderby'        => 'menu_order',
-          'order'          => 'DESC',
-          'meta_query'     => array(
-            array(
-              'key'     => 'display_on_case_studies_page',
-              'value'   => '1', // '1' for true (ACF True/False field stores '1' for true)
-              'compare' => '=', // Ensure the value matches '1'
-            ),
-          ),
-        );
-        $testimonial_query  = new WP_Query( $testimonial_args );
-        $testimonials       = $testimonial_query->posts;
-        $testimonial_count  = count( $testimonials );
-        $testimonial_index  = 0;
-        $displayed_testimonials = array(); // Track which testimonial indexes have been shown
+          while ( $case_q->have_posts() ) {
+            $case_q->the_post();
+            // 1) Output the Case Study
+            get_template_part('inc/work');
+            // 2) Pull Testimonials for this Case Study
+            $testimonials = get_posts(array(
+              'post_type'      => 'testimonial',
+              'posts_per_page' => -1,
+              'orderby'        => 'menu_order',
+              'order'          => 'DESC',
+              'meta_query'     => array(array(
+                'key'     => 'case_study',           // ACF relationship field
+                'value'   => '"' . get_the_ID() . '"',
+                'compare' => 'LIKE',
+              )),
+            ));
 
-        // Loop through the Case Studies.
-        $counter = 0;
-        if ( $case_study_query->have_posts() ) :
-          while ( $case_study_query->have_posts() ) : $case_study_query->the_post();
-            $counter++;
-            get_template_part('inc/work'); // Output the Case Study template
-
-            // After every 2nd Case Study, output a Testimonial (if available and not already displayed)
-            if ( $counter % 2 == 0 && $testimonial_count > 0 ) {
-              // Find next testimonial that hasn't been displayed yet
-              while ( $testimonial_index < $testimonial_count && in_array( $testimonial_index, $displayed_testimonials ) ) {
-                $testimonial_index++;
-              }
-
-              // If there is still a testimonial available, display it
-              if ( $testimonial_index < $testimonial_count ) {
-                $testimonial_post = $testimonials[ $testimonial_index ];
-                setup_postdata( $testimonial_post );
-
-                // Determine which template to use:
-                // - On the 3rd time we're about to display a testimonial, use 'work_quote_large'
-                // - Otherwise, use the regular 'work_quote'
-                $next_display_count = count( $displayed_testimonials ) + 1;
-                if ( $next_display_count === 3 ) {
-                  get_template_part(
-                    'inc/work_quote_large',
-                    null,
-                    array( 'testimonial' => $testimonial_post )
-                  );
+            // 3) Render each, first inline, rest full-width
+            if ( ! empty( $testimonials ) ) {
+              foreach ( $testimonials as $index => $testi ) {
+                setup_postdata( $testi );
+                if ( $index === 0 ) {
+                  // first testimonial: inline size
+                  get_template_part('inc/work_quote', null, array(
+                    'testimonial' => $testi
+                  ));
                 } else {
-                  get_template_part(
-                    'inc/work_quote',
-                    null,
-                    array( 'testimonial' => $testimonial_post )
-                  );
+                  // subsequent testimonials: full-width
+                  get_template_part('inc/work_quote_large', null, array(
+                    'testimonial' => $testi
+                  ));
                 }
-
                 wp_reset_postdata();
-                // Mark this testimonial index as displayed
-                $displayed_testimonials[] = $testimonial_index;
-                $testimonial_index++;
               }
             }
-          endwhile;
-        endif;
-        wp_reset_postdata();
+          }
+          wp_reset_postdata();
+        } else {
+          // Not filtered → fall back to your Flexible Content loop
+          $rows = get_field('archive_items','option') ?: array();
+          foreach ( $rows as $row ) {
+            // determine layout
+            $layout = isset( $row['acf_fc_layout'] ) ? $row['acf_fc_layout'] : '';
+            // pick the post
+            if ( $layout === 'casestudy' ) {
+              $item = isset( $row['case_study_item'] ) ? $row['case_study_item'] : null;
+            }
+            elseif ( $layout === 'testimonial' ) {
+              $item = isset( $row['testimonial_item'] ) ? $row['testimonial_item'] : null;
+            }
+            else {
+              continue;
+            }
+            if ( ! $item ) {
+              continue;
+            }
+            global $post;
+            $post = $item;
+            setup_postdata( $post );
+            if ( $layout === 'casestudy' ) {
+              get_template_part('inc/work');
+            } else {
+              // testimonial: respect the ACF quote_size
+              $size = isset( $row['quote_size'] ) ? $row['quote_size'] : 'normal';
+              if ( $size === 'large' ) {
+                get_template_part('inc/work_quote_large', null, array(
+                  'testimonial' => $post
+                ));
+              } else {
+                get_template_part('inc/work_quote', null, array(
+                  'testimonial' => $post
+                ));
+              }
+            }
+            wp_reset_postdata();
+          }
+        }
         ?>
       </div>
     </div>
