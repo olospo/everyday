@@ -1,5 +1,11 @@
 header {
   background: $green;
+  @media (min-width: $breakpoint-tablet) {
+    position: sticky;
+    top: 0;               // stick to the very top
+    z-index: 1000;        // sit above other content
+    width: 100%;          // ensure it spans full width
+  }
   .site-title {
     display: inline-block;
     line-height: 0;

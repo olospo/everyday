@@ -336,14 +336,14 @@ section.service.hero {
 }
 
 section.service.intro {
-  h2, p {
+  h2, p, h3, h4, ul, ol {
     @include fade();
   }
   &.visible {
     h2 {
       @include reset();
     }
-    p {
+    p, h3, h4, ul, ol {
       @include reset();
       transition-delay: 0.2s;
     }

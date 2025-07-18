@@ -260,3 +260,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('body header');
+  if (!header) return;
+
+  let isScrolled = false;
+
+  window.addEventListener('scroll', () => {
+    const scrolledNow = window.scrollY > 0;
+    if (scrolledNow !== isScrolled) {
+      isScrolled = scrolledNow;
+      header.classList.toggle('scrolled', isScrolled);
+    }
+  });
+});

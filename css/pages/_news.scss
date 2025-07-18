@@ -7,6 +7,12 @@ body.single-post {
     top: 0;
     width: 100%;
     z-index: 2;
+    transition: background 0.2s ease, color 0.2s ease;
+    &.scrolled {
+      position: fixed;
+      top: 0;
+      background: $green;
+    }
     &.open {
       background: $green;
     }

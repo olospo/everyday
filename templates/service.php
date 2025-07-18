@@ -82,7 +82,7 @@ get_header(); while ( have_posts() ) : the_post(); ?>
 if ($selected_case_studies) : ?>
 <section class="service products">
   <div class="container">
-    <h2>Products we’ve helped launch</h2>
+    <h2><?php echo get_field('case_study_title'); ?></h2>
     <div class="twelve columns">
       <div class="work-listing">
       <?php 
@@ -101,7 +101,7 @@ if ($selected_case_studies) : ?>
 
 <section class="service insights">
   <div class="container">
-    <h2>Dive deeper into our thinking</h2>
+    <h2><?php echo get_field('insight_title'); ?></h2>
     <div class="twelve columns">
       <?php
       $insight_topics = get_field('insight_topic', get_queried_object());

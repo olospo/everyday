@@ -113,11 +113,19 @@ article.work_quote {
 // Single Case Study
 body.single-casestudy {
   header {
-    background: 0 0;
     position: absolute;
     top: 0;
     width: 100%;
     z-index: 2;
+    background: transparent;
+    transition: background 0.2s ease, color 0.2s ease;
+    &.scrolled {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: $green;
+    }
     nav.menu {
       ul {
         li {
@@ -127,6 +135,7 @@ body.single-casestudy {
         }
       }
     }
+    
   }
   section.hero.single {
     background: $darkblue;
