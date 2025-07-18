@@ -134,23 +134,43 @@ get_header(); ?>
       <div class="slide">
         <div class="image one-half column">
           <div class="content">
-          <?php // Get the related Case Study(s) from the testimonial.
-          $related_case_studies = get_field('case_study', $post->ID);
-          $case_study = false;
-          if ( $related_case_studies ) {
-            if ( is_array( $related_case_studies ) ) {
-              $case_study = reset( $related_case_studies );
-            } else {
-              $case_study = $related_case_studies;
+          <?php
+            // Get related Case Study(s)
+            $related_case_studies = get_field( 'case_study', $post->ID );
+            $case_study = false;
+            if ( $related_case_studies ) {
+              if ( is_array( $related_case_studies ) ) {
+                $case_study = reset( $related_case_studies );
+              } else {
+                $case_study = $related_case_studies;
+              }
             }
-          }
-          if ( $case_study ) {
-            // Get the 'logo' image field from the related Case Study.
-            $logo = get_field('logo', $case_study->ID);
-              if ( $logo ) {
-                echo '<a href="' . get_permalink( $case_study->ID ) . '"><img src="' . esc_url( $logo['url'] ) . '" alt="' . esc_attr( $logo['alt'] ) . '" /></a>';
-              } 
-          } ?>
+          
+            if ( $case_study ) {
+              // First look for a 'logo_light' on the Case Study
+              $logo_light = get_field( 'logo_light', $case_study->ID );
+              if ( $logo_light ) {
+                echo '<a href="' . get_permalink( $case_study->ID ) . '">'
+                     . '<img src="' . esc_url( $logo_light['url'] ) . '" alt="' . esc_attr( $logo_light['alt'] ) . '" />'
+                     . '</a>';
+              } else {
+                // Fallback to the regular 'logo'
+                $logo = get_field( 'logo', $case_study->ID );
+                if ( $logo ) {
+                  echo '<a href="' . get_permalink( $case_study->ID ) . '">'
+                       . '<img src="' . esc_url( $logo['url'] ) . '" alt="' . esc_attr( $logo['alt'] ) . '" />'
+                       . '</a>';
+                }
+              }
+            } else {
+              // No case study: show the testimonial’s own company_logo (if set)
+              $company_logo = get_field( 'company_logo', $post->ID );
+              if ( $company_logo ) {
+                echo '<img src="' . esc_url( $company_logo['url'] ) . '" alt="' . esc_attr( $company_logo['alt'] ) . '" />';
+              }
+              // else: nothing to show
+            }
+          ?>
           </div>
         </div>
         <div class="quote one-half column">
