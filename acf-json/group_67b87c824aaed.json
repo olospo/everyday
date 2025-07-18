@@ -29,7 +29,7 @@
             "label": "Intro Content",
             "name": "intro_content",
             "aria-label": "",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -40,11 +40,11 @@
             },
             "relevanssi_exclude": 0,
             "default_value": "",
-            "maxlength": "",
             "allow_in_bindings": 0,
-            "rows": 4,
-            "placeholder": "",
-            "new_lines": "wpautop"
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_67c6f08dcfebc",
@@ -225,5 +225,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741090966
+    "modified": 1752831213
 }

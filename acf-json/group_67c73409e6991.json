@@ -165,7 +165,7 @@
             "label": "Intro Content",
             "name": "intro_content",
             "aria-label": "",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -176,11 +176,11 @@
             },
             "relevanssi_exclude": 0,
             "default_value": "",
-            "maxlength": "",
             "allow_in_bindings": 0,
-            "rows": 4,
-            "placeholder": "",
-            "new_lines": "wpautop"
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_67c734545bda4",
@@ -383,6 +383,28 @@
             "selected": 0
         },
         {
+            "key": "field_687a126648b96",
+            "label": "Case Study Title",
+            "name": "case_study_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_67c73409e840b",
             "label": "Case Studies",
             "name": "case_studies",
@@ -432,6 +454,28 @@
             "selected": 0
         },
         {
+            "key": "field_687a127148b97",
+            "label": "Insight Title",
+            "name": "insight_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_67c73409e8406",
             "label": "Insight Topic",
             "name": "insight_topic",
@@ -479,5 +523,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1750172525
+    "modified": 1752830661
 }
