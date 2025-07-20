@@ -133,7 +133,8 @@ if ($selected_case_studies) : ?>
           $thumb = get_the_post_thumbnail_url(get_the_ID(), 'featured-img');
       ?>
       <article class="insight large twelve columns">
-        <div class="six columns">
+        <a class="fulllink" href="<?php the_permalink(); ?>" aria‑label="<?php the_title(); ?>"></a>
+        <div class="background six columns">
           <a href="<?php the_permalink(); ?>">
             <div class="zoom">
               <div class="image" style="background: url('<?php echo esc_url($thumb); ?>') center center no-repeat; background-size: cover;"></div>

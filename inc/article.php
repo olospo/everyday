@@ -1,4 +1,6 @@
 <article class="insight small six columns">
+  <a class="fulllink" href="<?php the_permalink(); ?>" aria‑label="<?php the_title(); ?>"></a>
+  
   <a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>">
     <div class="zoom">
       <div class="image" style="background: url('<?php the_post_thumbnail_url( 'featured-img' ); ?>') center center no-repeat; background-size: cover;"></div>
@@ -13,7 +15,7 @@
       }
     }
     ?>
-    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+    <h3><a href="<?php the_permalink(); ?>" aria‑label="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
     <?php // the_excerpt(); ?>
     <span class="author"><?php echo get_field('authors'); ?></span> &#x25AA; <span class="date"><?php the_time("F j, Y"); ?></span>
   </div>

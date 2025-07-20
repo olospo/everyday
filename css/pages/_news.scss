@@ -93,7 +93,7 @@ body.single-post {
     aside.ux-insights {
       position: -webkit-sticky; /* for older Safari support */
       position: sticky;
-      top: 40px; /* Adjust this value as needed for your layout */
+      top: 160px; /* Take into account sticky header */
       background: $blue url('../img/ux-insights-bg.png') bottom center no-repeat;
       background-size: 100% 180px;
       padding: 20px 20px 200px 20px;
@@ -210,12 +210,38 @@ article.insight {
   border: 1px solid #D6D6D6;
   background: $suntan;
   margin-bottom: 24px;
+  position: relative;
   @media (min-width: $breakpoint-laptop) {
     margin-bottom: 4%;
+  }
+  &:hover {
+    border: 1px solid $bgreen70;
+    .image {
+      transform: scale(1.1); 
+    }
+    .content {
+      h3 {
+        a {
+          color: $bgreen;
+        }
+      }
+    }
+  }
+  a.fulllink {
+    position: absolute;
+    top: 0;  left: 0;
+    width: 100%;  height: 100%;
+    z-index: 1;
+    text-indent: -9999px;
+    overflow: hidden;
+    white-space: nowrap;
   }
   &.large {
     display: flex;
     flex-wrap: wrap;
+    .background {
+      margin-left: 0;
+    }
     .zoom {
       height: 100%;
     }
@@ -275,6 +301,11 @@ article.insight {
         }
       }
     }
+    a {
+      position: relative;
+      z-index: 2;
+    }
+   
     span.author {
       color: #6C6A59;
       font: $normal 1.8rem/1.8rem $regular;

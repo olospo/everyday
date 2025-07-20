@@ -1,10 +1,10 @@
 <article class="insight large featured twelve columns">
-  <div class="six columns">
-    <a href="<?php the_permalink(); ?>">
-      <div class="zoom">
-        <div class="image" style="background: url('<?php the_post_thumbnail_url( 'featured-img' ); ?>') center center no-repeat; background-size: cover;"></div>
-      </div>
-    </a>
+  <a class="fulllink" href="<?php the_permalink(); ?>" aria‑label="<?php the_title(); ?>"></a>
+  
+  <div class="background six columns">
+    <div class="zoom">
+      <div class="image" style="background: url('<?php the_post_thumbnail_url( 'featured-img' ); ?>') center center no-repeat; background-size: cover;"></div>
+    </div>
   </div>
   <div class="content six columns">
     <div class="align">

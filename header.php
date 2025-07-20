@@ -16,11 +16,9 @@ if( function_exists('get_field') ) {
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<?php
-// header.php (or wherever you output <header class="main">)
-$header_style = '';
+<?php $header_style = ''; // Header style for case studies
 if ( is_singular('casestudy') && $color = get_field('header_color') ) {
-    $header_style = ' style="background:' . esc_attr($color) . ';"';
+  $header_style = ' style="background:' . esc_attr($color) . ';"';
 }
 ?>
 <header class="main"<?php echo $header_style; ?>>

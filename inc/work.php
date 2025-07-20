@@ -1,10 +1,9 @@
 <article class="work six columns">
-  <a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>">
-    <div class="zoom">
+  <a class="fulllink" href="<?php the_permalink(); ?>" aria‑label="<?php the_title(); ?>"></a>
+  <div class="zoom">
     <div class="image" style="background: url('<?php the_post_thumbnail_url( 'featured-img' ); ?>') center center no-repeat; background-size: cover;"></div>
     </div>
-  </a>
-  <div class="content six columns">
+  <div class="content">
     <?php
     $industries = get_the_terms(get_the_ID(), 'industry');
     if ($industries && !is_wp_error($industries)) {

@@ -290,7 +290,8 @@ get_header(); ?>
     ); query_posts($args); ?>
       <?php if ( have_posts() ) : while (have_posts()) : the_post(); ?>
       <article class="insight large twelve columns">
-        <div class="six columns">
+        <a class="fulllink" href="<?php the_permalink(); ?>" aria‑label="<?php the_title(); ?>"></a>
+        <div class="background six columns">
           <a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>">
             <div class="zoom">
               <div class="image" style="background: url('<?php the_post_thumbnail_url( 'featured-img' ); ?>') center center no-repeat; background-size: cover;"></div>
