@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<title><?php wp_title( '|', true, 'left' ); ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimal-ui" />
 <?php
 // Output ACF custom head scripts if available
