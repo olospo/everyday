@@ -212,7 +212,7 @@ nav.mobile {
         margin: 0px 0px;
         padding: 20px 0;
         display: inline-block;
-        background-image: url('../img/nav-hover.svg');
+        // background-image: url('../img/nav-hover.svg');
         background-position: left bottom;
         background-repeat: no-repeat;
       }
@@ -235,18 +235,18 @@ nav.mobile {
         .sub-toggle {
           cursor: pointer;
           position: absolute;
-          right: 5px;
-          top: 20px;
+          right: 25px;
+          top: 25px;
           margin: auto;
           padding: 10px;
-          background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
+          background: url('../img/mobile_arrow.svg') center center no-repeat;
           -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
           &.open {
-            background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
+            background: url('../img/mobile_arrow.svg') center center no-repeat;
             transform-origin: center center;
-            -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
           }
         }
         li {
@@ -257,29 +257,29 @@ nav.mobile {
       }
       &.current_page_parent.menu-item-has-children {
         .sub-toggle {
-          background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
+          background: url('../img/mobile_arrow.svg') center center no-repeat;
           transform-origin: center center;
-          -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+          -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
           &.open {
-            background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
+            background: url('../img/mobile_arrow.svg') center center no-repeat;
             transform-origin: center center;
             -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
           }
         }
         ul.sub-menu {
-          // display: block;
+          display: block;
         }
       }
       ul.sub-menu {
         display: none;
         margin: 0 0px 0 0px;
-        padding: 0;
+        padding: 0px 20px;
+        background: #2B3D38;
         li {
           padding-left: 0px;
           a {
-            background: $cream;
             padding-right: 20px;
           }
         }
