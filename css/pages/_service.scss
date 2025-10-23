@@ -209,7 +209,7 @@ section.service.client-logos {
   .logos {
     display: flex;
     flex-wrap: wrap;          // normal wrap on desktop/tablet
-    gap: 40px;
+    gap: 20px;
     align-items: center;
     justify-content: center;
     .logo {
@@ -218,13 +218,13 @@ section.service.client-logos {
       align-items: center;
       
       img {
-        max-width: 120px;
         height: auto;
         display: block;
       }
     }
     // MOBILE
     @media (max-width: $breakpoint-laptop) {
+      gap: 5px;
       flex-wrap: nowrap;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
