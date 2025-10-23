@@ -142,29 +142,21 @@ article.work_quote {
 // Single Case Study
 body.single-casestudy {
   header {
+    background: transparent;
     position: absolute;
     top: 0;
     width: 100%;
     z-index: 2;
-    background: transparent;
     transition: background 0.2s ease, color 0.2s ease;
     &.scrolled {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
       background: $green;
     }
-    nav.menu {
-      ul {
-        li {
-          a {
-            color: $white;
-          }
-        }
-      }
+    &.open {
+      background: $green !important;
     }
-    
   }
   section.hero.single {
     background: $darkblue;
@@ -173,6 +165,18 @@ body.single-casestudy {
       padding-top: 155px;
     }
     
+  }
+  nav.mobile {
+    top: 74px;
+  }
+  nav.menu {
+    ul {
+      li {
+        a {
+          color: $white;
+        }
+      }
+    }
   }
   &.admin-bar {
     header {
@@ -195,7 +199,10 @@ section.casestudy.intro {
     }
   }
   p {
-    font: $normal 2.4rem/3.4rem $regular;
+    font: $normal 1.6rem/2.6rem $regular;
+    @media (min-width: $breakpoint-laptop) {
+      font: $normal 2.4rem/3.6rem $regular;
+    }
   }
   aside {
     background: $suntan;

@@ -135,7 +135,10 @@ section.casestudy.content {
         }
       }
       p {
-        font: $normal 2.4rem/3.4rem $regular;
+        font: $normal 1.6rem/2.6rem $regular;
+        @media (min-width: $breakpoint-laptop) {
+          font: $normal 2.4rem/3.6rem $regular;
+        }
       }
     }
   }
