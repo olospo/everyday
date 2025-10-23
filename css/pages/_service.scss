@@ -234,6 +234,11 @@ section.service.client-logos {
       position: relative;
       .logo {
         flex: 0 0 auto;
+        img {
+          max-width: 180px;
+          height: auto;
+          display: block;
+        }
       }
       &::before,
       &::after {
