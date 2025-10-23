@@ -216,23 +216,25 @@ section.service.client-logos {
       display: flex;
       justify-content: center;
       align-items: center;
-      @media (max-width: $breakpoint-laptop) {
-        flex: 0 0 auto;       // scrollable on mobile
-      }
+      
       img {
         max-width: 120px;
         height: auto;
         display: block;
       }
     }
-    // MOBILE ONLY: horizontal scroll + gradients
+    // MOBILE
     @media (max-width: $breakpoint-laptop) {
-      flex-wrap: nowrap;       // prevent wrapping
+      flex-wrap: nowrap;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scroll-snap-type: x mandatory;
+      justify-content: flex-start;
       padding-bottom: 10px;
       position: relative;
+      .logo {
+        flex: 0 0 auto;
+      }
       &::before,
       &::after {
         content: '';
