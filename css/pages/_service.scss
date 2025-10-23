@@ -208,21 +208,53 @@ section.service.client-logos {
   }
   .logos {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;          // normal wrap on desktop/tablet
     gap: 40px;
-    align-items: center; 
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
     .logo {
       display: flex;
       justify-content: center;
       align-items: center;
       @media (max-width: $breakpoint-laptop) {
-        flex: 0 0 calc(50% - 20px); 
+        flex: 0 0 auto;       // scrollable on mobile
+      }
+      img {
+        max-width: 120px;
+        height: auto;
+        display: block;
+      }
+    }
+    // MOBILE ONLY: horizontal scroll + gradients
+    @media (max-width: $breakpoint-laptop) {
+      flex-wrap: nowrap;       // prevent wrapping
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+      position: relative;
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 40px;
+        height: 100%;
+        pointer-events: none;
+        z-index: 2;
+      }
+      &::before {
+        left: 0;
+        background: linear-gradient(to right, $suntan 0%, transparent 100%);
+      }
+      &::after {
+        right: 0;
+        background: linear-gradient(to left, $suntan 0%, transparent 100%);
       }
     }
   }
 }
+
 
 section.service.offering {
   background: $green;

@@ -31,6 +31,7 @@ get_header(); ?>
 <section class="service client-logos">
   <div class="container">
     <h2><?php echo get_field('client_title', 'term_' . $term->term_id); ?></h2>
+    <div class="logos-wrapper">
     <div class="logos">
     <?php while( have_rows('client_logos', 'term_' . $term->term_id) ): the_row();
       $logo_image = get_sub_field('logo'); // Now an array with keys like 'url' and 'alt'
@@ -41,6 +42,7 @@ get_header(); ?>
     </div>
     
     <?php endwhile; ?>
+    </div>
     </div>
   </div>
 </section>
